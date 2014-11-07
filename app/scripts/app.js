@@ -1,10 +1,9 @@
 ﻿(function (angular, $) {
     'use strict';
 
-    angular.module('hang-out-app', ['ngRoute', 'hang-out', 'hang-out-auth'])
+    angular.module('hang-out-app', ['ngRoute', 'hang-out-auth', 'hang-out-browse'])
     .config(['$routeProvider', function ($route) {
-        $route
-            .when('/', { templateUrl: 'scripts/use-cases.tmpl.html', controller: 'use-cases' });
+        $route.otherwise({ redirectTo: '/browse' });
     }]);
 
     //HOLO Skin wire up

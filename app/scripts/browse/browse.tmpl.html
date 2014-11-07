@@ -1,0 +1,16 @@
+﻿<div class="row">
+
+    <div class="col-sm-6" ng-repeat="entry in activities | orderBy:'startsOn'">
+
+        <div class="panel panel-default">
+            <div class="panel-heading"><h4>{{entry.activity.title}}</h4></div>
+            <div class="panel-body">
+                <p class="text-right">by <strong>{{entry.activity.initiator.name || entry.activity.initiator.email}}</strong> on <strong>{{entry.activity.startsOnFormatted()}}</strong></p>
+                <div class="clearfix"></div>
+                <hr>
+            </div>
+        </div>
+
+    </div>
+
+</div>
