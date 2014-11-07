@@ -1,0 +1,7 @@
+﻿.clickable {
+    cursor: pointer;
+}
+
+.vertical-resize {
+    resize: vertical;
+}
