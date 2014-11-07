@@ -1,5 +1,20 @@
 ﻿<div>
     <form role="form" ng-submit="login()">
-
+        <fieldset>
+            <legend>
+                <h1>About yourself</h1>
+            </legend>
+        </fieldset>
+        <div class="form-group">
+            <input type="email" class="form-control" ng-model="me.email" placeholder="Email address" />
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" ng-model="me.name" placeholder="Full name" />
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-lg btn-primary btn-block" ng-disabled="!me.email || !me.name">
+                Yup, that's me
+            </button>
+        </div>
     </form>
 </div>

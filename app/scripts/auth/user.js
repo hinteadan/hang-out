@@ -9,10 +9,7 @@
         this.name = name;
     }
     User.fromDto = function (dto) {
-        var user = new User();
-        user.email = dto.email;
-        user.name = dto.name;
-        return user;
+        return new User(dto.email, dto.name);
     };
 
     angular.module('hang-out-auth')

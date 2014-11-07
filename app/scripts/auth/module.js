@@ -4,7 +4,7 @@
     angular.module('hang-out-auth', [])
     .config(['$routeProvider', function ($route) {
         $route
-            .when('/login', { templateUrl: 'scripts/auth/login.tmpl.html', controller: 'hangOutLogin', isPublic: true });
+            .when('/you', { templateUrl: 'scripts/auth/login.tmpl.html', controller: 'hangOutLogin', isPublic: true });
     }])
     .run(['$rootScope', '$location', 'hangOutAuth', function ($root, $l, auth) {
         $root.$on('$routeChangeStart', function (event, route) {
@@ -17,7 +17,7 @@
                 return;
             }
 
-            $l.path('/login');
+            $l.path('/you');
 
         });
     }]);
