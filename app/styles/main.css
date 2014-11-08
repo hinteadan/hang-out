@@ -5,3 +5,8 @@
 .vertical-resize {
     resize: vertical;
 }
+
+blockquote.condensed {
+    margin-bottom: 0;
+    padding: 0 15px 0 0;
+}

@@ -1,10 +1,10 @@
 ﻿(function (angular) {
     'use strict';
 
-    angular.module('hang-out-browse').controller('hangOutBrowseCtrl', ['$scope', 'dataStore', function ($s, store) {
+    angular.module('hang-out-browse').controller('hangOutBrowseCtrl', ['$scope', 'hangOutAuth', 'dataStore', function ($s, auth, store) {
 
         function refresh() {
-            store.activitiesToJoin().then(function (activities) {
+            store.activitiesToJoin(auth.currentUser.email).then(function (activities) {
                 $s.flag.isLoadingActivities = false;
                 $s.activities = activities;
             });
