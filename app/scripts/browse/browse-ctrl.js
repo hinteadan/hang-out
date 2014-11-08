@@ -4,6 +4,10 @@
     angular.module('hang-out-browse')
     .controller('hangOutBrowseCtrl', ['$scope', '$timeout', 'hangOutAuth', 'dataStore', 'model', function ($s, $t, auth, store, m) {
 
+        if (!auth.isAuthenticated) {
+            return;
+        }
+
         var me = new m.Individual(auth.currentUser.name, auth.currentUser.email);
 
         function refresh() {
