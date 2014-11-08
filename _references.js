@@ -13,3 +13,7 @@
 /// <reference path="app/scripts/auth/module.js" />
 /// <reference path="app/scripts/auth/user.js" />
 /// <reference path="app/scripts/auth/auth-svc.js" />
+/// <reference path="app/scripts/hang-out-core/model.js" />
+/// <reference path="app/scripts/hang-out-core/module.js" />
+/// <reference path="app/scripts/hang-out-core/model-mapper.js" />
+/// <reference path="app/scripts/hang-out-core/data-service.js" />

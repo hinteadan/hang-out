@@ -5,7 +5,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <div class="pull-right">
-                    <span class="label label-default" title="Nobody joines so far, there's just the initiator" ng-hide="entry.activity.pendingMembers.length">1</span>
+                    <span class="label label-default" title="Nobody joined so far, there's just the initiator" ng-hide="entry.activity.pendingMembers.length">1</span>
                     <span class="label label-info" ng-show="entry.activity.pendingMembers.length">
                         {{entry.activity.allParticipants().length}}
                     </span>
@@ -19,7 +19,12 @@
                 <p class="text-right">happening on <strong>{{entry.activity.startsOnFormatted()}}</strong></p>
                 <p ng-show="entry.activity.description">{{entry.activity.description}}</p>
                 <a class="clickable">more about this...</a>
-                <button class="btn btn-lg btn-default btn-block">I want to join this!</button>
+
+                <button class="btn btn-lg btn-default btn-block" ng-click="join(entry)" ng-disabled="entry.joined">
+                    <span ng-hide="entry.joining || entry.joined">I want to join this!</span>
+                    <span ng-show="entry.joining &&  !entry.joined">Yup, I'm sure!</span>
+                    <span ng-show="joined">Joined!</span>
+                </button>
             </div>
         </div>
 
