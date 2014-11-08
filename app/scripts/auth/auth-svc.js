@@ -20,6 +20,14 @@
             deff.resolve(true);
             return deff.promise;
         };
+        this.signOut = function () {
+            var deff = $q.defer();
+            delete store[storeKey];
+            this.currentUser = authenticatedUser = null;
+            this.isAuthenticated = isAuthenticated = false;
+            deff.resolve(true);
+            return deff.promise;
+        };
     }]);
 
 }).call(this, this.angular, this.localStorage, this.JSON, this.H.Check);
