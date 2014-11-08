@@ -17,3 +17,5 @@
 /// <reference path="app/scripts/hang-out-core/module.js" />
 /// <reference path="app/scripts/hang-out-core/model-mapper.js" />
 /// <reference path="app/scripts/hang-out-core/data-service.js" />
+/// <reference path="app/scripts/create/new-activity-ctrl.js" />
+/// <reference path="app/scripts/create/module.js" />
