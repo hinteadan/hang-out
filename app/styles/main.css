@@ -3,6 +3,7 @@
 }
 
 .vertical-resize {
+    min-height: 40px;
     resize: vertical;
 }
 
