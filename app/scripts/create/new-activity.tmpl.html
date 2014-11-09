@@ -45,18 +45,18 @@
             </div>
         </fieldset>
 
-        <fieldset ng-hide="isSimpleView">
+        <fieldset>
             <legend>Place</legend>
             <div class="form-group">
                 <input type="text" class="form-control" ng-model="activity.place.name" placeholder="Name" />
             </div>
-            <div class="form-group">
+            <div class="form-group" ng-hide="isSimpleView">
                 <textarea class="form-control vertical-resize" ng-model="activity.place.address" placeholder="Address"></textarea>
             </div>
-            <div class="form-group">
+            <div class="form-group" ng-hide="isSimpleView">
                 <textarea class="form-control vertical-resize" ng-model="activity.place.details" placeholder="Some additional details"></textarea>
             </div>
-            <div class="form-group">
+            <div class="form-group" ng-hide="isSimpleView">
                 <input type="text" class="form-control" ng-model="activity.place.websiteUrl" placeholder="Website URL (Facebook, Google+)" />
             </div>
         </fieldset>

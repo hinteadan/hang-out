@@ -17,7 +17,7 @@
 
         $s.activity = activity;
         $s.isValid = function () {
-            return activity.title && activity.startsOn;
+            return activity.title && activity.startsOn && activity.place.name;
         };
         $s.activityDate = {
             from: null,
