@@ -46,9 +46,18 @@
         </fieldset>
 
         <fieldset>
-            <legend>Place</legend>
+            <legend>Where?</legend>
             <div class="form-group">
                 <input type="text" class="form-control" ng-model="activity.place.name" placeholder="Name" />
+
+                <input type="text" class="form-control"
+                       typeahead-template-url="scripts/create/place-list-item.tmpl.html"
+                       typeahead="place as place.name for place in existingPlaces | filter:{name:$viewValue}"
+                       placeholder="Name"
+                       ng-model="activity.place"
+                       aria-autocomplete="list"
+                       aria-expanded="false">
+
             </div>
             <div class="form-group" ng-hide="isSimpleView">
                 <textarea class="form-control vertical-resize" ng-model="activity.place.address" placeholder="Address"></textarea>

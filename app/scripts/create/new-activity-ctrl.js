@@ -15,6 +15,12 @@
         var me = new m.Individual(auth.currentUser.name, auth.currentUser.email),
             activity = new m.Activity(me);
 
+        $s.existingPlaces = [
+            new m.Place('Winners', 'some address', 'Cool club'),
+            new m.Place('Enjoy'),
+            new m.Place('Euphoria')
+        ];
+
         $s.activity = activity;
         $s.isValid = function () {
             return activity.title && activity.startsOn && activity.place.name;
