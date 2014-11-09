@@ -48,13 +48,14 @@
         <fieldset>
             <legend>Where?</legend>
             <div class="form-group">
-                <input type="text" class="form-control" ng-model="activity.place.name" placeholder="Name" />
-
                 <input type="text" class="form-control"
                        typeahead-template-url="scripts/create/place-list-item.tmpl.html"
                        typeahead="place as place.name for place in existingPlaces | filter:{name:$viewValue}"
+                       typeahead-on-select="onPlaceSelection($item, $model, $label)"
+                       typeahead-min-length="2"
                        placeholder="Name"
-                       ng-model="activity.place"
+                       ng-model="place"
+                       ng-change="activity.place.name = place"
                        aria-autocomplete="list"
                        aria-expanded="false">
 

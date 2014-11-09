@@ -22,6 +22,10 @@
         ];
 
         $s.activity = activity;
+        $s.place = null;
+        $s.onPlaceSelection = function ($item, $model, $label) {
+            activity.place = $model;
+        };
         $s.isValid = function () {
             return activity.title && activity.startsOn && activity.place.name;
         };
@@ -55,6 +59,7 @@
             delete $s.publish.ing;
 
             $s.publish.onWire = true;
+
             store.publishNewActivity(activity).then(function () {
                 $s.publish.ed = true;
                 $l.path('/');
