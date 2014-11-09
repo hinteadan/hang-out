@@ -24,6 +24,7 @@
         $s.activity = activity;
         $s.place = null;
         $s.onPlaceSelection = function ($item, $model, $label) {
+            /*jshint unused:false*/
             activity.place = map.place($model);
         };
         $s.isValid = function () {
