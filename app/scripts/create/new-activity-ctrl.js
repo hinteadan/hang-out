@@ -19,7 +19,20 @@
         $s.isValid = function () {
             return activity.title && activity.startsOn;
         };
-
+        $s.activityDate = {
+            from: null,
+            setFrom: function () {
+                $t(function () {
+                    activity.startsOn = $s.activityDate.from ? stampTime($s.activityDate.from) : null;
+                });
+            },
+            to: null,
+            setTo: function () {
+                $t(function () {
+                    activity.endsOn = $s.activityDate.to ? stampTime($s.activityDate.to) : null;
+                });
+            }
+        };
         $s.publish = function () {
 
             var p = null;
@@ -35,13 +48,14 @@
             $t.cancel(p);
             delete $s.publish.ing;
 
-            activity.startsOn = activity.startsOn ? stampTime($s.activity.startsOn) : null;
-            activity.endsOn = activity.endsOn ? stampTime($s.activity.endsOn) : null;
+            $s.publish.onWire = true;
             store.publishNewActivity(activity).then(function () {
                 $s.publish.ed = true;
                 $l.path('/');
             }, function (reason) {
                 notify('Cannot join this activity because: ' + reason);
+            }).finally(function () {
+                delete $s.publish.onWire;
             });
         };
 
