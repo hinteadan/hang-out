@@ -1,0 +1,42 @@
+﻿.red-theme .navbar,
+.red-theme .btn-primary {
+    background-color: #ff1425;
+}
+
+.red-theme .btn-primary {
+    background-image: radial-gradient(circle, #ff5f6b 80%, #ff1425 81%);
+}
+
+.red-theme .btn-primary:hover{
+    border-color: #cb000f;
+}
+
+.red-theme a {
+    color: #ff1425;
+}
+
+.red-theme select:focus, .red-theme select.form-control:focus {
+    box-shadow: 0 -2px 0 #ff5f6b inset;
+}
+
+.red-theme textarea:focus,
+.red-theme textarea.form-control:focus, 
+.red-theme input.form-control:focus, 
+.red-theme input[type="text"]:focus, input[type="password"]:focus, 
+.red-theme input[type="email"]:focus, 
+.red-theme input[type="number"]:focus, 
+.red-theme .form-control[type="text"]:focus, 
+.red-theme .form-control[type="password"]:focus, 
+.red-theme .form-control[type="email"]:focus, 
+.red-theme .form-control[type="tel"]:focus {
+    box-shadow: 0 -2px 0 #ff5f6b inset;
+}
+
+.red-theme .form-control:focus{
+    border-color: #ff5f6b;
+}
+
+.red-theme .navbar-inverse .navbar-nav > li > a,
+.red-theme .navbar-inverse .navbar-brand {
+    color: #ffeeef;
+}
