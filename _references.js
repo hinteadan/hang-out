@@ -21,3 +21,4 @@
 /// <reference path="app/scripts/create/module.js" />
 /// <reference path="app/scripts/data/module.js" />
 /// <reference path="app/scripts/data/places.js" />
+/// <reference path="app/scripts/data/activities.js" />
