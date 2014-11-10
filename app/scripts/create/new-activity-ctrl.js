@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('hang-out-create')
-    .controller('hangOutNewActivityCtrl', ['$scope', '$location', '$timeout', 'hangOutAuth', 'dataStore', 'model', 'model-mapper', 'hangOutPlaces', function ($s, $l, $t, auth, store, m, map, places) {
+    .controller('hangOutNewActivityCtrl', ['$scope', '$location', '$timeout', 'hangOutAuth', 'dataStore', 'model', 'model-mapper', 'hangOutPlaces', 'hangOutActivities', function ($s, $l, $t, auth, store, m, map, places, activities) {
 
         if (!auth.isAuthenticated) {
             return;
@@ -16,12 +16,20 @@
             activity = new m.Activity(me);
 
         $s.existingPlaces = _.map(places, map.place);
+        $s.existingActivities = activities;
 
         $s.activity = activity;
+
         $s.place = null;
         $s.onPlaceSelection = function ($item, $model, $label) {
             /*jshint unused:false*/
             activity.place = map.place($model);
+        };
+
+        $s.suggestedActivity = null;
+        $s.onActivitySelection = function ($item, $model, $label) {
+            /*jshint unused:false*/
+            activity.title = $model.title;
         };
         $s.isValid = function () {
             return activity.title && activity.startsOn && activity.place.name;

@@ -12,7 +12,16 @@
             </legend>
 
             <div class="form-group">
-                <input type="text" class="form-control" ng-model="activity.title" placeholder="Title" />
+                <input type="text" class="form-control"
+                       typeahead-template-url="scripts/create/activity-list-item.tmpl.html"
+                       typeahead="a as a.title for a in existingActivities | filter:{title:$viewValue}"
+                       typeahead-on-select="onActivitySelection($item, $model, $label)"
+                       typeahead-min-length="2"
+                       placeholder="Title"
+                       ng-model="suggestedActivity"
+                       ng-change="activity.title = suggestedActivity"
+                       aria-autocomplete="list"
+                       aria-expanded="false">
             </div>
             <div class="form-group" ng-hide="isSimpleView">
                 <textarea type="text" class="form-control vertical-resize" ng-model="activity.description" placeholder="Description"></textarea>
@@ -58,7 +67,6 @@
                        ng-change="activity.place.name = place"
                        aria-autocomplete="list"
                        aria-expanded="false">
-
             </div>
             <div class="form-group" ng-hide="isSimpleView">
                 <textarea class="form-control vertical-resize" ng-model="activity.place.address" placeholder="Address"></textarea>
