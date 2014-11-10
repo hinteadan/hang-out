@@ -19,3 +19,5 @@
 /// <reference path="app/scripts/auth/auth-svc.js" />
 /// <reference path="app/scripts/create/new-activity-ctrl.js" />
 /// <reference path="app/scripts/create/module.js" />
+/// <reference path="app/scripts/data/module.js" />
+/// <reference path="app/scripts/data/places.js" />

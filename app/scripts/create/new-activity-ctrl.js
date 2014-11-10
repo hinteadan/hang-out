@@ -1,8 +1,8 @@
-﻿(function (angular, notify) {
+﻿(function (angular, notify, _) {
     'use strict';
 
     angular.module('hang-out-create')
-    .controller('hangOutNewActivityCtrl', ['$scope', '$location', '$timeout', 'hangOutAuth', 'dataStore', 'model', 'model-mapper', function ($s, $l, $t, auth, store, m, map) {
+    .controller('hangOutNewActivityCtrl', ['$scope', '$location', '$timeout', 'hangOutAuth', 'dataStore', 'model', 'model-mapper', 'hangOutPlaces', function ($s, $l, $t, auth, store, m, map, places) {
 
         if (!auth.isAuthenticated) {
             return;
@@ -15,11 +15,7 @@
         var me = new m.Individual(auth.currentUser.name, auth.currentUser.email),
             activity = new m.Activity(me);
 
-        $s.existingPlaces = [
-            new m.Place('Winners', 'some address', 'Cool club'),
-            new m.Place('Enjoy'),
-            new m.Place('Euphoria')
-        ];
+        $s.existingPlaces = _.map(places, map.place);
 
         $s.activity = activity;
         $s.place = null;
@@ -73,4 +69,4 @@
 
     }]);
 
-}).call(this, this.angular, this.alert);
+}).call(this, this.angular, this.alert, this._);
