@@ -18,7 +18,7 @@
             <div class="panel-body">
                 <p class="text-right">happening on <strong>{{entry.activity.startsOnFormatted()}}</strong></p>
                 <p ng-show="entry.activity.description">{{entry.activity.description}}</p>
-                <a class="clickable">more about this...</a>
+                <a href="#/activity/{{entry.id}}">more about this...</a>
 
                 <button class="btn btn-lg btn-default btn-block" ng-click="join(entry)" ng-disabled="entry.joined">
                     <span ng-hide="entry.joining || entry.joined">I want to join this!</span>
