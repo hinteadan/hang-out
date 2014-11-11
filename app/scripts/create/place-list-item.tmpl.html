@@ -1,12 +1,9 @@
-﻿<div>
-    <ul class="list-unstyled">
-        <li>
-            <strong>{{match.model.name}}</strong>
-        </li>
-        <li>
-            <address>
-                {{match.model.address}}
-            </address>
-        </li>
-    </ul>
+﻿<div class="suggestion-item clickable">
+    <h5>
+        <span class="suggestion-item-thumb valign-middle" ng-show="match.model.logoUrl" ng-style="{ 'background-image': 'url(' + match.model.logoUrl + ')' }"></span>
+        <strong>{{match.model.name}}</strong>
+    </h5>
+    <address>
+        {{match.model.address}}
+    </address>
 </div>
