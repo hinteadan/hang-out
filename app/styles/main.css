@@ -41,7 +41,8 @@ blockquote.condensed {
     padding: 3px 15px;
 }
 
-    .suggestion-item:hover {
+    .suggestion-item:hover,
+    .active .suggestion-item {
         background-color: #eeeeee;
     }
 
