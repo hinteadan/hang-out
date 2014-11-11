@@ -1,10 +1,6 @@
-﻿<div>
-    <ul class="list-unstyled">
-        <li>
-            <img ng-src="{{match.model.imageUrl}}" width="60" height="60" />
-        </li>
-        <li>
-            <strong>{{match.model.title}}</strong>
-        </li>
-    </ul>
+﻿<div class="suggestion-item clickable">
+    <h5>
+        <span class="suggestion-item-thumb valign-middle" ng-show="match.model.imageUrl" ng-style="{ 'background-image': 'url(' + match.model.imageUrl + ')' }"></span>
+        <strong>{{match.model.title}}</strong>
+    </h5>
 </div>
