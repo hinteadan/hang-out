@@ -2,11 +2,19 @@
     'use strict';
 
     angular.module('hang-out-browse')
-    .controller('hangOutActivityDetailsCtrl', ['hangOutAuth', function (auth) {
+    .controller('hangOutActivityDetailsCtrl', ['$scope', '$routeParams', 'hangOutAuth', 'dataStore', function ($s, $p, auth, store) {
 
-        if (!auth.isAuthenticated) {
+        if (!auth.isAuthenticated || !$p.id) {
             return;
         }
+
+        store.activity($p.id).then(function (activityEntry) {
+            $s.activityEntry = activityEntry;
+            $s.activity = activityEntry.activity;
+        });
+
+        $s.activityEntry = null;
+        $s.activity = null;
 
     }]);
 
