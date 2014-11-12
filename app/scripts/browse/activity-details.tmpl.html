@@ -1,28 +1,10 @@
 ﻿<div>
     <h1 class="page-header">{{activity.title}}</h1>
     <blockquote class="condensed blockquote-reverse">
-        initiated by <strong>{{activity.initiator.name || activity.initiator.email}}</strong>
+        initiated by <strong>{{activity.initiator.name || activity.initiator.email}}</strong>,
+        happening on <strong>{{activity.startsOnFormatted()}}</strong>
     </blockquote>
     <p ng-show="{{activity.description}}">{{activity.description}}</p>
-
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">{{activity.allParticipants().length}} Willing Participant(s)</h3>
-        </div>
-        <div class="panel-body">
-            <ul class="list-unstyled list-inline">
-                <li ng-repeat="dude in activity.allParticipants()">
-                    <span ng-show="dude.name">
-                        {{dude.name}}
-                        <small>[{{dude.email}}]</small>
-                    </span>
-                    <span ng-hide="dude.name">
-                        {{dude.email}}
-                    </span>
-                </li>
-            </ul>
-        </div>
-    </div>
 
     <div class="panel panel-primary">
         <div class="panel-heading">
@@ -33,7 +15,7 @@
                 <li>
                     <span ng-show="activity.initiator.name">
                         {{activity.initiator.name}}
-                        <small>[{{activity.initiator.email}}]</small>
+                        <small class="text-muted">[{{activity.initiator.email}}]</small>
                     </span>
                     <span ng-hide="activity.initiator.name">
                         {{activity.initiator.email}}
@@ -43,7 +25,7 @@
                 <li ng-repeat="dude in activity.confirmedMembers">
                     <span ng-show="dude.name">
                         {{dude.name}}
-                        <small>[{{dude.email}}]</small>
+                        <small class="text-muted">[{{dude.email}}]</small>
                     </span>
                     <span ng-hide="dude.name">
                         {{dude.email}}
@@ -53,5 +35,37 @@
         </div>
     </div>
 
-    <pre>{{activityEntry|json}}</pre>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{activity.allParticipants().length}} Willing Participant(s)</h3>
+        </div>
+        <div class="panel-body">
+            <ul class="list-unstyled list-inline">
+                <li ng-repeat="dude in activity.allParticipants()">
+                    <span ng-show="dude.name">
+                        {{dude.name}}
+                        <small class="text-muted">[{{dude.email}}]</small>
+                    </span>
+                    <span ng-hide="dude.name">
+                        {{dude.email}}
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="well" ng-hide="activity.place.isUnknown()">
+        <h4>
+            at
+            <strong>{{activity.place.name || '[Unspecified name]'}}</strong>
+        </h4>
+        <address ng-show="activity.place.address">
+            {{activity.place.address}}
+        </address>
+        <p ng-show="place.details">{{activity.place.details}}</p>
+        <div>
+            Google map here
+        </div>
+    </div>
+
 </div>
