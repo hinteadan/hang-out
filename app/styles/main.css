@@ -49,3 +49,7 @@ blockquote.condensed {
 .valign-middle {
     vertical-align: middle;
 }
+
+.angular-google-map-container {
+    height: 400px;
+}

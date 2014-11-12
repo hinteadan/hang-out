@@ -11,6 +11,12 @@
         store.activity($p.id).then(function (activityEntry) {
             $s.activityEntry = activityEntry;
             $s.activity = activityEntry.activity;
+            $s.map = {
+                center: {
+                    latitude: $s.activity.place.location.lat,
+                    longitude: $s.activity.place.location.lng,
+                }
+            };
         });
 
         $s.activityEntry = null;

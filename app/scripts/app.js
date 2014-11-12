@@ -2,14 +2,14 @@
     'use strict';
 
     angular.module('hang-out-app', ['ngRoute', 'ui.bootstrap', 'hang-out-auth', 'hang-out-browse', 'hang-out-create', 'ui.bootstrap.datetimepicker', 'google-maps'.ns()])
-    .config(['$routeProvider', 'GoogleMapApiProvider'.ns(), function ($route, gmaps) {
+    .constant('googleApiKey', 'AIzaSyBD5HhqV2k2DQQwqauyUAxt7xIJyn65JvU')
+    .config(['$routeProvider', 'GoogleMapApiProvider'.ns(), 'googleApiKey', function ($route, gmaps, googleApiKey) {
         $route.otherwise({ redirectTo: '/browse' });
 
         //https://angular-ui.github.io/angular-google-maps/#!/api
         gmaps.configure({
-            //    key: 'your api key',
-            v: '3.17',
-            libraries: 'weather,geometry,visualization'
+            key: googleApiKey,
+            v: '3.17'
         });
     }]);
 
