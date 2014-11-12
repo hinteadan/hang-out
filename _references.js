@@ -22,3 +22,4 @@
 /// <reference path="app/scripts/data/module.js" />
 /// <reference path="app/scripts/data/places.js" />
 /// <reference path="app/scripts/data/activities.js" />
+/// <reference path="app/bower_components/angular-google-maps/dist/angular-google-maps.js" />
