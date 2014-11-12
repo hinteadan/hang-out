@@ -11,15 +11,18 @@
         var me = new m.Individual(auth.currentUser.name, auth.currentUser.email);
 
         function refresh() {
+            $s.flag.isLoadingJoinableActivities = true;
+
             store.activitiesToJoin(auth.currentUser.email).then(function (activities) {
-                $s.flag.isLoadingActivities = false;
+                $s.flag.isLoadingJoinableActivities = false;
                 $s.activities = activities;
             });
+
+
         }
-        refresh();
 
         $s.flag = {
-            isLoadingActivities: true
+            isLoadingJoinableActivities: false
         };
         $s.activities = [];
 
@@ -48,6 +51,7 @@
                 });
         };
 
+        refresh();
     }]);
 
 }).call(this, this.angular, this.alert);

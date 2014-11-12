@@ -1,5 +1,7 @@
 ﻿<div class="row">
 
+    <div class="text-center" ng-show="flag.isLoadingJoinableActivities">Loading join-able activities, please wait...</div>
+
     <div class="col-sm-4" ng-repeat="entry in activities | orderBy:'startsOn'">
 
         <div class="panel panel-default">

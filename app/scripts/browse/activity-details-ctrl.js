@@ -8,26 +8,35 @@
             return;
         }
 
-        store.activity($p.id).then(function (activityEntry) {
-            $s.activityEntry = activityEntry;
-            $s.activity = activityEntry.activity;
-            $s.map = {
-                center: {
-                    latitude: $s.activity.place.location.lat,
-                    longitude: $s.activity.place.location.lng
-                },
-                marker: {
-                    location: {
+        function refresh() {
+            $s.flag.isLoadingActivity = true;
+            store.activity($p.id).then(function (activityEntry) {
+                $s.flag.isLoadingActivity = false;
+                $s.activityEntry = activityEntry;
+                $s.activity = activityEntry.activity;
+                $s.map = {
+                    center: {
                         latitude: $s.activity.place.location.lat,
                         longitude: $s.activity.place.location.lng
+                    },
+                    marker: {
+                        location: {
+                            latitude: $s.activity.place.location.lat,
+                            longitude: $s.activity.place.location.lng
+                        }
                     }
-                }
-            };
-        });
+                };
+            });
+        }
+
+        $s.flag = {
+            isLoadingActivity: false
+        };
 
         $s.activityEntry = null;
         $s.activity = null;
 
+        refresh();
     }]);
 
 }).call(this, this.angular);
