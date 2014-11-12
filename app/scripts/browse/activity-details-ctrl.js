@@ -14,7 +14,13 @@
             $s.map = {
                 center: {
                     latitude: $s.activity.place.location.lat,
-                    longitude: $s.activity.place.location.lng,
+                    longitude: $s.activity.place.location.lng
+                },
+                marker: {
+                    location: {
+                        latitude: $s.activity.place.location.lat,
+                        longitude: $s.activity.place.location.lng
+                    }
                 }
             };
         });

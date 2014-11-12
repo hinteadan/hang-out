@@ -65,7 +65,9 @@
         <p ng-show="place.details">{{activity.place.details}}</p>
         <div>
             <div id="map_canvas">
-                <ui-gmap-google-map center='map.center' zoom='1'></ui-gmap-google-map>
+                <ui-gmap-google-map center='map.center' zoom='15' pan="false">
+                    <ui-gmap-marker idkey='"placeLocation"' coords='map.marker.location' options="{ draggable: false }"></ui-gmap-marker>
+                </ui-gmap-google-map>
             </div>
         </div>
 
