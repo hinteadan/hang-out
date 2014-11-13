@@ -13,6 +13,7 @@
         function refresh() {
             $s.flag.isLoadingJoinableActivities = true;
             $s.flag.isLoadingMyActivities = true;
+            $s.flag.isLoadingJoinedActivities = true;
 
             store.activitiesToJoin(auth.currentUser.email).then(function (activities) {
                 $s.flag.isLoadingJoinableActivities = false;
@@ -23,14 +24,21 @@
                 $s.flag.isLoadingMyActivities = false;
                 $s.myActivities = activities;
             });
+
+            store.activitiesAppliedToFor(auth.currentUser).then(function (activities) {
+                $s.flag.isLoadingJoinedActivities = false;
+                $s.joinedActivities = activities;
+            });
         }
 
         $s.flag = {
             isLoadingJoinableActivities: false,
-            isLoadingMyActivities: false
+            isLoadingMyActivities: false,
+            isLoadingJoinedActivities: false
         };
         $s.activities = [];
         $s.myActivities = [];
+        $s.joinedActivities = [];
 
         $s.join = function (activityEntry) {
 

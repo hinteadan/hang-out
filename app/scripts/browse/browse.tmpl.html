@@ -1,16 +1,12 @@
 ﻿<div class="row">
 
     <div class="text-center" ng-show="flag.isLoadingMyActivities">Loading your activities, please wait...</div>
+    <div class="text-center" ng-show="flag.isLoadingJoinedActivities">Loading joined activities, please wait...</div>
     <div class="text-center" ng-show="flag.isLoadingJoinableActivities">Loading join-able activities, please wait...</div>
 
     <div class="container-fluid" ng-show="myActivities.length">
-
         <div class="panel panel-default">
-            <div class="panel-heading">
-                <h5>
-                    Initiated by me
-                </h5>
-            </div>
+            <div class="panel-heading"><h5>Initiated by me</h5></div>
             <div class="panel-body">
                 <div ng-hide="flag.isLoadingMyActivities" class="row">
                     <div class="col-sm-4" ng-repeat="entry in myActivities | orderBy:'startsOn'">
@@ -27,14 +23,41 @@
                             <div class="panel-body">
                                 <p class="text-right">happening on <strong>{{entry.activity.startsOnFormatted()}}</strong></p>
                                 <p ng-show="entry.activity.description">{{entry.activity.description}}</p>
-                                <a class="btn btn-block" href="#/activity/{{entry.id}}">more about this...</a>
+                                <a class="btn btn-block" href="#/activity/{{entry.id}}">Manage</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
+    <div class="container-fluid" ng-show="joinedActivities.length">
+        <div class="panel panel-default">
+            <div class="panel-heading"><h5>Joined</h5></div>
+            <div class="panel-body">
+                <div ng-hide="flag.isLoadingMyActivities" class="row">
+                    <div class="col-sm-4" ng-repeat="entry in joinedActivities | orderBy:'startsOn'">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <div class="pull-right">
+                                    <span class="label label-default" title="Nobody joined so far, there's just you" ng-hide="entry.activity.pendingMembers.length">1</span>
+                                    <span class="label label-info" ng-show="entry.activity.pendingMembers.length">
+                                        {{entry.activity.allParticipants().length}}
+                                    </span>
+                                </div>
+                                <h5>{{entry.activity.title}}</h5>
+                            </div>
+                            <div class="panel-body">
+                                <p class="text-right">happening on <strong>{{entry.activity.startsOnFormatted()}}</strong></p>
+                                <p ng-show="entry.activity.description">{{entry.activity.description}}</p>
+                                <a class="btn btn-block" href="#/activity/{{entry.id}}">Status and Options</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="col-sm-4" ng-repeat="entry in activities | orderBy:'startsOn'">
