@@ -80,10 +80,29 @@
         </div>
 
         <div class="panel-group" ng-hide="activity.hasParticipant(me)">
-            <button class="btn btn-default btn-lg btn-block" ng-click="join(activityEntry)">
+            <button class="btn btn-default btn-lg btn-block" ng-click="join()">
                 <span ng-hide="activityEntry.joining">I want to join this!</span>
                 <span ng-show="activityEntry.joining">Yup, I'm sure!</span>
             </button>
+        </div>
+
+        <div class="panel-group" ng-show="activity.hasParticipant(me) && !activity.isInitiator(me)" ng-init="isBailingOut = false; bailingOutBecause = null;">
+            <button class="btn btn-default btn-lg btn-block" ng-hide="isBailingOut" ng-click="isBailingOut = true">Bail out of this activity</button>
+            <div class="well" ng-show="isBailingOut">
+                <form role="form" ng-submit="bailOut(bailingOutBecause); isBailingOut = false; bailingOutBecause = null;">
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="bailingOutBecause" placeholder="You're bailing out of this because?" />
+                    </div>
+                    <div class="form-group clearfix">
+                        <button type="submit" class="btn btn-lg btn-default pull-right" ng-disabled="!bailingOutBecause">
+                            OK... bail out!
+                        </button>
+                        <button ng-click="isBailingOut = false" class="btn btn-lg btn-link pull-right" type="button">
+                            Oh, never mind
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
 
     </div>

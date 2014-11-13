@@ -39,27 +39,33 @@
         $s.activityEntry = null;
         $s.activity = null;
 
-        $s.join = function (activityEntry) {
+        $s.join = function () {
 
             var p = null;
 
-            if (!activityEntry.joining) {
-                activityEntry.joining = true;
+            if (!$s.activityEntry.joining) {
+                $s.activityEntry.joining = true;
                 p = $t(function () {
-                    delete activityEntry.joining;
+                    delete $s.activityEntry.joining;
                 }, 4000);
                 return;
             }
 
             $t.cancel(p);
-            delete activityEntry.joining;
+            delete $s.activityEntry.joining;
 
             store
-                .joinActivity(activityEntry.id, activityEntry.token, activityEntry.activity, me)
-                .then(function () {
-                    refresh();
-                }, function (reason) {
+                .joinActivity($s.activityEntry.id, $s.activityEntry.token, $s.activityEntry.activity, me)
+                .then(refresh, function (reason) {
                     notify('Cannot join this activity because: ' + reason);
+                });
+        };
+
+        $s.bailOut = function (bailOutReason) {
+            store
+                .bailOut($s.activityEntry.id, $s.activityEntry.token, $s.activityEntry.activity, me, bailOutReason)
+                .then(refresh, function (reason) {
+                    notify('Cannot bail out of this activity because: ' + reason);
                 });
         };
 
