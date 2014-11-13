@@ -27,6 +27,9 @@
                             {{activity.initiator.email}}
                         </span>
                         - <em>initiator</em>
+                        <span ng-show="activity.initiator.is(me)">
+                            - <em><strong>me</strong></em>
+                        </span>
                     </li>
                     <li ng-repeat="dude in activity.confirmedMembers track by dude.email">
                         <span ng-show="dude.name">
@@ -35,6 +38,9 @@
                         </span>
                         <span ng-hide="dude.name">
                             {{dude.email}}
+                        </span>
+                        <span ng-show="dude.is(me)">
+                            - <em><strong>me</strong></em>
                         </span>
                     </li>
                 </ul>
@@ -54,6 +60,9 @@
                         </span>
                         <span ng-hide="dude.name">
                             {{dude.email}}
+                        </span>
+                        <span ng-show="dude.is(me)">
+                            - <em><strong>me</strong></em>
                         </span>
                     </li>
                 </ul>
