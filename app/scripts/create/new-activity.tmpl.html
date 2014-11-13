@@ -23,6 +23,12 @@
                        aria-autocomplete="list"
                        aria-expanded="false">
             </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-default btn-block" ng-click="activity.isMemberInstantlyConfirmed = !activity.isMemberInstantlyConfirmed">
+                    <span ng-show="activity.isMemberInstantlyConfirmed">Members are accepted as they join</span>
+                    <span ng-hide="activity.isMemberInstantlyConfirmed">You will manually confirm members</span>
+                </button>
+            </div>
             <div class="form-group" ng-hide="isSimpleView">
                 <textarea type="text" class="form-control vertical-resize" ng-model="activity.description" placeholder="Description"></textarea>
             </div>
