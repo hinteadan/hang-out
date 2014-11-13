@@ -64,6 +64,9 @@
                         <span ng-show="dude.is(me)">
                             - <em><strong>me</strong></em>
                         </span>
+                        <span ng-show="!dude.is(me) && activity.isInitiator(me) && !activity.isParticipantConfirmed(dude)">
+                            | <a class="clickable" ng-click="confirmParticipant(dude)">Confirm</a>
+                        </span>
                     </li>
                 </ul>
             </div>

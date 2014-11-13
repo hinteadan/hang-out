@@ -69,6 +69,14 @@
                 });
         };
 
+        $s.confirmParticipant = function (participant) {
+            store
+                .confirmParticipant($s.activityEntry.id, $s.activityEntry.token, $s.activityEntry.activity, participant)
+                .then(refresh, function (reason) {
+                    notify('Cannot confirm because: ' + reason);
+                });
+        };
+
         refresh();
     }]);
 
