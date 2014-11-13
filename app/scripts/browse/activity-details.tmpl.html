@@ -118,8 +118,11 @@
         </div>
 
         <div class="panel-group" ng-show="activity.isInitiator(me)">
-            <button class="btn btn-default btn-lg btn-block">Wrap it up!</button>
-            <button class="btn btn-default btn-lg btn-block">Cancel it</button>
+            <button class="btn btn-default btn-lg btn-block" ng-click="wrapIt()" ng-hide="activity.isWrapped || activity.isCancelled">
+                <span ng-hide="activityEntry.wrapping">Wrap it up!</span>
+                <span ng-show="activityEntry.wrapping">Yup, I'm sure!</span>
+            </button>
+            <button class="btn btn-default btn-lg btn-block" ng-hide="activity.isCancelled">Cancel it</button>
         </div>
 
     </div>

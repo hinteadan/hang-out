@@ -61,6 +61,27 @@
                 });
         };
 
+        $s.wrapIt = function () {
+            var p = null;
+
+            if (!$s.activityEntry.wrapping) {
+                $s.activityEntry.wrapping = true;
+                p = $t(function () {
+                    delete $s.activityEntry.wrapping;
+                }, 4000);
+                return;
+            }
+
+            $t.cancel(p);
+            delete $s.activityEntry.wrapping;
+            store
+                .wrapActivity($s.activityEntry.id, $s.activityEntry.token, $s.activityEntry.activity)
+                .then(refresh, function (reason) {
+                    notify('Cannot wrap activity because: ' + reason);
+                });
+
+        };
+
         $s.bailOut = function (bailOutReason) {
             store
                 .bailOut($s.activityEntry.id, $s.activityEntry.token, $s.activityEntry.activity, me, bailOutReason)
