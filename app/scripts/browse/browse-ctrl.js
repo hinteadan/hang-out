@@ -12,19 +12,25 @@
 
         function refresh() {
             $s.flag.isLoadingJoinableActivities = true;
+            $s.flag.isLoadingMyActivities = true;
 
             store.activitiesToJoin(auth.currentUser.email).then(function (activities) {
                 $s.flag.isLoadingJoinableActivities = false;
                 $s.activities = activities;
             });
 
-
+            store.activitiesFor(auth.currentUser).then(function (activities) {
+                $s.flag.isLoadingMyActivities = false;
+                $s.myActivities = activities;
+            });
         }
 
         $s.flag = {
-            isLoadingJoinableActivities: false
+            isLoadingJoinableActivities: false,
+            isLoadingMyActivities: false
         };
         $s.activities = [];
+        $s.myActivities = [];
 
         $s.join = function (activityEntry) {
 
