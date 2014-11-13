@@ -9,6 +9,7 @@
             initiated by <strong>{{activity.initiator.name || activity.initiator.email}}</strong>,
             happening on <strong>{{activity.startsOnFormatted()}}</strong>
         </blockquote>
+
         <p ng-show="{{activity.description}}">{{activity.description}}</p>
 
         <div class="panel panel-primary">
@@ -77,5 +78,13 @@
             </div>
 
         </div>
+
+        <div class="panel-group">
+            <button class="btn btn-default btn-lg btn-block" ng-click="join(activityEntry)" ng-hide="activity.hasParticipant(me)">
+                <span ng-hide="activityEntry.joining">I want to join this!</span>
+                <span ng-show="activityEntry.joining">Yup, I'm sure!</span>
+            </button>
+        </div>
+
     </div>
 </div>
