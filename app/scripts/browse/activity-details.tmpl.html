@@ -4,7 +4,10 @@
 
     <div ng-hide="flag.isLoadingActivity">
 
-        <h1 class="page-header">{{activity.title}}</h1>
+        <h1 class="page-header">
+            {{activity.title}}
+        </h1>
+        <h4 ng-hide="activity.isPending()" ng-class="{ 'text-danger': activity.isCancelled, 'text-success': activity.isWrapped }">{{activity.friendlyStatus()}}</h4>
         <blockquote class="condensed blockquote-reverse">
             initiated by <strong>{{activity.initiator.name || activity.initiator.email}}</strong>,
             happening on <strong>{{activity.startsOnFormatted()}}</strong>
