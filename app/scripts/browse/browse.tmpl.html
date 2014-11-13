@@ -65,6 +65,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <div class="pull-right">
+                    <span class="label label-warning" ng-hide="entry.activity.isMemberInstantlyConfirmed" title="The initator wants to manually confirm each participant, so joining doesn't guarantee you a spot">Not Instant</span>
                     <span class="label label-default" title="Nobody joined so far, there's just the initiator" ng-hide="entry.activity.pendingMembers.length">1</span>
                     <span class="label label-info" ng-show="entry.activity.pendingMembers.length">
                         {{entry.activity.allParticipants().length}}
