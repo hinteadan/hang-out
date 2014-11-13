@@ -28,7 +28,7 @@
                         </span>
                         - <em>initiator</em>
                     </li>
-                    <li ng-repeat="dude in activity.confirmedMembers">
+                    <li ng-repeat="dude in activity.confirmedMembers track by dude.email">
                         <span ng-show="dude.name">
                             {{dude.name}}
                             <small class="text-muted">[{{dude.email}}]</small>
@@ -47,7 +47,7 @@
             </div>
             <div class="panel-body">
                 <ul class="list-unstyled list-inline">
-                    <li ng-repeat="dude in activity.allParticipants()">
+                    <li ng-repeat="dude in activity.allParticipants() track by dude.email">
                         <span ng-show="dude.name">
                             {{dude.name}}
                             <small class="text-muted">[{{dude.email}}]</small>
@@ -79,8 +79,8 @@
 
         </div>
 
-        <div class="panel-group">
-            <button class="btn btn-default btn-lg btn-block" ng-click="join(activityEntry)" ng-hide="activity.hasParticipant(me)">
+        <div class="panel-group" ng-hide="activity.hasParticipant(me)">
+            <button class="btn btn-default btn-lg btn-block" ng-click="join(activityEntry)">
                 <span ng-hide="activityEntry.joining">I want to join this!</span>
                 <span ng-show="activityEntry.joining">Yup, I'm sure!</span>
             </button>
