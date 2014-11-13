@@ -82,6 +82,14 @@
 
         };
 
+        $s.cancel = function (cancellationReason) {
+            store
+                .cancelActivity($s.activityEntry.id, $s.activityEntry.token, $s.activityEntry.activity, cancellationReason)
+                .then(refresh, function (reason) {
+                    notify('Cannot cancel activity because: ' + reason);
+                });
+        };
+
         $s.bailOut = function (bailOutReason) {
             store
                 .bailOut($s.activityEntry.id, $s.activityEntry.token, $s.activityEntry.activity, me, bailOutReason)
