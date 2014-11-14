@@ -28,6 +28,8 @@
                         }
                     }
                 };
+                $s.canRenderMap = false;
+                $t(function () { $s.canRenderMap = true; });
             });
         }
 
