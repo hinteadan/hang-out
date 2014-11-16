@@ -35,11 +35,13 @@
     function Suggester(model, activitiesDto, placesDto) {
 
         var allActivities = _.map(activitiesDto, model.Activity.new),
-            allPlaces = _.map(placesDto, model.Place.new);
+            _allActivities = _(allActivities),
+            allPlaces = _.map(placesDto, model.Place.new),
+            _allPlaces = _(allPlaces);
 
         function suggestActivitesFor(searchKey) {
             var keysToSearch = splitSearchKey(searchKey),
-                result = _(allActivities).filter(function (a) {
+                result = _allActivities.filter(function (a) {
                     var match = new MatchResult();
                     _.each(keysToSearch, function (key) {
                         match = match.or(collectionMatch(a.keywords, function (k) { return isStringMatch(k, key); }))

@@ -13,7 +13,7 @@
         };
         this.tags = dto.tags || [];
     }
-    Place.new = function (dto) { return new Place(dto); }
+    Place.new = function (dto) { return new Place(dto); };
 
     function Activity(dto) {
         this.title = dto.title;
@@ -24,7 +24,7 @@
         this.imageUrl = dto.imageUrl;
         this.logoUrl = dto.logoUrl;
     }
-    Activity.new = function (dto) { return new Activity(dto); }
+    Activity.new = function (dto) { return new Activity(dto); };
 
     angular.module('hang-out-suggestions')
     .value('suggestionsModel', {
