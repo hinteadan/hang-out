@@ -59,8 +59,29 @@
             return result;
         }
 
-        function suggestPlacesFor(searchKey) {
-            return placesDto;
+        function suggestPlacesFor(searchKey, activity) {
+            var placesToSearch = !angular.isObject(activity) ? _allPlaces : _allPlaces.filter(function (p) {
+                    return _.any(p.tags, function (pt) {
+                        return _.contains(activity.tags, pt);
+                    });
+                }),
+                keysToSearch = splitSearchKey(searchKey),
+                result = placesToSearch.filter(function (p) {
+                    var match = new MatchResult();
+                    _.each(keysToSearch, function (key) {
+                        match = match.or(collectionMatch(p.tags, function (t) { return isStringMatch(t, key); }))
+                            .or(collectionMatch([p.name], function (t) { return isStringMatch(t, key); }));
+                    });
+                    if (!match.isMatch) {
+                        return false;
+                    }
+                    p.matchWeight = match.weight;
+                    return true;
+                })
+                .sortBy('matchWeight')
+                .value();
+
+            return result;
         }
 
         this.activities = suggestActivitesFor;

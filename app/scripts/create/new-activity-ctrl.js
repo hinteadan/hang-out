@@ -1,4 +1,4 @@
-﻿(function (angular, notify, _) {
+﻿(function (angular, notify) {
     'use strict';
 
     angular.module('hang-out-create')
@@ -15,7 +15,7 @@
         var me = new m.Individual(auth.currentUser.name, auth.currentUser.email),
             activity = new m.Activity(me);
 
-        $s.existingPlaces = _.map(suggest.places(), map.place);
+        $s.suggestPlacesFor = suggest.places;
         $s.suggestActivitiesFor = suggest.activities;
 
         $s.activity = activity;
@@ -77,4 +77,4 @@
 
     }]);
 
-}).call(this, this.angular, this.alert, this._);
+}).call(this, this.angular, this.alert);

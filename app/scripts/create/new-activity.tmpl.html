@@ -65,7 +65,7 @@
             <div class="form-group">
                 <input type="text" class="form-control"
                        typeahead-template-url="scripts/create/place-list-item.tmpl.html"
-                       typeahead="place as place.name for place in existingPlaces | filter:{name:$viewValue}"
+                       typeahead="place as place.name for place in suggestPlacesFor($viewValue, suggestedActivity)"
                        typeahead-on-select="onPlaceSelection($item, $model, $label)"
                        typeahead-min-length="2"
                        placeholder="Name"
