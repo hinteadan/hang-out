@@ -25,3 +25,4 @@
 /// <reference path="app/bower_components/angular-google-maps/dist/angular-google-maps.js" />
 /// <reference path="app/scripts/suggestions/module.js" />
 /// <reference path="app/scripts/suggestions/model.js" />
+/// <reference path="app/scripts/suggestions/suggester.js" />

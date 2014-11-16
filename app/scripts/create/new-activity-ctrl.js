@@ -16,7 +16,7 @@
             activity = new m.Activity(me);
 
         $s.existingPlaces = _.map(suggest.places(), map.place);
-        $s.existingActivities = suggest.activities();
+        $s.suggestActivitiesFor = suggest.activities;
 
         $s.activity = activity;
 

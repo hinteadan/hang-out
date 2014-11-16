@@ -7,12 +7,13 @@
         this.details = dto.details;
         this.websiteUrl = dto.websiteUrl;
         this.logoUrl = dto.logoUrl;
-        this.location = {
+        this.location = !dto.location ? null : {
             lat: dto.location.lat,
             lng: dto.location.lng
         };
         this.tags = dto.tags || [];
     }
+    Place.new = function (dto) { return new Place(dto); }
 
     function Activity(dto) {
         this.title = dto.title;
@@ -23,26 +24,12 @@
         this.imageUrl = dto.imageUrl;
         this.logoUrl = dto.logoUrl;
     }
-
-    function Suggester(activitiesDto, placesDto) {
-
-        function suggestActivitesFor(searchKey) {
-            return activitiesDto;
-        }
-
-        function suggestPlacesFor(searchKey) {
-            return placesDto;
-        }
-
-        this.activities = suggestActivitesFor;
-        this.places = suggestPlacesFor;
-    }
+    Activity.new = function (dto) { return new Activity(dto); }
 
     angular.module('hang-out-suggestions')
     .value('suggestionsModel', {
         Place: Place,
         Activity: Activity
-    })
-    .service('hangOutSuggester', ['hangOutActivities', 'hangOutPlaces', Suggester]);
+    });
 
 }).call(this, this.angular);

@@ -14,7 +14,7 @@
             <div class="form-group">
                 <input type="text" class="form-control"
                        typeahead-template-url="scripts/create/activity-list-item.tmpl.html"
-                       typeahead="a as a.title for a in existingActivities | filter:{title:$viewValue}"
+                       typeahead="a as a.title for a in suggestActivitiesFor($viewValue)"
                        typeahead-on-select="onActivitySelection($item, $model, $label)"
                        typeahead-min-length="2"
                        placeholder="Title"
