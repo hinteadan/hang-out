@@ -1,6 +1,17 @@
 ﻿.red-theme .navbar,
 .red-theme .btn-primary {
     background-color: #ff1425;
+
+    background: #620708; /* Old browsers */
+    background: -moz-linear-gradient(left,  #620708 0%, #b80e0f 35%, #b80e0f 65%, #620708 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#620708), color-stop(35%,#b80e0f), color-stop(65%,#b80e0f), color-stop(100%,#620708)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  #620708 0%,#b80e0f 35%,#b80e0f 65%,#620708 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  #620708 0%,#b80e0f 35%,#b80e0f 65%,#620708 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  #620708 0%,#b80e0f 35%,#b80e0f 65%,#620708 100%); /* IE10+ */
+    background: linear-gradient(to right,  #620708 0%,#b80e0f 35%,#b80e0f 65%,#620708 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#620708', endColorstr='#620708',GradientType=1 ); /* IE6-9 */
+
+
 }
 
 .red-theme .btn-primary {
