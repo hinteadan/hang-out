@@ -10,8 +10,8 @@
       "details": "tel:  0755.740.407 ",
       "websiteUrl": "http://winners-tennis.ro/",
       "location": {
-          "lat": 46.775161,
-          "lng": 23.602700
+          "lat": 46.764899,
+          "lng": 23.553576
       },
       "tags": [
         "tennis",
@@ -44,12 +44,12 @@
   {
       "Activities": null,
       "name": "Marc Tenis",
-      "address": " Alea Baisoara 1/11, Cluj-Napoca",
+      "address": "Str. Vasile Conta, Cluj-Napoca",
       "details": "tel:  0744 478 769",
       "websiteUrl": "http://www.marctenis.ro/",
       "location": {
-          "lat": 46.763306,
-          "lng": 23.621356
+          "lat": 46.751892,
+          "lng": 23.605520
       },
       "tags": [
         "tennis",
@@ -913,6 +913,121 @@
         "training"
       ],
       "logoUrl": "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfp1/v/t1.0-1/p148x148/10524712_745332168861589_4641801276275714674_n.jpg?oh=075e3a28df9373867d13171de12bb728&oe=54B31EE5&__gda__=1425545358_c66cecc212b4a8360f1c8c4c5a13d70d"
+  },
+  {
+      "Activities": "Dance",
+      "name": "Diamond Dance Club",
+      "address": "Aleea Bibliotecii nr.10, Cluj-Napoca",
+      "details": "Tel: 0745.231.566",
+      "websiteUrl": "www.diamonddancecluj.ro",
+      "location": {
+          "lat": 46.777830,
+          "lng": 23.615068
+      },
+      "tags": [
+        "bachatta",
+        "cha",
+        "cha",
+        "cursuri",
+        "de",
+        "dans",
+        "discofox",
+        "Foxtrot",
+        "jive",
+        "merengue",
+        "modern",
+        "quickstep",
+        "rock’n",
+        "roll",
+        "rumba",
+        "salsa",
+        "samba",
+        "slow",
+        "fox",
+        "tango",
+        "twist",
+        "Vals",
+        "lent",
+        "vals",
+        "vienez"
+      ],
+      "logoUrl": "http://www.diamonddancecluj.ro/images/logo-diamond-dance.jpg"
+  },
+  {
+      "Activities": null,
+      "name": "Crystal Dance",
+      "address": "Str.         Berariei 6, et.4, Cluj-Napoca",
+      "details": "Tel : 0740 168 132",
+      "websiteUrl": "http://www.crystaltop.ro/",
+      "location": {
+          "lat": 46.763527,
+          "lng": 23.570052
+      },
+      "tags": [
+        "Vals",
+        "LentTangoVals",
+        "Vienez",
+        "Salsa",
+        "Bachata",
+        "Rock’n'roll"
+      ],
+      "logoUrl": "http://static.squarespace.com/static/5211899be4b01a5565d7d734/t/52119477e4b004f80b4b521d/1410237838886/?format=750w"
+  },
+  {
+      "Activities": "Paintball",
+      "name": "WAR-ZONE Paintball & Airsoft",
+      "address": "Livada Steluta, Colonia Breaza, Cluj-Napoca",
+      "details": "Tel: 0740 249 225",
+      "websiteUrl": "http://paintball-airsoft.ro/",
+      "location": {
+          "lat": 46.803317,
+          "lng": 23.575431
+      },
+      "tags": [
+        "paintball",
+        "airsoft"
+      ],
+      "logoUrl": "http://paintball-airsoft.ro/wp-content/uploads/2012/12/warzone-logo-paintball-airsoft.png"
+  },
+  {
+      "Activities": null,
+      "name": "Army of Paintball",
+      "address": "Str. Avram Iancu, nr. 492-500, Floreşti, Jud. Cluj (Polus Center Cluj)",
+      "details": "Tel: 0740.204.936 (Florin) / 0769.222.992 (Claudiu)",
+      "websiteUrl": "http://www.paintball-cluj.ro/",
+      "location": {
+          "lat": 46.750759,
+          "lng": 23.531342
+      },
+      "tags": [
+        "paintball",
+        "airsoft"
+      ],
+      "logoUrl": "http://www.paintball-cluj.ro/wp-content/uploads/2010/01/logo5.png"
+  },
+  {
+      "Activities": null,
+      "name": "Fun Paintball",
+      "address": "Cluj-Napoca, jud. Cluj",
+      "details": "Tel: 0745-076 350, 0752-283 347",
+      "websiteUrl": "http://www.funpaintball.ro/",
+      "location": null,
+      "tags": [
+        "paintball"
+      ],
+      "logoUrl": "http://st.depositphotos.com/1411161/1949/v/950/depositphotos_19492695-paintball-Logo.jpg"
+  },
+  {
+      "Activities": null,
+      "name": "Paintball-Enjoy",
+      "address": "Cluj-Napoca, jud. Cluj",
+      "details": "Tel: 0264-572.688",
+      "websiteUrl": "http://www.paintball-enjoy.ro/",
+      "location": null,
+      "tags": [
+        "paintball"
+      ],
+      "logoUrl": "http://st.depositphotos.com/1411161/1949/v/950/depositphotos_19492695-paintball-Logo.jpg"
   },
   {
       "Activities": null,
