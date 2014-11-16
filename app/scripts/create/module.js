@@ -1,7 +1,7 @@
 ﻿(function (angular) {
     'use strict';
 
-    angular.module('hang-out-create', ['hang-out', 'hang-out-auth', 'hang-out-data'])
+    angular.module('hang-out-create', ['hang-out', 'hang-out-auth', 'hang-out-suggestions'])
     .config(['$routeProvider', function ($route) {
         $route
             .when('/new', { templateUrl: 'scripts/create/new-activity.tmpl.html', controller: 'hangOutNewActivityCtrl' });

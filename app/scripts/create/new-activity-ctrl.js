@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('hang-out-create')
-    .controller('hangOutNewActivityCtrl', ['$scope', '$location', '$timeout', 'hangOutAuth', 'dataStore', 'model', 'model-mapper', 'hangOutPlaces', 'hangOutActivities', function ($s, $l, $t, auth, store, m, map, places, activities) {
+    .controller('hangOutNewActivityCtrl', ['$scope', '$location', '$timeout', 'hangOutAuth', 'dataStore', 'model', 'model-mapper', 'hangOutSuggester', function ($s, $l, $t, auth, store, m, map, suggest) {
 
         if (!auth.isAuthenticated) {
             return;
@@ -15,8 +15,8 @@
         var me = new m.Individual(auth.currentUser.name, auth.currentUser.email),
             activity = new m.Activity(me);
 
-        $s.existingPlaces = _.map(places, map.place);
-        $s.existingActivities = activities;
+        $s.existingPlaces = _.map(suggest.places(), map.place);
+        $s.existingActivities = suggest.activities();
 
         $s.activity = activity;
 

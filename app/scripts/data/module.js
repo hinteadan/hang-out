@@ -1,11 +1,6 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('hang-out-data', [])
-    .constant('hangOutData', {
-        places: [
-            { name: 'winners' }
-        ]
-    });
+    angular.module('hang-out-data', []);
 
 }).call(this, this.angular);
