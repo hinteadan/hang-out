@@ -11,7 +11,7 @@
                 </h1>
             </legend>
 
-            <div class="form-group">
+            <div class="form-group suggestion-typeahead">
                 <input type="text" class="form-control"
                        typeahead-template-url="scripts/create/activity-list-item.tmpl.html"
                        typeahead="a as a.title for a in suggestActivitiesFor($viewValue)"
@@ -62,7 +62,7 @@
 
         <fieldset>
             <legend>Where?</legend>
-            <div class="form-group">
+            <div class="form-group suggestion-typeahead">
                 <input type="text" class="form-control"
                        typeahead-template-url="scripts/create/place-list-item.tmpl.html"
                        typeahead="place as place.name for place in suggestPlacesFor($viewValue, suggestedActivity)"

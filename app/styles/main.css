@@ -26,6 +26,10 @@ blockquote.condensed {
     border-top-width: 0;
 }
 
+.suggestion-typeahead .dropdown-menu {
+    width: 90%;
+}
+
 .suggestion-item-thumb {
     display: inline-block;
     margin: 3px;
