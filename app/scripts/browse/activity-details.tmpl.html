@@ -84,7 +84,7 @@
                 {{activity.place.address}}
             </address>
             <p ng-show="place.details">{{activity.place.details}}</p>
-            <div ng-if="canRenderMap">
+            <div ng-if="!activity.place.location.isUnknown() && canRenderMap">
                 <ui-gmap-google-map center='map.center' zoom='15' pan="false">
                     <ui-gmap-marker idkey='"placeLocation"' coords='map.marker.location' options="{ draggable: false }"></ui-gmap-marker>
                 </ui-gmap-google-map>
