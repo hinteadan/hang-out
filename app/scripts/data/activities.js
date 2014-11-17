@@ -11,7 +11,8 @@
       ],
       "description": null,
       "tags": [
-        "tennis"
+        "tennis",
+        "tenis"
       ],
       "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/3/3e/Tennis_Racket_and_Balls.jpg",
       "logoUrl": "http://d1hw6n3yxknhky.cloudfront.net/012997461_prevstill.jpeg"
@@ -23,7 +24,13 @@
         "Ping-Pong"
       ],
       "description": null,
-      "tags": [],
+      "tags": [
+        "ping",
+        "pong",
+        "tenis",
+        "de",
+        "masa"
+      ],
       "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/b/be/Table_tennis_Rio_2007.jpg",
       "logoUrl": "http://www.clker.com/cliparts/2/9/c/7/11949867871570711906table_tennis_omar_abo-na_01.svg.med.png"
   },
@@ -48,7 +55,12 @@
         "outdoor"
       ],
       "description": null,
-      "tags": [],
+      "tags": [
+        "voley",
+        "volei",
+        "voleyball",
+        "beach-voley"
+      ],
       "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/3/38/Volleyball_game.jpg",
       "logoUrl": "http://upload.wikimedia.org/wikipedia/commons/7/77/Wikinews-volleyball.svg"
   },
@@ -60,7 +72,10 @@
         "outdoor"
       ],
       "description": null,
-      "tags": [],
+      "tags": [
+        "basket",
+        "basketball"
+      ],
       "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/b/b0/Mansoor_Ahmed_photos_of_Team_USA_basketball_at_London_2012_Olympics.jpg",
       "logoUrl": "http://logos.co/600/royalty-free-vector-of-a-logo-of-a-basketball-swooshing-through-a-hoop-by-chromaco-5511.jpg"
   },
@@ -73,7 +88,9 @@
         "outdoor"
       ],
       "description": null,
-      "tags": [],
+      "tags": [
+        "handball"
+      ],
       "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/1/12/Team_Handball_Jumpshot_09_USA_Nationals.JPG",
       "logoUrl": "http://www.twotypes.de/wp-content/uploads/2011/01/handball-em-schweden-screen-twotypes-logo.jpg"
   },
@@ -99,7 +116,12 @@
         "outdoor"
       ],
       "description": null,
-      "tags": [],
+      "tags": [
+        "fotbal",
+        "football",
+        "soccer",
+        "minifotbal"
+      ],
       "imageUrl": "https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xfa1/t31.0-8/10582800_10152647973508255_5113987544596549362_o.jpg",
       "logoUrl": "http://www.gorgeouswall.com/wp-content/uploads/2014/02/football-logo-wallpaper-275x155.png"
   },
@@ -112,7 +134,14 @@
         "outdoor"
       ],
       "description": null,
-      "tags": [],
+      "tags": [
+        "tenis",
+        "cu",
+        "piciorul",
+        "laptenis",
+        "football",
+        "tennis"
+      ],
       "imageUrl": "http://sportlockerdotcom.files.wordpress.com/2012/03/nikemercurialvaporviii_cr_nadal_08.jpg",
       "logoUrl": null
   },
@@ -123,7 +152,9 @@
         "indoor"
       ],
       "description": null,
-      "tags": [],
+      "tags": [
+        "bowling"
+      ],
       "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/b/b0/Bowling_ball_looking_good_for_a_strike.jpg",
       "logoUrl": "http://1wn6ls2hqfw33zta682x40e4131p.wpengine.netdna-cdn.com/wp-content/uploads/ozone_sports_bowling.png"
   },
@@ -134,7 +165,10 @@
         "indoor"
       ],
       "description": null,
-      "tags": [],
+      "tags": [
+        "biliard",
+        "pool"
+      ],
       "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/b/b9/Billiard_Rack.jpg",
       "logoUrl": "http://freedesignfile.com/upload/2012/05/billiard_snooker_01.jpg"
   },
@@ -145,7 +179,9 @@
         "indoor"
       ],
       "description": null,
-      "tags": [],
+      "tags": [
+        "snooker"
+      ],
       "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/thumb/5/55/German_Masters_Snooker_Final_%28DerHexer%29_2012-02-05_33.jpg/800px-German_Masters_Snooker_Final_%28DerHexer%29_2012-02-05_33.jpg",
       "logoUrl": "http://www.bakno.com/Snooker/Screenshots_files/SnookerLogo.jpg"
   },
@@ -189,12 +225,31 @@
       ],
       "description": null,
       "tags": [
+        "bachatta",
+        "cha",
+        "cha",
+        "cursuri",
+        "de",
         "dans",
-        "dance",
-        "tango",
-        "bachata",
+        "discofox",
+        "Foxtrot",
+        "jive",
+        "merengue",
+        "modern",
+        "quickstep",
+        "rock’n",
+        "roll",
+        "rumba",
         "salsa",
-        "vals"
+        "samba",
+        "slow",
+        "fox",
+        "tango",
+        "twist",
+        "Vals",
+        "lent",
+        "vals",
+        "vienez"
       ],
       "imageUrl": "http://www.happy-projects.ro/happystar/wp-content/uploads/2014/05/salsa.jpg",
       "logoUrl": "http://static.squarespace.com/static/5211899be4b01a5565d7d734/t/52119477e4b004f80b4b521d/1410237838886/?format=750w"
@@ -233,7 +288,11 @@
         "outdoor"
       ],
       "description": null,
-      "tags": [],
+      "tags": [
+        "hiking",
+        "hike",
+        "drumetie"
+      ],
       "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/4/4e/Hiker_and_Redfish_Canyon_from_Alpine_Lake_trail_in_Sawtooth_Wilderness.jpg",
       "logoUrl": "http://storage2.ihigh.com/users/7666/photos/2116586.jpg"
   },
@@ -244,7 +303,9 @@
         "outdoor"
       ],
       "description": null,
-      "tags": [],
+      "tags": [
+        "trekking"
+      ],
       "imageUrl": "http://www.negozislalom.com/download/324bd26_trekking.jpg",
       "logoUrl": "http://espinadelsur.com/wp-content/uploads/2014/01/trek.jpg"
   },
@@ -255,7 +316,11 @@
         "outdoor"
       ],
       "description": null,
-      "tags": [],
+      "tags": [
+        "snowboarding",
+        "snowboard",
+        "placa"
+      ],
       "imageUrl": "http://www.hdwallpaperstock.eu/wallpapers/snowboarding-2880x1800.jpg",
       "logoUrl": "http://thumbs.dreamstime.com/x/snowboard-logo-colors-13985112.jpg"
   },
@@ -266,7 +331,11 @@
         "outdoor"
       ],
       "description": null,
-      "tags": [],
+      "tags": [
+        "ski",
+        "schi",
+        "skiing"
+      ],
       "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/3/38/Telemark_skiing_-_Pyrenees.jpg",
       "logoUrl": "http://flintlodge.webs.com/ski%20logo.png"
   },
@@ -277,7 +346,11 @@
         "outdoor"
       ],
       "description": null,
-      "tags": [],
+      "tags": [
+        "patinaj",
+        "patinoar",
+        "skate"
+      ],
       "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/thumb/7/73/VolosharMorozov_SP_EC2007.JPG/1280px-VolosharMorozov_SP_EC2007.JPG",
       "logoUrl": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSxPamG_1DavdNs_fPgg_d2Neiufif6EF4CDqKe6kikMQH2vpxQHQ"
   },
@@ -288,7 +361,11 @@
         "outdoor"
       ],
       "description": null,
-      "tags": [],
+      "tags": [
+        "paragliding",
+        "zobr",
+        "parapanta"
+      ],
       "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/d/df/Lima,_Peru_-_Paragliding_003.jpg",
       "logoUrl": "http://davidgarbe.files.wordpress.com/2011/09/launchettes-blog.jpg?w=595&h=595"
   },
@@ -299,7 +376,13 @@
         "outdoor"
       ],
       "description": null,
-      "tags": [],
+      "tags": [
+        "alergare",
+        "alergat",
+        "jogging",
+        "parc",
+        "park"
+      ],
       "imageUrl": "http://www.shockya.com/news/wp-content/uploads/Sports-Running-Natural-Park.jpg",
       "logoUrl": "http://www.clipartbest.com/cliparts/9cp/bgg/9cpbgg9Bi.jpeg"
   },
@@ -310,7 +393,11 @@
         "outdoor"
       ],
       "description": null,
-      "tags": [],
+      "tags": [
+        "ciclism",
+        "cycling",
+        "bicicleta"
+      ],
       "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/f/f4/US_Navy_070728-N-1722M-178_Two_Navy_triathletes_lead_the_way_during_the_cycling_portion_of_the_Armed_Forces_Triathlon_at_Point_Mugu.jpg",
       "logoUrl": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTR8cn464KmzHi9pDWRrTSYoY_sLVR4XdlctfdBQeNfTA8iNp-XvA"
   },
@@ -321,7 +408,9 @@
         "outdoor"
       ],
       "description": null,
-      "tags": [],
+      "tags": [
+        "calarie"
+      ],
       "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/f/fd/North_Forks_Cardi_Trot_5-Apr-09_3-48_PM.jpg",
       "logoUrl": "http://img2.turbomilk.com/portfolio/identity/londonclasses/local-horse_riding.jpg"
   },
@@ -334,7 +423,11 @@
         "outdoor"
       ],
       "description": null,
-      "tags": [],
+      "tags": [
+        "catarat",
+        "climbing",
+        "escalada"
+      ],
       "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/1/19/Overhanging_rock_climbing.jpg",
       "logoUrl": "http://i395.photobucket.com/albums/pp31/mistere33/Climbing/USAClimbingresize.jpg"
   },
@@ -345,7 +438,11 @@
         "outdoor"
       ],
       "description": null,
-      "tags": [],
+      "tags": [
+        "skateboarding",
+        "skateboard",
+        "skate"
+      ],
       "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/8/8e/1_bowl_skate_boarding.JPG",
       "logoUrl": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQtYquoXYLjWtBTOOpyIgxQeDhYCns1l-KyyTvo2RBjeQQKZuX5"
   },
@@ -357,7 +454,8 @@
       ],
       "description": null,
       "tags": [
-        "park"
+        "park",
+        "role"
       ],
       "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/9/9b/Skaters_in_Audubon_Park_New_Orleans.jpg",
       "logoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwIlPJWg6FXDZwD33GIZwWVUvT5fgD9bXp5jhC1sJszSV2EVEMqw"
@@ -370,7 +468,8 @@
       ],
       "description": null,
       "tags": [
-        "park"
+        "park",
+        "picnic"
       ],
       "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/0/0a/Girls_on_a_Picnic_(6760195675).jpg",
       "logoUrl": "http://logos.textgiraffe.com/logos/logo-name/Picnic-designstyle-picnic-m.png"
@@ -395,7 +494,9 @@
         "outdoor"
       ],
       "description": null,
-      "tags": [],
+      "tags": [
+        "paintball"
+      ],
       "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/5/5b/SupAir_Player.jpg",
       "logoUrl": "http://st.depositphotos.com/1411161/1949/v/950/depositphotos_19492695-paintball-Logo.jpg"
   },
@@ -406,7 +507,9 @@
         "outdoor"
       ],
       "description": null,
-      "tags": [],
+      "tags": [
+        "airsoft"
+      ],
       "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/a/a3/Flickr_-_The_U.S._Army_-_Airsoft_adds_hard_edge_to_combat_training.jpg",
       "logoUrl": "http://www.clubkosa.com/new/images/logo_klein/airsoft_logo_mini.gif"
   },
@@ -418,7 +521,11 @@
       ],
       "description": null,
       "tags": [
-        "pub"
+        "pub",
+        "game",
+        "jocuri",
+        "de",
+        "societate"
       ],
       "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/a/a3/TCMI_beaded_board_game_2.jpg",
       "logoUrl": "http://olivier-pompili.com/wp-content/uploads/2012/10/pieces.jpg"
@@ -430,7 +537,9 @@
         "indoor"
       ],
       "description": null,
-      "tags": [],
+      "tags": [
+        "poker"
+      ],
       "imageUrl": "http://www.jtech.com/wp-content/uploads/2013/04/casino_cards.jpg",
       "logoUrl": "http://www.spicejar.org/asiplease/images/wsop.jpg"
   },
@@ -443,7 +552,9 @@
       "description": null,
       "tags": [
         "pub",
-        "bar"
+        "bar",
+        "beer",
+        "pong"
       ],
       "imageUrl": "http://www.bobkeeferlaw.com/wp-content/uploads/2014/04/Beer-pong.jpg",
       "logoUrl": "http://officiallydrunk.com/wp-content/themes/Officially_Drunk_v1.1/timthumb.php?src=/wp-content/uploads/2009/10/game-logo-beer-pong.png&w=380&h=217&zc=1&q=100"
@@ -455,7 +566,10 @@
         "outdoor"
       ],
       "description": null,
-      "tags": [],
+      "tags": [
+        "vaslit",
+        "paddling"
+      ],
       "imageUrl": "http://commons.wikimedia.org/wiki/File:An_adult_and_child_enjoy_their_time_paddling_a_kayak.jpg",
       "logoUrl": "http://nikkirekman.files.wordpress.com/2012/09/dcckc_logo.jpg?w=200&h=161"
   },
@@ -468,14 +582,18 @@
       ],
       "description": null,
       "tags": [
-        "pool"
+        "pool",
+        "piscina",
+        "inot",
+        "natatie",
+        "swimming"
       ],
       "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/231000_-_Swimming_Daniel_Bell_reflections_action_-_3b_-_2000_Sydney_event_photo.jpg/1920px-231000_-_Swimming_Daniel_Bell_reflections_action_-_3b_-_2000_Sydney_event_photo.jpg",
       "logoUrl": "http://thumbs.dreamstime.com/x/swimming-logo-19206897.jpg"
   },
   {
       "title": "Ultimate frisbee",
-      "category": "Others",
+      "category": "Outdoor activities",
       "keywords": [
         "indoor",
         "outdoor"
@@ -486,6 +604,21 @@
       ],
       "imageUrl": "http://www10.unine.ch/sun/files/2012/07/frisbee.jpg",
       "logoUrl": "http://lakanal.net/calendrier/frisbee.gif"
+  },
+  {
+      "title": "Sports, Fun & Related Activities",
+      "category": "Outdoor activities",
+      "keywords": [
+        "adventure",
+        "park"
+      ],
+      "description": null,
+      "tags": [
+        "adventure",
+        "park"
+      ],
+      "imageUrl": "http://media.prleap.com/image/13177/640/DAP_AWPic4222_crop.jpg",
+      "logoUrl": "http://www.visitlisboa.com/%2fConteudos%2fEntidades%2fActivities_Radical%2fADVENTURE-PARK%2fCapa-Flyer.aspx"
   }
     ]);
 
