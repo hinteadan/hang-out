@@ -2,6 +2,11 @@
     text-shadow: 0 0 5px rgba(255, 247, 247, 1);
 }
 
+.red-theme .text-success, 
+.red-theme .text-danger {
+    text-shadow: 0 0 5px rgb(47, 32, 32);
+}
+
 .red-theme .navbar,
 .red-theme .btn-primary {
     background-color: #ff1425;
