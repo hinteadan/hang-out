@@ -54,7 +54,7 @@
                     a.matchWeight = match.weight;
                     return true;
                 })
-                .sortBy('matchWeight')
+                .sortBy(['matchWeight', 'title'])
                 .value();
             return result;
         }
@@ -78,7 +78,7 @@
                     p.matchWeight = match.weight;
                     return true;
                 })
-                .sortBy('matchWeight')
+                .sortBy(['matchWeight', 'name'])
                 .value();
 
             return result;
