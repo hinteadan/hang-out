@@ -1,4 +1,5 @@
-﻿body.red-theme{
+﻿body.red-theme,
+.red-theme input {
     text-shadow: 0 0 5px rgba(255, 247, 247, 1);
 }
 
