@@ -2,13 +2,15 @@
     'use strict';
 
     angular.module('hang-out-browse')
-    .controller('hangOutActivityDetailsCtrl', ['$scope', '$routeParams', '$timeout', 'hangOutAuth', 'model', 'dataStore', function ($s, $p, $t, auth, m, store) {
+    .controller('hangOutActivityDetailsCtrl', ['$scope', '$routeParams', '$timeout', 'hangOutAuth', 'model', 'dataStore', 'wallpaper', function ($s, $p, $t, auth, m, store, wall) {
 
         if (!auth.isAuthenticated || !$p.id) {
             return;
         }
 
         var me = new m.Individual(auth.currentUser.name, auth.currentUser.email);
+
+        wall.setWallpaper('http://slingshotsponsorship.com/wp-content/uploads/2013/11/tennis.jpg');
 
         function refresh() {
             $s.flag.isLoadingActivity = true;

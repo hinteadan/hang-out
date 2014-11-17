@@ -27,3 +27,5 @@
 /// <reference path="app/scripts/suggestions/model.js" />
 /// <reference path="app/scripts/suggestions/suggester.js" />
 /// <reference path="app/scripts/wallpaper/module.js" />
+/// <reference path="app/scripts/wallpaper/wallpaper-drtv.js" />
+/// <reference path="app/scripts/wallpaper/wallpaper-srvc.js" />
