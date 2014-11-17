@@ -26,3 +26,4 @@
 /// <reference path="app/scripts/suggestions/module.js" />
 /// <reference path="app/scripts/suggestions/model.js" />
 /// <reference path="app/scripts/suggestions/suggester.js" />
+/// <reference path="app/scripts/wallpaper/module.js" />
