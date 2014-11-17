@@ -21,7 +21,7 @@
       "title": "Table tennis",
       "category": "Ballgames",
       "keywords": [
-        "Ping-Pong"
+        "indoor"
       ],
       "description": null,
       "tags": [
@@ -74,7 +74,8 @@
       "description": null,
       "tags": [
         "basket",
-        "basketball"
+        "basketball",
+        "baschet"
       ],
       "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/b/b0/Mansoor_Ahmed_photos_of_Team_USA_basketball_at_London_2012_Olympics.jpg",
       "logoUrl": "http://logos.co/600/royalty-free-vector-of-a-logo-of-a-basketball-swooshing-through-a-hoop-by-chromaco-5511.jpg"
@@ -89,7 +90,8 @@
       ],
       "description": null,
       "tags": [
-        "handball"
+        "handball",
+        "handbal"
       ],
       "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/1/12/Team_Handball_Jumpshot_09_USA_Nationals.JPG",
       "logoUrl": "http://www.twotypes.de/wp-content/uploads/2011/01/handball-em-schweden-screen-twotypes-logo.jpg"
@@ -103,7 +105,11 @@
       ],
       "description": null,
       "tags": [
-        "fotbal"
+        "bubble",
+        "football",
+        "fotbal",
+        "in",
+        "balon"
       ],
       "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Youth-soccer-indiana.jpg/1920px-Youth-soccer-indiana.jpg",
       "logoUrl": "http://goalstage.net/wp-content/uploads/2014/11/bubble-boy.png"
@@ -140,7 +146,8 @@
         "piciorul",
         "laptenis",
         "football",
-        "tennis"
+        "tennis",
+        "fotbal-tenis"
       ],
       "imageUrl": "http://sportlockerdotcom.files.wordpress.com/2012/03/nikemercurialvaporviii_cr_nadal_08.jpg",
       "logoUrl": null
@@ -205,14 +212,32 @@
         "zumba",
         "belly",
         "dance",
-        "streching",
+        "stretching",
         "body",
         "training",
         "fitness",
         "bodybuilding",
         "kickboxing",
         "fitball",
-        "aerobics"
+        "aerobics",
+        "aerobic",
+        "electrostimulare",
+        "spinning",
+        "box",
+        "cycling",
+        "aqua",
+        "gym",
+        "rebound",
+        "TRX",
+        "piloxing",
+        "gimnastica",
+        "prenatala",
+        "aqua",
+        "gym",
+        "bosu",
+        "body",
+        "kombat",
+        "culturism"
       ],
       "imageUrl": "http://lunar.thegamez.net/threadmill/treadmill-running-workout/becoming-a-gym-junkie-gwinnett-magazine-5102x3401.jpg",
       "logoUrl": "http://itsabouttimefitness.com.au/wp-content/uploads/2012/05/logo4.png"
@@ -232,7 +257,7 @@
         "de",
         "dans",
         "discofox",
-        "Foxtrot",
+        "foxtrot",
         "jive",
         "merengue",
         "modern",
@@ -246,10 +271,20 @@
         "fox",
         "tango",
         "twist",
-        "Vals",
+        "vals",
         "lent",
         "vals",
-        "vienez"
+        "vienez",
+        "dans",
+        "popular",
+        "dans",
+        "modern",
+        "balet",
+        "dansul",
+        "mirilor",
+        "dansuri",
+        "de",
+        "societate"
       ],
       "imageUrl": "http://www.happy-projects.ro/happystar/wp-content/uploads/2014/05/salsa.jpg",
       "logoUrl": "http://static.squarespace.com/static/5211899be4b01a5565d7d734/t/52119477e4b004f80b4b521d/1410237838886/?format=750w"
@@ -349,7 +384,7 @@
       "tags": [
         "patinaj",
         "patinoar",
-        "skate"
+        "skating"
       ],
       "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/thumb/7/73/VolosharMorozov_SP_EC2007.JPG/1280px-VolosharMorozov_SP_EC2007.JPG",
       "logoUrl": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSxPamG_1DavdNs_fPgg_d2Neiufif6EF4CDqKe6kikMQH2vpxQHQ"
@@ -381,7 +416,9 @@
         "alergat",
         "jogging",
         "parc",
-        "park"
+        "park",
+        "running",
+        "atletism"
       ],
       "imageUrl": "http://www.shockya.com/news/wp-content/uploads/Sports-Running-Natural-Park.jpg",
       "logoUrl": "http://www.clipartbest.com/cliparts/9cp/bgg/9cpbgg9Bi.jpeg"
@@ -409,7 +446,10 @@
       ],
       "description": null,
       "tags": [
-        "calarie"
+        "calarie",
+        "echitatie",
+        "horseback",
+        "riding"
       ],
       "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/f/fd/North_Forks_Cardi_Trot_5-Apr-09_3-48_PM.jpg",
       "logoUrl": "http://img2.turbomilk.com/portfolio/identity/londonclasses/local-horse_riding.jpg"
@@ -455,7 +495,8 @@
       "description": null,
       "tags": [
         "park",
-        "role"
+        "role",
+        "parc"
       ],
       "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/9/9b/Skaters_in_Audubon_Park_New_Orleans.jpg",
       "logoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwIlPJWg6FXDZwD33GIZwWVUvT5fgD9bXp5jhC1sJszSV2EVEMqw"
@@ -469,7 +510,8 @@
       "description": null,
       "tags": [
         "park",
-        "picnic"
+        "picnic",
+        "parc"
       ],
       "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/0/0a/Girls_on_a_Picnic_(6760195675).jpg",
       "logoUrl": "http://logos.textgiraffe.com/logos/logo-name/Picnic-designstyle-picnic-m.png"
@@ -482,7 +524,10 @@
       ],
       "description": null,
       "tags": [
-        "park"
+        "dog",
+        "walking",
+        "plimbat",
+        "caini"
       ],
       "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Three_generations_of_West_Highland_Terrier.JPG/1280px-Three_generations_of_West_Highland_Terrier.JPG",
       "logoUrl": "http://rightofwaydogs.com/wordpress/wp-content/uploads/2010/02/logo.jpg"
@@ -525,7 +570,9 @@
         "game",
         "jocuri",
         "de",
-        "societate"
+        "societate",
+        "board",
+        "games"
       ],
       "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/a/a3/TCMI_beaded_board_game_2.jpg",
       "logoUrl": "http://olivier-pompili.com/wp-content/uploads/2012/10/pieces.jpg"
@@ -538,7 +585,10 @@
       ],
       "description": null,
       "tags": [
-        "poker"
+        "poker",
+        "cash",
+        "texas",
+        "hold'em"
       ],
       "imageUrl": "http://www.jtech.com/wp-content/uploads/2013/04/casino_cards.jpg",
       "logoUrl": "http://www.spicejar.org/asiplease/images/wsop.jpg"
@@ -586,7 +636,8 @@
         "piscina",
         "inot",
         "natatie",
-        "swimming"
+        "swimming",
+        "bazin"
       ],
       "imageUrl": "http://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/231000_-_Swimming_Daniel_Bell_reflections_action_-_3b_-_2000_Sydney_event_photo.jpg/1920px-231000_-_Swimming_Daniel_Bell_reflections_action_-_3b_-_2000_Sydney_event_photo.jpg",
       "logoUrl": "http://thumbs.dreamstime.com/x/swimming-logo-19206897.jpg"
@@ -615,7 +666,20 @@
       "description": null,
       "tags": [
         "adventure",
-        "park"
+        "park",
+        "tiroliana",
+        "tir",
+        "cu",
+        "arcul",
+        "escalada",
+        "catarat",
+        "summer",
+        "tubing",
+        "zorbing",
+        "rotondo",
+        "bob",
+        "de",
+        "vara"
       ],
       "imageUrl": "http://media.prleap.com/image/13177/640/DAP_AWPic4222_crop.jpg",
       "logoUrl": "http://www.visitlisboa.com/%2fConteudos%2fEntidades%2fActivities_Radical%2fADVENTURE-PARK%2fCapa-Flyer.aspx"

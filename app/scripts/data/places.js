@@ -15,13 +15,7 @@
       },
       "tags": [
         "tennis",
-        "tenis",
-        "running",
-        "jogging",
-        "alergat",
-        "skateboarding",
-        "skateboard",
-        "skate"
+        "tenis"
       ],
       "logoUrl": "http://winners-tennis.ro/wp-content/themes/winners-tennis/images/logo_winners.gif"
   },
@@ -40,7 +34,9 @@
         "tenis",
         "football",
         "basketball",
+        "voleyball",
         "voley",
+        "volei",
         "fotbal",
         "soccer",
         "baschet"
@@ -107,6 +103,8 @@
       },
       "tags": [
         "fitness",
+        "bodybuilding",
+        "gym",
         "tennis",
         "tenis",
         "fotbal",
@@ -114,6 +112,7 @@
         "baschet",
         "basketball",
         "volei",
+        "voley",
         "voleyball",
         "biliard",
         "strand",
@@ -121,7 +120,8 @@
         "piscina",
         "bazin",
         "swimming",
-        "natatie"
+        "natatie",
+        "inot"
       ],
       "logoUrl": "http://www.geistsptgoods.com/play-sports.png"
   },
@@ -141,7 +141,8 @@
         "fotbal",
         "football",
         "baschet",
-        "basketball"
+        "basketball",
+        "basket"
       ],
       "logoUrl": "http://www.geistsptgoods.com/play-sports.png"
   },
@@ -160,7 +161,11 @@
         "tennis",
         "fotbal-tenis",
         "fotbal",
-        "football"
+        "football",
+        "tenis",
+        "cu",
+        "piciorul",
+        "laptenis"
       ],
       "logoUrl": "https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xpa1/v/t1.0-9/s720x720/59739_146370942206558_1969958388_n.png?oh=cb34818c8ef05626a3164488fa2c2fc8&oe=54E352B7&__gda__=1423335882_7f119267fc66f30b1f6082d838d5b158"
   },
@@ -182,29 +187,30 @@
         "football",
         "baschet",
         "basketball",
+        "basket",
         "handbal",
         "handball",
         "atletism",
-        "running",
         "aerobic",
         "fitness",
+        "bodybuilding",
+        "gym",
         "beach-voley",
         "volei",
         "voley",
+        "voleyball",
         "ultimate",
         "frisbee",
         "running",
         "jogging",
         "alergat",
+        "alergare",
         "swimming",
         "inot",
         "bazin",
         "pool",
         "piscina",
-        "natatie",
-        "ultimate",
-        "frisbee",
-        "frisbee"
+        "natatie"
       ],
       "logoUrl": "http://www.geistsptgoods.com/play-sports.png"
   },
@@ -253,7 +259,11 @@
       "tags": [
         "ping",
         "pong",
+        "tenis",
+        "de",
+        "masa",
         "biliard",
+        "pool",
         "bowling",
         "snooker"
       ],
@@ -354,6 +364,7 @@
         "de",
         "masa",
         "biliard",
+        "pool",
         "darts"
       ],
       "logoUrl": "http://images.pitchero.com/ui/94649/1378125266_0.jpg"
@@ -386,9 +397,11 @@
       "tags": [
         "basketball",
         "baschet",
+        "basket",
         "fotbal",
         "football",
         "gym",
+        "bodybuilding",
         "kangoo",
         "jumps",
         "pilates",
@@ -400,7 +413,8 @@
         "fitness",
         "bodybuilding",
         "kickboxing",
-        "aerobics"
+        "aerobics",
+        "aerobic"
       ],
       "logoUrl": "http://www.geistsptgoods.com/play-sports.png"
   },
@@ -416,7 +430,9 @@
       },
       "tags": [
         "fotbal",
-        "football"
+        "football",
+        "minifotbal",
+        "soccer"
       ],
       "logoUrl": "http://www.gorgeouswall.com/wp-content/uploads/2014/02/football-logo-wallpaper-275x155.png"
   },
@@ -433,7 +449,8 @@
       "tags": [
         "fotbal",
         "football",
-        "minifotbal"
+        "minifotbal",
+        "soccer"
       ],
       "logoUrl": "http://www.gorgeouswall.com/wp-content/uploads/2014/02/football-logo-wallpaper-275x155.png"
   },
@@ -450,7 +467,8 @@
       "tags": [
         "fotbal",
         "football",
-        "minifotbal"
+        "minifotbal",
+        "soccer"
       ],
       "logoUrl": "http://www.gorgeouswall.com/wp-content/uploads/2014/02/football-logo-wallpaper-275x155.png"
   },
@@ -467,7 +485,8 @@
       "tags": [
         "fotbal",
         "football",
-        "minifotbal"
+        "minifotbal",
+        "soccer"
       ],
       "logoUrl": "http://www.gorgeouswall.com/wp-content/uploads/2014/02/football-logo-wallpaper-275x155.png"
   },
@@ -484,7 +503,8 @@
       "tags": [
         "fotbal",
         "football",
-        "minifotbal"
+        "minifotbal",
+        "soccer"
       ],
       "logoUrl": "http://www.gorgeouswall.com/wp-content/uploads/2014/02/football-logo-wallpaper-275x155.png"
   },
@@ -501,7 +521,8 @@
       "tags": [
         "fotbal",
         "football",
-        "minifotbal"
+        "minifotbal",
+        "soccer"
       ],
       "logoUrl": "http://www.gorgeouswall.com/wp-content/uploads/2014/02/football-logo-wallpaper-275x155.png"
   },
@@ -518,7 +539,8 @@
       "tags": [
         "fotbal",
         "football",
-        "minifotbal"
+        "minifotbal",
+        "soccer"
       ],
       "logoUrl": "http://www.gorgeouswall.com/wp-content/uploads/2014/02/football-logo-wallpaper-275x155.png"
   },
@@ -535,7 +557,8 @@
       "tags": [
         "fotbal",
         "football",
-        "minifotbal"
+        "minifotbal",
+        "soccer"
       ],
       "logoUrl": "http://www.gorgeouswall.com/wp-content/uploads/2014/02/football-logo-wallpaper-275x155.png"
   },
@@ -552,7 +575,8 @@
       "tags": [
         "fotbal",
         "football",
-        "minifotbal"
+        "minifotbal",
+        "soccer"
       ],
       "logoUrl": "http://www.gorgeouswall.com/wp-content/uploads/2014/02/football-logo-wallpaper-275x155.png"
   },
@@ -569,7 +593,8 @@
       "tags": [
         "fotbal",
         "football",
-        "minifotbal"
+        "minifotbal",
+        "soccer"
       ],
       "logoUrl": "http://www.gorgeouswall.com/wp-content/uploads/2014/02/football-logo-wallpaper-275x155.png"
   },
@@ -586,7 +611,8 @@
       "tags": [
         "fotbal",
         "football",
-        "minifotbal"
+        "minifotbal",
+        "soccer"
       ],
       "logoUrl": "http://www.gorgeouswall.com/wp-content/uploads/2014/02/football-logo-wallpaper-275x155.png"
   },
@@ -603,7 +629,8 @@
       "tags": [
         "fotbal",
         "football",
-        "minifotbal"
+        "minifotbal",
+        "soccer"
       ],
       "logoUrl": "http://www.gorgeouswall.com/wp-content/uploads/2014/02/football-logo-wallpaper-275x155.png"
   },
@@ -620,7 +647,8 @@
       "tags": [
         "fotbal",
         "football",
-        "minifotbal"
+        "minifotbal",
+        "soccer"
       ],
       "logoUrl": "http://www.gorgeouswall.com/wp-content/uploads/2014/02/football-logo-wallpaper-275x155.png"
   },
@@ -637,7 +665,8 @@
       "tags": [
         "fotbal",
         "football",
-        "minifotbal"
+        "minifotbal",
+        "soccer"
       ],
       "logoUrl": "http://www.gorgeouswall.com/wp-content/uploads/2014/02/football-logo-wallpaper-275x155.png"
   },
@@ -657,7 +686,10 @@
         "minifotbal",
         "tenis",
         "cu",
-        "piciorul"
+        "piciorul",
+        "soccer",
+        "laptenis",
+        "fotbal-tenis"
       ],
       "logoUrl": "http://bazasportivacmccluj.ro/wp-content/uploads/2013/11/loggo.png"
   },
@@ -674,7 +706,8 @@
       "tags": [
         "fotbal",
         "football",
-        "minifotbal"
+        "minifotbal",
+        "soccer"
       ],
       "logoUrl": "http://www.gorgeouswall.com/wp-content/uploads/2014/02/football-logo-wallpaper-275x155.png"
   },
@@ -851,7 +884,7 @@
         "zumba",
         "belly",
         "dance",
-        "streching",
+        "stretching",
         "body",
         "training",
         "fitness",
@@ -859,6 +892,7 @@
         "kickboxing",
         "fitball",
         "aerobics",
+        "aerobic",
         "box",
         "cycling",
         "training"
@@ -888,7 +922,7 @@
         "zumba",
         "belly",
         "dance",
-        "streching",
+        "stretching",
         "body",
         "training",
         "fitness",
@@ -896,7 +930,9 @@
         "kickboxing",
         "fitball",
         "aerobics",
-        "training"
+        "aerobic",
+        "training",
+        "cycling"
       ],
       "logoUrl": "https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfp1/v/t1.0-1/p148x148/10524712_745332168861589_4641801276275714674_n.jpg?oh=075e3a28df9373867d13171de12bb728&oe=54B31EE5&__gda__=1425545358_c66cecc212b4a8360f1c8c4c5a13d70d"
   },
@@ -931,6 +967,7 @@
         "kickboxing",
         "fitball",
         "aerobics",
+        "aerobic",
         "box",
         "cycling",
         "training"
@@ -960,7 +997,7 @@
         "zumba",
         "belly",
         "dance",
-        "streching",
+        "stretching",
         "body",
         "training",
         "fitness",
@@ -968,6 +1005,7 @@
         "kickboxing",
         "fitball",
         "aerobics",
+        "aerobic",
         "box",
         "cycling",
         "training",
@@ -1003,7 +1041,7 @@
         "cardio",
         "yoga",
         "zumba",
-        "streching",
+        "stretching",
         "body",
         "training",
         "fitness",
@@ -1011,6 +1049,7 @@
         "kickboxing",
         "fitball",
         "aerobics",
+        "aerobic",
         "box",
         "cycling",
         "training",
@@ -1093,7 +1132,11 @@
         "jumps",
         "cardio",
         "fitball",
-        "culturism"
+        "culturism",
+        "running",
+        "jogging",
+        "alergat",
+        "alergare"
       ],
       "logoUrl": "http://clujarenafitness.ro/wp-content/themes/filmstar/images/ucult.png"
   },
@@ -1110,7 +1153,11 @@
       "tags": [
         "fitness",
         "gym",
-        "cycling"
+        "cycling",
+        "bodybuilding",
+        "body",
+        "training",
+        "culturism"
       ],
       "logoUrl": "http://stocklogos.com/sites/default/files/styles/logo-medium/public/logos/image/fitness_4.png?itok=2M9oleKO"
   },
@@ -1133,7 +1180,8 @@
         "jumps",
         "pilates",
         "step",
-        "bodybuilding"
+        "bodybuilding",
+        "aerobics"
       ],
       "logoUrl": "http://www.oncostonusgym.ro/wp-content/uploads/2014/08/ec6cdb1oncos_gym_logo7.jpg"
   },
@@ -1203,7 +1251,7 @@
         "de",
         "dans",
         "discofox",
-        "Foxtrot",
+        "foxtrot",
         "jive",
         "merengue",
         "modern",
@@ -1217,10 +1265,15 @@
         "fox",
         "tango",
         "twist",
-        "Vals",
+        "vals",
         "lent",
         "vals",
-        "vienez"
+        "vienez",
+        "dansuri",
+        "de",
+        "societate",
+        "dansul",
+        "mirilor"
       ],
       "logoUrl": "http://www.diamonddancecluj.ro/images/logo-diamond-dance.jpg"
   },
@@ -1235,12 +1288,19 @@
           "lng": 23.570052
       },
       "tags": [
-        "Vals",
-        "LentTangoVals",
-        "Vienez",
-        "Salsa",
-        "Bachata",
-        "Rock’n'roll"
+        "vals",
+        "lent",
+        "tango",
+        "vals",
+        "vienez",
+        "salsa",
+        "bachatta",
+        "rock’n'roll",
+        "dansuri",
+        "de",
+        "societate",
+        "dansul",
+        "mirilor"
       ],
       "logoUrl": "http://static.squarespace.com/static/5211899be4b01a5565d7d734/t/52119477e4b004f80b4b521d/1410237838886/?format=750w"
   },
@@ -1320,7 +1380,8 @@
       "tags": [
         "ski",
         "snowboard",
-        "schi"
+        "schi",
+        "placa"
       ],
       "logoUrl": "http://www.partiafeleacu.ro/wp-content/themes/discover/images/logo-partiafeleacu.png"
   },
@@ -1336,7 +1397,8 @@
       },
       "tags": [
         "patinoar",
-        "skating"
+        "skating",
+        "patinaj"
       ],
       "logoUrl": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSxPamG_1DavdNs_fPgg_d2Neiufif6EF4CDqKe6kikMQH2vpxQHQ"
   },
@@ -1352,7 +1414,8 @@
       },
       "tags": [
         "patinoar",
-        "skating"
+        "skating",
+        "patinaj"
       ],
       "logoUrl": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSxPamG_1DavdNs_fPgg_d2Neiufif6EF4CDqKe6kikMQH2vpxQHQ"
   },
@@ -1424,7 +1487,38 @@
         "picnic",
         "paddling",
         "vaslit",
-        "hidrobiciclete"
+        "hidrobiciclete",
+        "alergare",
+        "parc",
+        "park",
+        "cycling",
+        "bicicleta",
+        "ciclism"
+      ],
+      "logoUrl": "http://media02.hongkiat.com/tree-logos/Dossia-Medical-.jpg"
+  },
+  {
+      "Activities": null,
+      "name": "Parcul Rozelor Cluj-Napoca",
+      "address": "Parcul Rozelor, Cluj-Napoca",
+      "details": null,
+      "websiteUrl": null,
+      "location": {
+          "lat": 46.764701,
+          "lng": 23.553662
+      },
+      "tags": [
+        "running",
+        "jogging",
+        "alergat",
+        "skateboarding",
+        "skateboard",
+        "alergare",
+        "park",
+        "parc",
+        "cycling",
+        "bicicleta",
+        "ciclism"
       ],
       "logoUrl": "http://media02.hongkiat.com/tree-logos/Dossia-Medical-.jpg"
   },
@@ -1437,7 +1531,9 @@
       "location": null,
       "tags": [
         "calarie",
-        "echitatie"
+        "echitatie",
+        "horseback",
+        "riding"
       ],
       "logoUrl": "http://img2.turbomilk.com/portfolio/identity/londonclasses/local-horse_riding.jpg"
   },
@@ -1445,12 +1541,14 @@
       "Activities": null,
       "name": "Echitatie Resort Wonderland",
       "address": "intrare din Calea Turzii via Feleacu judetul Cluj",
-      "details": "Tel: 0753966337",
+      "details": "Tel: 0753-966337",
       "websiteUrl": "http://www.wonderlandcluj.ro/rad/preturi/",
       "location": null,
       "tags": [
         "calarie",
-        "echitatie"
+        "echitatie",
+        "horseback",
+        "riding"
       ],
       "logoUrl": "http://img2.turbomilk.com/portfolio/identity/londonclasses/local-horse_riding.jpg"
   },
@@ -1475,7 +1573,7 @@
       "Activities": null,
       "name": " Free Wall",
       "address": "str. Berariei nr. 6 Cluj-Napoca",
-      "details": "Tel:  0761004773",
+      "details": "Tel:  0761-004773",
       "websiteUrl": "http://www.freewall.ro/",
       "location": {
           "lat": 46.763999,
@@ -1505,7 +1603,8 @@
         "roller",
         "skating",
         "park",
-        "role"
+        "role",
+        "parc"
       ],
       "logoUrl": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQtYquoXYLjWtBTOOpyIgxQeDhYCns1l-KyyTvo2RBjeQQKZuX5"
   },
@@ -1710,7 +1809,9 @@
         "games",
         "jocuri",
         "de",
-        "societate"
+        "societate",
+        "game",
+        "pub"
       ],
       "logoUrl": "http://www.partytude.ro/sites/default/files/imagecache/localurilogo/rehab_0.jpg"
   },
@@ -1827,7 +1928,8 @@
         "inot",
         "pool",
         "piscina",
-        "bazin"
+        "bazin",
+        "natatie"
       ],
       "logoUrl": "http://thumbs.dreamstime.com/x/swimming-logo-19206897.jpg"
   },
@@ -1875,18 +1977,23 @@
   {
       "Activities": null,
       "name": "Health Center Opera Plaza",
-      "address": null,
-      "details": null,
-      "websiteUrl": null,
-      "location": null,
+      "address": "Str. G-ral Traian Mosoiu, Nr. 10-12, Cluj-Napoca ",
+      "details": "Tel: 0364 403 600, 0264 428 164 ",
+      "websiteUrl": "http://www.operaplaza.ro/en/",
+      "location": {
+          "lat": 46.770362,
+          "lng": 23.603572
+      },
       "tags": [
         "swimming",
         "inot",
         "pool",
         "piscina",
-        "bazin"
+        "bazin",
+        "aqua",
+        "gym"
       ],
-      "logoUrl": null
+      "logoUrl": "http://www.daas.ro/library/images/horeca/recomandari_horeca/logo_opera_plaza.jpg"
   },
   {
       "Activities": "Sports, Fun & Related Activities",
