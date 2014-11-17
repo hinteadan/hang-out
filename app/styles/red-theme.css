@@ -1,4 +1,8 @@
-﻿.red-theme .navbar,
+﻿body.red-theme{
+    text-shadow: 0 0 5px rgba(255, 247, 247, 1);
+}
+
+.red-theme .navbar,
 .red-theme .btn-primary {
     background-color: #ff1425;
 
