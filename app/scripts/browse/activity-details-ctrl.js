@@ -10,14 +10,15 @@
 
         var me = new m.Individual(auth.currentUser.name, auth.currentUser.email);
 
-        wall.setWallpaper('http://slingshotsponsorship.com/wp-content/uploads/2013/11/tennis.jpg');
-
         function refresh() {
             $s.flag.isLoadingActivity = true;
             store.activity($p.id).then(function (activityEntry) {
                 $s.flag.isLoadingActivity = false;
                 $s.activityEntry = activityEntry;
                 $s.activity = activityEntry.activity;
+                if (activityEntry.activity.imageUrl) {
+                    wall.setWallpaper(activityEntry.activity.imageUrl);
+                }
                 $s.map = {
                     center: {
                         latitude: $s.activity.place.location.lat,
