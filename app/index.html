@@ -24,9 +24,9 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="#/">Hang-Out</a>
         </div>
-        <div class="navbar-collapse" ng-show="isAuthenticated()">
+        <div class="navbar-collapse" ng-show="isAuthenticated()" ng-cloak>
             <ul class="nav navbar-nav">
-                <li ng-cloak>
+                <li>
                     <a><small><em>as</em>&nbsp;<strong title="{{user.email}}">{{user.name || user.email}}</strong></small></a>
                 </li>
             </ul>
