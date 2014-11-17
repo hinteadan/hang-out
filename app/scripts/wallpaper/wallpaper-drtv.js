@@ -1,12 +1,28 @@
-﻿(function (angular, _) {
+﻿(function (angular, _, Image) {
     'use strict';
 
     angular.module('hang-out-wallpaper')
-    .value('wallpaper-default-image', '../images/halep-celebrating.jpg')
-    .directive('wallpaper', ['wallpaper-default-image', 'wallpaper-change-event', function (defaultImageUrl, changeEvent) {
+    .value('wallpaper-default-images', ['../images/halep-celebrating.jpg', 'http://wfiles.brothersoft.com/s/snooker-ready_91881-1920x1200.jpg', 'asdasasdasf'])
+    .directive('wallpaper', ['$q', '$timeout', 'wallpaper-default-images', 'wallpaper-change-event', 'wallpaper-change-interval', function ($q, $t, defaultImagesUrls, changeEvent, changeAfter) {
 
         function cssUrl(url) {
             return 'url("' + url + '")';
+        }
+
+        function loadImage(url) {
+            var deff = $q.defer();
+            var img = new Image();
+            img.onload = function () {
+                deff.resolve(true);
+            };
+            img.onabort = function () {
+                deff.reject(false);
+            };
+            img.onerror = function () {
+                deff.reject(false);
+            };
+            img.src = url;
+            return deff.promise;
         }
 
         return {
@@ -19,25 +35,39 @@
             },
             link: function (scope) {
 
-                var wallpapers = scope.images || [defaultImageUrl];
+                var wallpapers = scope.images && scope.images.length ? scope.images : defaultImagesUrls,
+                    shownWallpapers = [];
 
-                function refreshBackgrounds() {
-                    if (scope.images && scope.images.length) {
-                        wallpapers = scope.images;
+                function rotateWallpapers() {
+                    if (!wallpapers.length) {
+                        wallpapers = shownWallpapers;
+                        shownWallpapers = [];
                     }
-                    scope.backgrounds = _.map(wallpapers, cssUrl);
+
+                    loadImage(wallpapers[0]).then(function () {
+                        scope.background = cssUrl(wallpapers[0]);
+                        shownWallpapers.push(wallpapers.splice(0, 1)[0]);
+                        $t(rotateWallpapers, changeAfter);
+                    }, function () {
+                        shownWallpapers.push(wallpapers.splice(0, 1)[0]);
+                        rotateWallpapers();
+                    });
+                };
+
+                function resetWallpapers(newWallpapers) {
+                    wallpapers = newWallpapers || (scope.images && scope.images.length ? scope.images : defaultImagesUrls);
+                    shownWallpapers = [];
                 }
 
-                refreshBackgrounds();
-
-                scope.$watch('images', refreshBackgrounds);
+                scope.$watch('images', resetWallpapers);
 
                 scope.$on(changeEvent, function (event, newWallpapers) {
-                    wallpapers = newWallpapers || wallpapers;
-                    refreshBackgrounds();
+                    resetWallpapers(newWallpapers);
                 });
+
+                rotateWallpapers();
             }
         };
     }]);
 
-}).call(this, this.angular, this._);
+}).call(this, this.angular, this._, this.Image);
