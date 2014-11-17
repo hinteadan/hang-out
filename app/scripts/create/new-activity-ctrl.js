@@ -30,6 +30,8 @@
         $s.onActivitySelection = function ($item, $model, $label) {
             /*jshint unused:false*/
             activity.title = $model.title;
+            activity.imageUrl = $model.imageUrl;
+            activity.logoUrl = $model.logoUrl;
         };
         $s.isValid = function () {
             return activity.title && activity.startsOn && activity.place.name;
