@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('hang-out-browse')
-    .controller('hangOutBrowseCtrl', ['$scope', '$timeout', 'hangOutAuth', 'dataStore', 'model', 'hangOutSuggester', 'wallpaper', function ($s, $t, auth, store, m, suggest, wall) {
+    .controller('hangOutBrowseCtrl', ['$scope', '$timeout', 'hangOutAuth', 'dataStore', 'model', 'hangOutSuggester', 'wallpaper', function ($s, $t, auth, store, m) {
 
         if (!auth.isAuthenticated) {
             return;
