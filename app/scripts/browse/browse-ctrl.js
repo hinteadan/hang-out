@@ -2,13 +2,15 @@
     'use strict';
 
     angular.module('hang-out-browse')
-    .controller('hangOutBrowseCtrl', ['$scope', '$timeout', 'hangOutAuth', 'dataStore', 'model', function ($s, $t, auth, store, m) {
+    .controller('hangOutBrowseCtrl', ['$scope', '$timeout', 'hangOutAuth', 'dataStore', 'model', 'hangOutSuggester', 'wallpaper', function ($s, $t, auth, store, m, suggest, wall) {
 
         if (!auth.isAuthenticated) {
             return;
         }
 
         var me = new m.Individual(auth.currentUser.name, auth.currentUser.email);
+
+        wall.setWallpapers(suggest.wallpapers());
 
         function refresh() {
             $s.flag.isLoadingJoinableActivities = true;

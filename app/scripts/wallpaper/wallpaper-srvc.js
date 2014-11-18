@@ -8,7 +8,12 @@
             $root.$broadcast(changeEvent, [imageUrl]);
         }
 
+        function setWallpaperImages(images) {
+            $root.$broadcast(changeEvent, images);
+        }
+
         this.setWallpaper = setSingleWallpaperImage;
+        this.setWallpapers = setWallpaperImages;
 
     }]);
 
