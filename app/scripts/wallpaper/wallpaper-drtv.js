@@ -40,11 +40,9 @@
                     shownWallpapers = [];
 
                 function runWallpaperRoundAndQueueAnother() {
-                    $t(function () {
-                        scope.background = cssUrl(wallpapers[0]);
-                        wallpaperElement.css({ opacity: 1 });
-                        shownWallpapers.push(wallpapers.splice(0, 1)[0]);
-                    });
+                    scope.background = cssUrl(wallpapers[0]);
+                    wallpaperElement.css({ opacity: 1 });
+                    shownWallpapers.push(wallpapers.splice(0, 1)[0]);
                     $t(rotateWallpapers, changeAfter);
                 }
 
@@ -57,7 +55,11 @@
                     loadImage(wallpapers[0]).then(function () {
                         scope.nextBackground = cssUrl(wallpapers[0]);
                         $a.animate(wallpaperElement, { opacity: 1 }, { opacity: 0 })
-                        .then(runWallpaperRoundAndQueueAnother);
+                        .then(function () {
+                            scope.$apply(function () {
+                                runWallpaperRoundAndQueueAnother();
+                            });
+                        });
                     }, function () {
                         shownWallpapers.push(wallpapers.splice(0, 1)[0]);
                         rotateWallpapers();

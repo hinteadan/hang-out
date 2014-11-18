@@ -67,7 +67,7 @@ blockquote.condensed {
     height: 400px;
 }
 
-.ng-animate, .ng-inline-animate {
+.ng-inline-animate {
     -webkit-transition: all linear 6s;
     -moz-transition: all linear 6s;
     -ms-transition: all linear 6s;
