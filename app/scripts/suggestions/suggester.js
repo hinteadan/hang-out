@@ -85,7 +85,11 @@
         }
 
         function fetchWallpapersFromActivities() {
-            return _allActivities.pluck('imageUrl').uniq().value();
+            return _allActivities
+                .pluck('imageUrl')
+                .uniq()
+                .shuffle()
+                .value();
         }
 
         this.activities = suggestActivitesFor;
