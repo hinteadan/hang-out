@@ -27,3 +27,5 @@
 /// <reference path="app/scripts/wallpaper/wallpaper-drtv.js" />
 /// <reference path="app/scripts/wallpaper/wallpaper-srvc.js" />
 /// <reference path="app/bower_components/angular-md5/angular-md5.js" />
+/// <reference path="app/scripts/notifiy/module.js" />
+/// <reference path="app/scripts/notifiy/notifier.js" />
