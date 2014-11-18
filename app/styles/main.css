@@ -79,3 +79,9 @@ img.profile-image-brand {
     display: inline;
     vertical-align: middle;
 }
+
+img.profile-image {
+    display: inline;
+    vertical-align: middle;
+    margin: 3px;
+}
