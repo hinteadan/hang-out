@@ -25,7 +25,7 @@
 }
 
 .red-theme .btn-primary {
-    background-image: radial-gradient(circle, #ff5f6b 80%, #ff1425 81%);
+    background-image: radial-gradient(circle, #b80e0f 80%, #9f0f1a 81%);
 }
 
 .red-theme .btn-primary:hover{
@@ -93,4 +93,21 @@
 .form-control:-ms-input-placeholder {  
    color: rgb(47, 32, 32);  
    opacity: 1;
+}
+
+.btn[disabled] {
+    opacity: 0.9;
+}
+
+legend{
+    border-bottom-width: 0;
+}
+
+input.form-control, textarea.form-control, select.form-control {
+    color: #2c2c2c;Z
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 22px;
+    color: #000000;
 }

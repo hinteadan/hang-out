@@ -10,7 +10,7 @@
 
         var me = new m.Individual(auth.currentUser.name, auth.currentUser.email);
 
-        wall.setWallpapers(suggest.wallpapers());
+        //wall.setWallpapers(suggest.wallpapers());
 
         function refresh() {
             $s.flag.isLoadingJoinableActivities = true;
