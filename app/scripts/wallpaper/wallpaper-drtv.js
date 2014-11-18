@@ -37,13 +37,15 @@
 
                 var wallpaperElement = element.children('.current-wallpaper'),
                     wallpapers = scope.images && scope.images.length ? scope.images : defaultImagesUrls,
-                    shownWallpapers = [];
+                    shownWallpapers = [],
+                    rotationPromise = null,
+                    animationPromise = null;
 
                 function runWallpaperRoundAndQueueAnother() {
                     scope.background = cssUrl(wallpapers[0]);
                     wallpaperElement.css({ opacity: 1 });
                     shownWallpapers.push(wallpapers.splice(0, 1)[0]);
-                    $t(rotateWallpapers, changeAfter);
+                    rotationPromise = $t(rotateWallpapers, changeAfter);
                 }
 
                 function rotateWallpapers() {
@@ -54,8 +56,8 @@
 
                     loadImage(wallpapers[0]).then(function () {
                         scope.nextBackground = cssUrl(wallpapers[0]);
-                        $a.animate(wallpaperElement, { opacity: 1 }, { opacity: 0 })
-                        .then(function () {
+                        animationPromise = $a.animate(wallpaperElement, { opacity: 1 }, { opacity: 0 });
+                        animationPromise.then(function () {
                             scope.$apply(function () {
                                 runWallpaperRoundAndQueueAnother();
                             });
@@ -75,6 +77,9 @@
 
                 scope.$on(changeEvent, function (event, newWallpapers) {
                     resetWallpapers(newWallpapers);
+                    if (rotationPromise) { $t.cancel(rotationPromise); }
+                    if (animationPromise) { $a.cancel(animationPromise); }
+                    rotateWallpapers();
                 });
 
                 runWallpaperRoundAndQueueAnother();
