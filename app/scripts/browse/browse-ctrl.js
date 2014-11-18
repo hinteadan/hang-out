@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('hang-out-browse')
-    .controller('hangOutBrowseCtrl', ['$scope', '$timeout', 'hangOutAuth', 'dataStore', 'model', 'hangOutSuggester', 'wallpaper', function ($s, $t, auth, store, m) {
+    .controller('hangOutBrowseCtrl', ['$scope', '$timeout', 'hangOutAuth', 'hangOutNotifier', 'dataStore', 'model', 'hangOutSuggester', 'wallpaper', function ($s, $t, auth, note, store, m) {
 
         if (!auth.isAuthenticated) {
             return;
@@ -61,6 +61,7 @@
                 .joinActivity(activityEntry.id, activityEntry.token, activityEntry.activity, me)
                 .then(function () {
                     activityEntry.joined = true;
+                    note.join(me, activityEntry.activity);
                     refresh();
                 }, function (reason) {
                     notify('Cannot join this activity because: ' + reason);

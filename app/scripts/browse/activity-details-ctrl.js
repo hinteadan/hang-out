@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('hang-out-browse')
-    .controller('hangOutActivityDetailsCtrl', ['$scope', '$routeParams', '$timeout', 'hangOutAuth', 'model', 'dataStore', 'wallpaper', function ($s, $p, $t, auth, m, store, wall) {
+    .controller('hangOutActivityDetailsCtrl', ['$scope', '$routeParams', '$timeout', 'hangOutAuth', 'hangOutNotifier', 'model', 'dataStore', 'wallpaper', function ($s, $p, $t, auth, note, m, store, wall) {
 
         if (!auth.isAuthenticated || !$p.id) {
             return;
@@ -61,7 +61,10 @@
 
             store
                 .joinActivity($s.activityEntry.id, $s.activityEntry.token, $s.activityEntry.activity, me)
-                .then(refresh, function (reason) {
+                .then(function () {
+                    note.join(me, $s.activityEntry.activity);
+                    refresh();
+                }, function (reason) {
                     notify('Cannot join this activity because: ' + reason);
                 });
         };
@@ -79,18 +82,26 @@
 
             $t.cancel(p);
             delete $s.activityEntry.wrapping;
+            var oldStatus = $s.activityEntry.activity.friendlyStatus();
             store
                 .wrapActivity($s.activityEntry.id, $s.activityEntry.token, $s.activityEntry.activity)
-                .then(refresh, function (reason) {
+                .then(function () {
+                    note.status($s.activityEntry.activity, oldStatus);
+                    refresh();
+                }, function (reason) {
                     notify('Cannot wrap activity because: ' + reason);
                 });
 
         };
 
         $s.cancel = function (cancellationReason) {
+            var oldStatus = $s.activityEntry.activity.friendlyStatus();
             store
                 .cancelActivity($s.activityEntry.id, $s.activityEntry.token, $s.activityEntry.activity, cancellationReason)
-                .then(refresh, function (reason) {
+                .then(function () {
+                    note.status($s.activityEntry.activity, oldStatus);
+                    refresh();
+                }, function (reason) {
                     notify('Cannot cancel activity because: ' + reason);
                 });
         };
@@ -98,7 +109,10 @@
         $s.bailOut = function (bailOutReason) {
             store
                 .bailOut($s.activityEntry.id, $s.activityEntry.token, $s.activityEntry.activity, me, bailOutReason)
-                .then(refresh, function (reason) {
+                .then(function () {
+                    note.bailOut(me, $s.activityEntry.activity);
+                    refresh();
+                }, function (reason) {
                     notify('Cannot bail out of this activity because: ' + reason);
                 });
         };
@@ -106,7 +120,10 @@
         $s.confirmParticipant = function (participant) {
             store
                 .confirmParticipant($s.activityEntry.id, $s.activityEntry.token, $s.activityEntry.activity, participant)
-                .then(refresh, function (reason) {
+                .then(function () {
+                    note.confirmation(participant, $s.activityEntry.activity);
+                    refresh();
+                }, function (reason) {
                     notify('Cannot confirm because: ' + reason);
                 });
         };
