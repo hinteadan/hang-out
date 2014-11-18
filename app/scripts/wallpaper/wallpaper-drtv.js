@@ -36,7 +36,6 @@
             link: function (scope, element) {
 
                 var wallpaperElement = element.children('.current-wallpaper'),
-                    wallpaperNextElement = element.children('.next-wallpaper'),
                     wallpapers = scope.images && scope.images.length ? scope.images : defaultImagesUrls,
                     shownWallpapers = [];
 
@@ -63,7 +62,7 @@
                         shownWallpapers.push(wallpapers.splice(0, 1)[0]);
                         rotateWallpapers();
                     });
-                };
+                }
 
                 function resetWallpapers(newWallpapers) {
                     wallpapers = newWallpapers || (scope.images && scope.images.length ? scope.images : defaultImagesUrls);

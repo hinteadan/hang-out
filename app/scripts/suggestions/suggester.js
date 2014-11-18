@@ -86,7 +86,7 @@
 
         function fetchWallpapersFromActivities() {
             return _allActivities.pluck('imageUrl').uniq().value();
-        };
+        }
 
         this.activities = suggestActivitesFor;
         this.wallpapers = fetchWallpapersFromActivities;
