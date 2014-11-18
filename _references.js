@@ -1,4 +1,5 @@
 ﻿/// <reference path="app/bower_components/angular/angular.js" />
+/// <reference path="app/bower_components/angular-animate/angular-animate.js" />
 /// <reference path="app/bower_components/angular-route/angular-route.js" />
 /// <reference path="app/bower_components/jquery/dist/jquery.js" />
 /// <reference path="app/bower_components/lodash/dist/lodash.js" />

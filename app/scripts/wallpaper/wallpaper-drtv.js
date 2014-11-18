@@ -3,7 +3,7 @@
 
     angular.module('hang-out-wallpaper')
     .value('wallpaper-default-images', ['../images/halep-celebrating.jpg', 'http://wfiles.brothersoft.com/s/snooker-ready_91881-1920x1200.jpg', 'asdasasdasf'])
-    .directive('wallpaper', ['$q', '$timeout', 'wallpaper-default-images', 'wallpaper-change-event', 'wallpaper-change-interval', function ($q, $t, defaultImagesUrls, changeEvent, changeAfter) {
+    .directive('wallpaper', ['$q', '$timeout', '$animate', 'wallpaper-default-images', 'wallpaper-change-event', 'wallpaper-change-interval', function ($q, $t, $a, defaultImagesUrls, changeEvent, changeAfter) {
 
         function cssUrl(url) {
             return 'url("' + url + '")';
@@ -33,10 +33,21 @@
             scope: {
                 images: '='
             },
-            link: function (scope) {
+            link: function (scope, element) {
 
-                var wallpapers = scope.images && scope.images.length ? scope.images : defaultImagesUrls,
+                var wallpaperElement = element.children('.current-wallpaper'),
+                    wallpaperNextElement = element.children('.next-wallpaper'),
+                    wallpapers = scope.images && scope.images.length ? scope.images : defaultImagesUrls,
                     shownWallpapers = [];
+
+                function runWallpaperRoundAndQueueAnother() {
+                    $t(function () {
+                        scope.background = cssUrl(wallpapers[0]);
+                        wallpaperElement.css({ opacity: 1 });
+                        shownWallpapers.push(wallpapers.splice(0, 1)[0]);
+                        $t(rotateWallpapers, changeAfter);
+                    });
+                }
 
                 function rotateWallpapers() {
                     if (!wallpapers.length) {
@@ -45,9 +56,9 @@
                     }
 
                     loadImage(wallpapers[0]).then(function () {
-                        scope.background = cssUrl(wallpapers[0]);
-                        shownWallpapers.push(wallpapers.splice(0, 1)[0]);
-                        $t(rotateWallpapers, changeAfter);
+                        scope.nextBackground = cssUrl(wallpapers[0]);
+                        $a.animate(wallpaperElement, { opacity: 1 }, { opacity: 0 })
+                        .then(runWallpaperRoundAndQueueAnother);
                     }, function () {
                         shownWallpapers.push(wallpapers.splice(0, 1)[0]);
                         rotateWallpapers();
@@ -65,7 +76,7 @@
                     resetWallpapers(newWallpapers);
                 });
 
-                rotateWallpapers();
+                runWallpaperRoundAndQueueAnother();
             }
         };
     }]);
