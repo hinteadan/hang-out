@@ -4,9 +4,9 @@
 
 
     angular.module('hang-out-auth')
-    .service('hangOutAuth', ['$q', 'hangOutAuthUser', function ($q, User) {
+    .service('hangOutAuth', ['$q', 'model-mapper', function ($q, map) {
         var storeKey = 'hang-out-current-user',
-            authenticatedUser = store[storeKey] ? User.fromDto(JSON.parse(store[storeKey])) : null,
+            authenticatedUser = store[storeKey] ? map.user(JSON.parse(store[storeKey])) : null,
             isAuthenticated = Boolean(authenticatedUser);
 
         this.isAuthenticated = isAuthenticated;

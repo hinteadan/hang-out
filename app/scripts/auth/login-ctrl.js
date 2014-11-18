@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('hang-out-auth')
-    .controller('hangOutLogin', ['$scope', '$location', 'hangOutAuthUser', 'hangOutAuth', function ($s, $l, User, auth) {
+    .controller('hangOutLogin', ['$scope', '$location', 'hangOutAuth', 'model', function ($s, $l, auth, m) {
 
         var me = {
             email: null,
@@ -12,7 +12,7 @@
         $s.me = me;
         $s.login = function () {
             auth
-            .authenticate(new User(me.email, me.name))
+            .authenticate(new m.Individual(me.name, me.email))
             .then(function (isSuccess) {
                 if (!isSuccess) {
                     notify('Login Failed!');
