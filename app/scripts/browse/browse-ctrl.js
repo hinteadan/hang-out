@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('hang-out-browse')
-    .controller('hangOutBrowseCtrl', ['$scope', '$timeout', 'hangOutAuth', 'hangOutNotifier', 'dataStore', 'model', 'title','hangOutSuggester', 'wallpaper', function ($s, $t, auth, note, store, m, title) {
+    .controller('hangOutBrowseCtrl', ['$scope', '$location', '$timeout', 'hangOutAuth', 'hangOutNotifier', 'dataStore', 'model', 'title', function ($s, $l, $t, auth, note, store, m, title) {
 
         if (!auth.isAuthenticated) {
             return;
@@ -43,6 +43,10 @@
         $s.activities = [];
         $s.myActivities = [];
         $s.joinedActivities = [];
+
+        $s.openActivity = function (id) {
+            $l.path('/activity/' + id);
+        };
 
         $s.join = function (activityEntry) {
 

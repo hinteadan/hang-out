@@ -10,7 +10,7 @@
             <div class="panel-body">
                 <div ng-hide="flag.isLoadingMyActivities" class="row">
                     <div class="col-sm-4" ng-repeat="entry in myActivities | orderBy:'startsOn'">
-                        <div class="panel panel-default">
+                        <div class="panel panel-default clickable" ng-click="openActivity(entry.id)">
                             <div class="panel-heading">
                                 <div class="pull-right">
                                     <span class="label label-default" title="Nobody joined so far, there's just you" ng-hide="entry.activity.pendingMembers.length">1</span>
@@ -23,7 +23,6 @@
                             <div class="panel-body">
                                 <p class="text-right">happening on <strong>{{entry.activity.startsOnFormatted()}}</strong></p>
                                 <p ng-show="entry.activity.description">{{entry.activity.description}}</p>
-                                <a class="btn btn-block" href="#!/activity/{{entry.id}}">Manage</a>
                             </div>
                         </div>
                     </div>
@@ -38,7 +37,7 @@
             <div class="panel-body">
                 <div ng-hide="flag.isLoadingMyActivities" class="row">
                     <div class="col-sm-4" ng-repeat="entry in joinedActivities | orderBy:'startsOn'">
-                        <div class="panel panel-default">
+                        <div class="panel panel-default clickable" ng-click="openActivity(entry.id)">
                             <div class="panel-heading">
                                 <div class="pull-right">
                                     <span class="label label-default" title="Nobody joined so far, there's just you" ng-hide="entry.activity.pendingMembers.length">1</span>
@@ -51,7 +50,6 @@
                             <div class="panel-body">
                                 <p class="text-right">happening on <strong>{{entry.activity.startsOnFormatted()}}</strong></p>
                                 <p ng-show="entry.activity.description">{{entry.activity.description}}</p>
-                                <a class="btn btn-block" href="#!/activity/{{entry.id}}">Status and Options</a>
                             </div>
                         </div>
                     </div>
@@ -67,7 +65,7 @@
                 <div ng-hide="flag.isLoadingJoinableActivities" class="row">
                     <div class="col-sm-4" ng-repeat="entry in activities | orderBy:'startsOn'">
 
-                        <div class="panel panel-default">
+                        <div class="panel panel-default clickable" ng-click="openActivity(entry.id)">
                             <div class="panel-heading">
                                 <div class="pull-right">
                                     <span class="label label-warning" ng-hide="entry.activity.isMemberInstantlyConfirmed" title="The initator wants to manually confirm each participant, so joining doesn't guarantee you a spot">Not Instant</span>
@@ -84,14 +82,6 @@
                             <div class="panel-body">
                                 <p class="text-right">happening on <strong>{{entry.activity.startsOnFormatted()}}</strong></p>
                                 <p ng-show="entry.activity.description">{{entry.activity.description}}</p>
-
-                                <a class="btn btn-block" href="#!/activity/{{entry.id}}">more about this...</a>
-
-                                <button class="btn btn-lg btn-default btn-block" ng-click="join(entry)" ng-disabled="entry.joined">
-                                    <span ng-hide="entry.joining || entry.joined">I want to join this!</span>
-                                    <span ng-show="entry.joining &&  !entry.joined">Yup, I'm sure!</span>
-                                    <span ng-show="joined">Joined!</span>
-                                </button>
                             </div>
                         </div>
 
