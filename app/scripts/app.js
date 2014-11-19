@@ -3,8 +3,9 @@
 
     angular.module('hang-out-app', ['ngRoute', 'ui.bootstrap', 'hang-out-auth', 'hang-out-browse', 'hang-out-create', 'ui.bootstrap.datetimepicker', 'google-maps'.ns(), 'hang-out-wallpaper'])
     .constant('googleApiKey', 'AIzaSyBD5HhqV2k2DQQwqauyUAxt7xIJyn65JvU')
-    .config(['$routeProvider', 'GoogleMapApiProvider'.ns(), 'googleApiKey', function ($route, gmaps, googleApiKey) {
+    .config(['$routeProvider', '$locationProvider', 'GoogleMapApiProvider'.ns(), 'googleApiKey', function ($route, $location, gmaps, googleApiKey) {
         $route.otherwise({ redirectTo: '/browse' });
+        $location.hashPrefix('!');
 
         //https://angular-ui.github.io/angular-google-maps/#!/api
         gmaps.configure({

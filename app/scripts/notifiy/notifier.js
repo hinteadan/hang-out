@@ -126,7 +126,7 @@
         }
 
         function generatePermalinkForActivity(activityId){
-            return 'http://h-hang-out.azurewebsites.net/#/activity/' + activityId;
+            return 'http://h-hang-out.azurewebsites.net/#!/activity/' + activityId;
         }
 
         this.join = function (member, activity, activityId) {
