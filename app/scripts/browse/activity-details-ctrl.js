@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('hang-out-browse')
-    .controller('hangOutActivityDetailsCtrl', ['$scope', '$routeParams', '$timeout', 'hangOutAuth', 'hangOutNotifier', 'model', 'dataStore', 'wallpaper', function ($s, $p, $t, auth, note, m, store, wall) {
+    .controller('hangOutActivityDetailsCtrl', ['$scope', '$routeParams', '$timeout', 'hangOutAuth', 'hangOutNotifier', 'model', 'dataStore', 'wallpaper', 'title', function ($s, $p, $t, auth, note, m, store, wall, title) {
 
         if (!auth.isAuthenticated || !$p.id) {
             return;
@@ -13,6 +13,8 @@
         function refresh() {
             $s.flag.isLoadingActivity = true;
             store.activity($p.id).then(function (activityEntry) {
+                title.set(activityEntry.activity.friendlyTitle());
+                $s.disqusThreadId = activityEntry.id;
                 $s.flag.isLoadingActivity = false;
                 $s.activityEntry = activityEntry;
                 $s.activity = activityEntry.activity;

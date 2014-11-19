@@ -2,12 +2,14 @@
     'use strict';
 
     angular.module('hang-out-auth')
-    .controller('hangOutLogin', ['$scope', '$location', 'hangOutAuth', 'model', function ($s, $l, auth, m) {
+    .controller('hangOutLogin', ['$scope', '$location', 'hangOutAuth', 'model', 'title', function ($s, $l, auth, m, title) {
 
         var me = {
             email: null,
             name: null
         };
+
+        title.set('Login');
 
         $s.me = me;
         $s.login = function () {

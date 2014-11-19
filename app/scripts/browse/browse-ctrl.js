@@ -2,13 +2,15 @@
     'use strict';
 
     angular.module('hang-out-browse')
-    .controller('hangOutBrowseCtrl', ['$scope', '$timeout', 'hangOutAuth', 'hangOutNotifier', 'dataStore', 'model', 'hangOutSuggester', 'wallpaper', function ($s, $t, auth, note, store, m) {
+    .controller('hangOutBrowseCtrl', ['$scope', '$timeout', 'hangOutAuth', 'hangOutNotifier', 'dataStore', 'model', 'title','hangOutSuggester', 'wallpaper', function ($s, $t, auth, note, store, m, title) {
 
         if (!auth.isAuthenticated) {
             return;
         }
 
         var me = new m.Individual(auth.currentUser.name, auth.currentUser.email);
+
+        title.set('Browse Activities');
 
         //wall.setWallpapers(suggest.wallpapers());
 

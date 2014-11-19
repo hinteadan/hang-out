@@ -2,11 +2,13 @@
     'use strict';
 
     angular.module('hang-out-create')
-    .controller('hangOutNewActivityCtrl', ['$scope', '$location', '$timeout', 'hangOutAuth', 'dataStore', 'model', 'model-mapper', 'hangOutSuggester', function ($s, $l, $t, auth, store, m, map, suggest) {
+    .controller('hangOutNewActivityCtrl', ['$scope', '$location', '$timeout', 'hangOutAuth', 'dataStore', 'model', 'model-mapper', 'hangOutSuggester', 'title', function ($s, $l, $t, auth, store, m, map, suggest, title) {
 
         if (!auth.isAuthenticated) {
             return;
         }
+
+        title.set('Initiate Activity');
 
         function stampTime(value) {
             return angular.isDate(value) ? value.getTime() : Number(value);

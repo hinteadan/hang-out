@@ -19,6 +19,7 @@
 
 
 /// <reference path="app/scripts/app.js" />
+/// <reference path="app/scripts/title.js" />
 /// <reference path="app/scripts/auth/module.js" />
 /// <reference path="app/scripts/auth/auth-svc.js" />
 /// <reference path="app/scripts/create/new-activity-ctrl.js" />

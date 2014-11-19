@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" ng-app="hang-out-app">
 <head>
-    <title>Hang Out</title>
+    <title ng-controller="title" ng-bind="title()">Hang Out</title>
 
     <meta name="viewport" content="user-scalable=no, width=device-width">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -77,6 +77,7 @@
     <!-- endbuild -->
     <!-- build:js app.js -->
     <script src="scripts/app.js"></script>
+    <script src="scripts/title.js"></script>
     <script src="scripts/wallpaper/module.js"></script>
     <script src="scripts/wallpaper/wallpaper-drtv.js"></script>
     <script src="scripts/wallpaper/wallpaper-srvc.js"></script>
