@@ -60,36 +60,45 @@
         </div>
     </div>
 
-    <div class="col-sm-4" ng-repeat="entry in activities | orderBy:'startsOn'">
-
+    <div class="container-fluid" ng-show="activities.length">
         <div class="panel panel-default">
-            <div class="panel-heading">
-                <div class="pull-right">
-                    <span class="label label-warning" ng-hide="entry.activity.isMemberInstantlyConfirmed" title="The initator wants to manually confirm each participant, so joining doesn't guarantee you a spot">Not Instant</span>
-                    <span class="label label-default" title="Nobody joined so far, there's just the initiator" ng-hide="entry.activity.pendingMembers.length">1</span>
-                    <span class="label label-info" ng-show="entry.activity.pendingMembers.length">
-                        {{entry.activity.allParticipants().length}}
-                    </span>
-                </div>
-                <h4>{{entry.activity.title}}</h4>
-                <blockquote class="condensed blockquote-reverse">
-                    <small>with {{entry.activity.initiator.name || entry.activity.initiator.email}}</small>
-                </blockquote>
-            </div>
+            <div class="panel-heading"><h5>Activities to join</h5></div>
             <div class="panel-body">
-                <p class="text-right">happening on <strong>{{entry.activity.startsOnFormatted()}}</strong></p>
-                <p ng-show="entry.activity.description">{{entry.activity.description}}</p>
+                <div ng-hide="flag.isLoadingJoinableActivities" class="row">
+                    <div class="col-sm-4" ng-repeat="entry in activities | orderBy:'startsOn'">
 
-                <a class="btn btn-block" href="#/activity/{{entry.id}}">more about this...</a>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <div class="pull-right">
+                                    <span class="label label-warning" ng-hide="entry.activity.isMemberInstantlyConfirmed" title="The initator wants to manually confirm each participant, so joining doesn't guarantee you a spot">Not Instant</span>
+                                    <span class="label label-default" title="Nobody joined so far, there's just the initiator" ng-hide="entry.activity.pendingMembers.length">1</span>
+                                    <span class="label label-info" ng-show="entry.activity.pendingMembers.length">
+                                        {{entry.activity.allParticipants().length}}
+                                    </span>
+                                </div>
+                                <h4>{{entry.activity.title}}</h4>
+                                <blockquote class="condensed blockquote-reverse">
+                                    <small>with {{entry.activity.initiator.name || entry.activity.initiator.email}}</small>
+                                </blockquote>
+                            </div>
+                            <div class="panel-body">
+                                <p class="text-right">happening on <strong>{{entry.activity.startsOnFormatted()}}</strong></p>
+                                <p ng-show="entry.activity.description">{{entry.activity.description}}</p>
 
-                <button class="btn btn-lg btn-default btn-block" ng-click="join(entry)" ng-disabled="entry.joined">
-                    <span ng-hide="entry.joining || entry.joined">I want to join this!</span>
-                    <span ng-show="entry.joining &&  !entry.joined">Yup, I'm sure!</span>
-                    <span ng-show="joined">Joined!</span>
-                </button>
+                                <a class="btn btn-block" href="#/activity/{{entry.id}}">more about this...</a>
+
+                                <button class="btn btn-lg btn-default btn-block" ng-click="join(entry)" ng-disabled="entry.joined">
+                                    <span ng-hide="entry.joining || entry.joined">I want to join this!</span>
+                                    <span ng-show="entry.joining &&  !entry.joined">Yup, I'm sure!</span>
+                                    <span ng-show="joined">Joined!</span>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
-
     </div>
 
 </div>
