@@ -23,7 +23,7 @@
             });
         }
 
-        function sendMemberNotificationMessage(member, action, activity, activityPermalink) {
+        function sendMemberNotificationMessage(to, member, action, activity, activityPermalink) {
             $http.post(urlFor('messages/send-template.json'), {
                 'key': apiKey,
                 'template_name': template.member,
@@ -34,7 +34,7 @@
 					//}
                 ],
                 'message': {
-                    'to': toAllActivityStakeholders(activity),
+                    'to': to,
                     'merge': true,
                     'global_merge_vars': [
 						{
@@ -72,7 +72,7 @@
             });
         }
 
-        function sendActivityNotificationMessage(activity, action, activityPermalink) {
+        function sendActivityNotificationMessage(to, activity, action, activityPermalink) {
             $http.post(urlFor('messages/send-template.json'), {
                 'key': apiKey,
                 'template_name': template.activity,
@@ -83,7 +83,7 @@
 					//}
                 ],
                 'message': {
-                    'to': toAllActivityStakeholders(activity),
+                    'to': to,
                     'merge': true,
                     'global_merge_vars': [
                         {
@@ -130,16 +130,16 @@
         }
 
         this.join = function (member, activity, activityId) {
-            sendMemberNotificationMessage(displayNameForIndividual(member), 'joined', displayNameForActivity(activity), generatePermalinkForActivity(activityId));
+            sendMemberNotificationMessage(toAllActivityStakeholders(activity), displayNameForIndividual(member), 'joined', displayNameForActivity(activity), generatePermalinkForActivity(activityId));
         };
         this.bailOut = function (member, activity, activityId) {
-            sendMemberNotificationMessage(displayNameForIndividual(member), 'bailed out of', displayNameForActivity(activity), generatePermalinkForActivity(activityId));
+            sendMemberNotificationMessage(toAllActivityStakeholders(activity), displayNameForIndividual(member), 'bailed out of', displayNameForActivity(activity), generatePermalinkForActivity(activityId));
         };
         this.status = function (activity, oldStatus, activityId) {
-            sendActivityNotificationMessage(displayNameForActivity(activity), 'status changed from ' + oldStatus + ' to ' + activity.friendlyStatus(), displayNameForActivity(activity), generatePermalinkForActivity(activityId));
+            sendActivityNotificationMessage(toAllActivityStakeholders(activity), displayNameForActivity(activity), 'status changed from ' + oldStatus + ' to ' + activity.friendlyStatus(), displayNameForActivity(activity), generatePermalinkForActivity(activityId));
         };
         this.confirmation = function (member, activity, activityId) {
-            sendMemberNotificationMessage(displayNameForIndividual(member), 'was confirmed for', displayNameForActivity(activity), generatePermalinkForActivity(activityId));
+            sendMemberNotificationMessage(toAllActivityStakeholders(activity), displayNameForIndividual(member), 'was confirmed for', displayNameForActivity(activity), generatePermalinkForActivity(activityId));
         };
     }
 
