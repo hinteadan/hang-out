@@ -62,7 +62,7 @@
             store
                 .joinActivity($s.activityEntry.id, $s.activityEntry.token, $s.activityEntry.activity, me)
                 .then(function () {
-                    note.join(me, $s.activityEntry.activity);
+                    note.join(me, $s.activityEntry.activity, $s.activityEntry.id);
                     refresh();
                 }, function (reason) {
                     notify('Cannot join this activity because: ' + reason);
@@ -86,7 +86,7 @@
             store
                 .wrapActivity($s.activityEntry.id, $s.activityEntry.token, $s.activityEntry.activity)
                 .then(function () {
-                    note.status($s.activityEntry.activity, oldStatus);
+                    note.status($s.activityEntry.activity, oldStatus, $s.activityEntry.id);
                     refresh();
                 }, function (reason) {
                     notify('Cannot wrap activity because: ' + reason);
@@ -99,7 +99,7 @@
             store
                 .cancelActivity($s.activityEntry.id, $s.activityEntry.token, $s.activityEntry.activity, cancellationReason)
                 .then(function () {
-                    note.status($s.activityEntry.activity, oldStatus);
+                    note.status($s.activityEntry.activity, oldStatus, $s.activityEntry.id);
                     refresh();
                 }, function (reason) {
                     notify('Cannot cancel activity because: ' + reason);
@@ -110,7 +110,7 @@
             store
                 .bailOut($s.activityEntry.id, $s.activityEntry.token, $s.activityEntry.activity, me, bailOutReason)
                 .then(function () {
-                    note.bailOut(me, $s.activityEntry.activity);
+                    note.bailOut(me, $s.activityEntry.activity, $s.activityEntry.id);
                     refresh();
                 }, function (reason) {
                     notify('Cannot bail out of this activity because: ' + reason);
@@ -121,7 +121,7 @@
             store
                 .confirmParticipant($s.activityEntry.id, $s.activityEntry.token, $s.activityEntry.activity, participant)
                 .then(function () {
-                    note.confirmation(participant, $s.activityEntry.activity);
+                    note.confirmation(participant, $s.activityEntry.activity, $s.activityEntry.id);
                     refresh();
                 }, function (reason) {
                     notify('Cannot confirm because: ' + reason);

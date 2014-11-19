@@ -61,7 +61,7 @@
                 .joinActivity(activityEntry.id, activityEntry.token, activityEntry.activity, me)
                 .then(function () {
                     activityEntry.joined = true;
-                    note.join(me, activityEntry.activity);
+                    note.join(me, activityEntry.activity, activityEntry.id);
                     refresh();
                 }, function (reason) {
                     notify('Cannot join this activity because: ' + reason);
