@@ -6,25 +6,28 @@
         var baseUrl = 'https://mandrillapp.com/api/1.0/',
 			template = {
 			    activity: 'hang-out-activity-notification',
-			    member: 'hang-out-member-notification'
+			    member: 'hang-out-member-notification',
+                authentication: 'hang-out-user-authentication'
 			};
 
         function urlFor(call) {
             return baseUrl + call;
         }
 
+        function toDude(dude) {
+            return {
+                'email': dude.email,
+                'name': dude.name,
+                'type': 'to'
+            };
+        }
+
         function toAllActivityStakeholders(activity) {
-            return _.map(activity.allParticipants(), function (dude) {
-                return {
-                    'email': dude.email,
-                    'name': dude.name,
-                    'type': 'to'
-                };
-            });
+            return _.map(activity.allParticipants(), toDude);
         }
 
         function sendMemberNotificationMessage(to, member, action, activity, activityPermalink) {
-            $http.post(urlFor('messages/send-template.json'), {
+            return $http.post(urlFor('messages/send-template.json'), {
                 'key': apiKey,
                 'template_name': template.member,
                 'template_content': [
@@ -73,7 +76,7 @@
         }
 
         function sendActivityNotificationMessage(to, activity, action, activityPermalink) {
-            $http.post(urlFor('messages/send-template.json'), {
+            return $http.post(urlFor('messages/send-template.json'), {
                 'key': apiKey,
                 'template_name': template.activity,
                 'template_content': [
@@ -117,6 +120,32 @@
             });
         }
 
+        function sendAuthenticationMessage(to, authenticationUrl) {
+            return $http.post(urlFor('messages/send-template.json'), {
+                'key': apiKey,
+                'template_name': template.authentication,
+                'template_content': [
+					//{
+					//	'name': 'example name',
+					//	'content': 'example content'
+					//}
+                ],
+                'message': {
+                    'to': to,
+                    'merge': true,
+                    'global_merge_vars': [
+                        {
+                            'name': 'authLink',
+                            'content': authenticationUrl
+                        }
+                    ],
+                    'tags': [
+						'hang', 'out', 'user', 'authentication'
+                    ]
+                }
+            });
+        }
+
         function displayNameForIndividual(individual) {
             return individual.name ? individual.name + '[' + individual.email + ']' : individual.email;
         }
@@ -130,16 +159,19 @@
         }
 
         this.join = function (member, activity, activityId) {
-            sendMemberNotificationMessage(toAllActivityStakeholders(activity), displayNameForIndividual(member), 'joined', displayNameForActivity(activity), generatePermalinkForActivity(activityId));
+            return sendMemberNotificationMessage(toAllActivityStakeholders(activity), displayNameForIndividual(member), 'joined', displayNameForActivity(activity), generatePermalinkForActivity(activityId));
         };
         this.bailOut = function (member, activity, activityId) {
-            sendMemberNotificationMessage(toAllActivityStakeholders(activity), displayNameForIndividual(member), 'bailed out of', displayNameForActivity(activity), generatePermalinkForActivity(activityId));
+            return sendMemberNotificationMessage(toAllActivityStakeholders(activity), displayNameForIndividual(member), 'bailed out of', displayNameForActivity(activity), generatePermalinkForActivity(activityId));
         };
         this.status = function (activity, oldStatus, activityId) {
-            sendActivityNotificationMessage(toAllActivityStakeholders(activity), displayNameForActivity(activity), 'status changed from ' + oldStatus + ' to ' + activity.friendlyStatus(), displayNameForActivity(activity), generatePermalinkForActivity(activityId));
+            return sendActivityNotificationMessage(toAllActivityStakeholders(activity), displayNameForActivity(activity), 'status changed from ' + oldStatus + ' to ' + activity.friendlyStatus(), displayNameForActivity(activity), generatePermalinkForActivity(activityId));
         };
         this.confirmation = function (member, activity, activityId) {
-            sendMemberNotificationMessage(toAllActivityStakeholders(activity), displayNameForIndividual(member), 'was confirmed for', displayNameForActivity(activity), generatePermalinkForActivity(activityId));
+            return sendMemberNotificationMessage(toAllActivityStakeholders(activity), displayNameForIndividual(member), 'was confirmed for', displayNameForActivity(activity), generatePermalinkForActivity(activityId));
+        };
+        this.authentication = function (dude, authenticationUrl) {
+            return sendAuthenticationMessage([toDude(dude)], authenticationUrl);
         };
     }
 

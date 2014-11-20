@@ -1,5 +1,5 @@
 ﻿<div>
-    <form role="form" ng-submit="login()">
+    <form role="form" ng-submit="login()" ng-hide="isLoginSuccessfull">
         <fieldset>
             <legend>
                 <h1>About yourself</h1>
@@ -17,4 +17,14 @@
             </button>
         </div>
     </form>
+
+    <div class="alert alert-dismissable alert-success" ng-show="isLoginSuccessfull">
+        <button data-dismiss="alert" class="close" type="button">×</button>
+        <strong>Login success!</strong>
+        <p>
+            An authentication email was sent to the provided email address. Please check your inbox to confirm the email address and access the Hang-Out Activity Portal.
+        </p>
+    </div>
+
+
 </div>

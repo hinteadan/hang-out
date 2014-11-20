@@ -14,12 +14,12 @@
         $s.me = me;
         $s.login = function () {
             auth
-            .authenticate(new m.Individual(me.name, me.email))
+            .login(new m.Individual(me.name, me.email))
             .then(function (isSuccess) {
                 if (!isSuccess) {
                     notify('Login Failed!');
                 }
-                $l.path('/');
+                $s.isLoginSuccessfull = true;
             });
         };
     }]);

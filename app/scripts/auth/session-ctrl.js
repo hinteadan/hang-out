@@ -3,7 +3,7 @@
 
     angular.module('hang-out-auth')
     .controller('hangOutSession', ['$scope', '$location', 'hangOutAuth', function ($s, $l, auth) {
-        $s.isAuthenticated = function () { return auth.isAuthenticated; };
+        $s.isAuthenticated = auth.isAuthenticated;
         $s.logout = function () {
             auth
             .signOut()

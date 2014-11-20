@@ -17,10 +17,9 @@
 /// <reference path="app/scripts/notifiy/module.js" />
 /// <reference path="app/scripts/notifiy/notifier.js" />
 
-
-/// <reference path="app/scripts/app.js" />
 /// <reference path="app/scripts/title.js" />
 /// <reference path="app/scripts/auth/module.js" />
+/// <reference path="app/scripts/auth/hasher.js" />
 /// <reference path="app/scripts/auth/auth-svc.js" />
 /// <reference path="app/scripts/create/new-activity-ctrl.js" />
 /// <reference path="app/scripts/create/module.js" />
@@ -33,3 +32,5 @@
 /// <reference path="app/scripts/wallpaper/wallpaper-srvc.js" />
 /// <reference path="app/bower_components/angular-md5/angular-md5.js" />
 /// <reference path="app/bower_components/angular-disqus/angular-disqus.js" />
+
+/// <reference path="app/scripts/app.js" />
