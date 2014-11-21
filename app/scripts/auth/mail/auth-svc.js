@@ -10,8 +10,9 @@
         }
 
         this.login = function (user) {
-            var key = auth.login(user);
-            return notify.authentication(user, generateAuthenticationLink(key));
+            return auth.login(user).then(function (publicKey) {
+                return notify.authentication(user, generateAuthenticationLink(publicKey))
+            });
         };
 
     }]);

@@ -8,7 +8,7 @@
             return;
         }
 
-        var me = new m.Individual(auth.currentUser.name, auth.currentUser.email);
+        var me = auth.currentUser();
 
         title.set('Browse Activities');
 
@@ -19,17 +19,17 @@
             $s.flag.isLoadingMyActivities = true;
             $s.flag.isLoadingJoinedActivities = true;
 
-            store.activitiesToJoin(auth.currentUser.email).then(function (activities) {
+            store.activitiesToJoin(me.email).then(function (activities) {
                 $s.flag.isLoadingJoinableActivities = false;
                 $s.activities = activities;
             });
 
-            store.activitiesFor(auth.currentUser).then(function (activities) {
+            store.activitiesFor(me).then(function (activities) {
                 $s.flag.isLoadingMyActivities = false;
                 $s.myActivities = activities;
             });
 
-            store.activitiesAppliedToFor(auth.currentUser).then(function (activities) {
+            store.activitiesAppliedToFor(me).then(function (activities) {
                 $s.flag.isLoadingJoinedActivities = false;
                 $s.joinedActivities = activities;
             });
@@ -74,7 +74,7 @@
                 });
         };
 
-        refresh();
+        $t(refresh);
     }]);
 
 }).call(this, this.angular, this.alert);

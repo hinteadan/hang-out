@@ -33,19 +33,23 @@
         }
 
         this.isAuthenticated = isUserAuthenticated;
-        this.currentUser = currentUser;
+        this.currentUser = function () { return currentUser; };
 
         this.login = function (user) {
-            var publicKey = generateUserKey(user),
+            var deff = $q.defer(),
+                publicKey = generateUserKey(user),
                 privateKey = generateUserKey(user);
 
+            currentUser = user;
             cleanStore();
 
             store[storeKey.user] = JSON.stringify(user);
             store[storeKey.public] = publicKey;
             store[publicKey] = privateKey;
 
-            return publicKey;
+            deff.resolve(publicKey);
+
+            return deff.promise;
         };
 
         this.authenticate = function (publicKey) {
@@ -69,7 +73,7 @@
         this.signOut = function () {
             var deff = $q.defer();
             cleanStore();
-            this.currentUser = currentUser = null;
+            currentUser = null;
             deff.resolve(true);
             return deff.promise;
         };

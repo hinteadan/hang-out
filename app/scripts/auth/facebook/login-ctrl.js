@@ -11,12 +11,14 @@
                         response.first_name + ' ' + response.last_name,
                         response.email,
                         response.link)
-                        .setAvatar('http://graph.facebook.com/' + response.id + '/picture?type=large'),
-                        publicKey = auth.login(user);
+                        .setAvatar('http://graph.facebook.com/' + response.id + '/picture?type=large');
 
-                    auth.authenticate(publicKey).then(function () {
-                        $l.path('/');
-                    });
+                    auth
+                        .login(user)
+                        .then(auth.authenticate)
+                        .then(function () {
+                            $l.path('/');
+                        });
                 });
             });
         };

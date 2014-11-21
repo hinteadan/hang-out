@@ -13,7 +13,7 @@
             }
 
             if (auth.isAuthenticated()) {
-                $root.user = auth.currentUser;
+                $root.user = auth.currentUser();
                 return;
             }
 

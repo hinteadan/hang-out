@@ -8,7 +8,7 @@
             return;
         }
 
-        var me = new m.Individual(auth.currentUser.name, auth.currentUser.email);
+        var me = auth.currentUser();
 
         function refresh() {
             $s.flag.isLoadingActivity = true;

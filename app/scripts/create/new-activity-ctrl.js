@@ -14,7 +14,7 @@
             return angular.isDate(value) ? value.getTime() : Number(value);
         }
 
-        var me = new m.Individual(auth.currentUser.name, auth.currentUser.email),
+        var me = auth.currentUser(),
             activity = new m.Activity(me);
 
         $s.suggestPlacesFor = suggest.places;
