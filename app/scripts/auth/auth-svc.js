@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('hang-out-auth')
-    .service('hangOutAuth', ['$q', 'model-mapper', 'hasher', 'hangOutNotifier', function ($q, map, hasher, notify) {
+    .service('hangOutAuth', ['$q', 'model-mapper', 'hasher', function ($q, map, hasher) {
         var storeKey = { user: 'hang-out-current-user', public: 'hang-out-current-user-public-key' },
             token = null,
             currentUser = store[storeKey.user] ? map.user(JSON.parse(store[storeKey.user])) : null;
@@ -13,10 +13,6 @@
 
         function generateToken(key, user) {
             return hasher.hash(key + user.name + user.email);
-        }
-
-        function generateAuthenticationLink(key){
-            return 'http://h-hang-out.azurewebsites.net/#!/authenticate/' + key;
         }
 
         function cleanStore() {
@@ -47,7 +43,7 @@
             store[storeKey.public] = publicKey;
             store[publicKey] = privateKey;
 
-            return notify.authentication(user, generateAuthenticationLink(publicKey));
+            return publicKey;
         };
 
         this.authenticate = function (publicKey) {

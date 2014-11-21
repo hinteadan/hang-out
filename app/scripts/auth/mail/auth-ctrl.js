@@ -1,8 +1,8 @@
 ﻿(function (angular) {
     'use strict';
 
-    angular.module('hang-out-auth')
-    .controller('hangOutAuth', ['$scope', '$routeParams', '$location', 'hangOutAuth', function ($s, $p, $l, auth) {
+    angular.module('hang-out-auth-mail')
+    .controller('hangOutMailAuth', ['$scope', '$routeParams', '$location', 'hangOutAuth', function ($s, $p, $l, auth) {
 
         var publicKey = $p.key;
 

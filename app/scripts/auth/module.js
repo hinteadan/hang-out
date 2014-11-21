@@ -1,11 +1,10 @@
 ﻿(function (angular) {
     'use strict';
 
-    angular.module('hang-out-auth', ['ngRoute', 'hang-out', 'hang-out-notify'])
+    angular.module('hang-out-auth', ['ngRoute', 'hang-out', 'hang-out-auth-mail', 'hang-out-auth-facebook'])
     .config(['$routeProvider', function ($route) {
         $route
-            .when('/you', { templateUrl: 'scripts/auth/login.tmpl.html', controller: 'hangOutLogin', isPublic: true })
-            .when('/authenticate/:key', { templateUrl: 'scripts/auth/authenticate.tmpl.html', controller: 'hangOutAuth', isPublic: true });
+            .when('/you', { templateUrl: 'scripts/auth/login.tmpl.html', controller: 'hangOutLogin', isPublic: true });
     }])
     .run(['$rootScope', '$location', 'hangOutAuth', function ($root, $l, auth) {
         $root.$on('$routeChangeStart', function (event, route) {
