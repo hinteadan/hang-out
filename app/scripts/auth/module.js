@@ -1,7 +1,7 @@
 ﻿(function (angular) {
     'use strict';
 
-    angular.module('hang-out-auth', ['ngRoute', 'hang-out', 'hang-out-auth-mail', 'hang-out-auth-facebook'])
+    angular.module('hang-out-auth', ['ngRoute', 'hang-out', 'hang-out-auth-mail', 'hang-out-auth-facebook', 'hang-out-auth-google'])
     .config(['$routeProvider', function ($route) {
         $route
             .when('/you', { templateUrl: 'scripts/auth/login.tmpl.html', controller: 'hangOutLogin', isPublic: true });

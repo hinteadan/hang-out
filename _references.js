@@ -20,6 +20,7 @@
 /// <reference path="app/scripts/auth/auth-svc.js" />
 /// <reference path="app/scripts/create/new-activity-ctrl.js" />
 /// <reference path="app/bower_components/angular-google-maps/dist/angular-google-maps.js" />
+/// <reference path="app/bower_components/angular-google-plus/dist/angular-google-plus.js" />
 /// <reference path="app/scripts/suggestions/model.js" />
 /// <reference path="app/scripts/suggestions/suggester.js" />
 /// <reference path="app/scripts/wallpaper/wallpaper-drtv.js" />
@@ -28,6 +29,7 @@
 /// <reference path="app/bower_components/angular-disqus/angular-disqus.js" />
 /// <reference path="app/bower_components/ng-facebook/ngFacebook.js" />
 
+/// <reference path="app/scripts/auth/google/module.js" />
 /// <reference path="app/scripts/notifiy/module.js" />
 /// <reference path="app/scripts/hang-out-core/module.js" />
 /// <reference path="app/scripts/create/module.js" />
