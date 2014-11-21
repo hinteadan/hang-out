@@ -39,6 +39,8 @@
             var publicKey = generateUserKey(user),
                 privateKey = generateUserKey(user);
 
+            cleanStore();
+
             store[storeKey.user] = JSON.stringify(user);
             store[storeKey.public] = publicKey;
             store[publicKey] = privateKey;

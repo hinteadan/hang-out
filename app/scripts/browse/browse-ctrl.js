@@ -4,7 +4,7 @@
     angular.module('hang-out-browse')
     .controller('hangOutBrowseCtrl', ['$scope', '$location', '$timeout', 'hangOutAuth', 'hangOutNotifier', 'dataStore', 'model', 'title', function ($s, $l, $t, auth, note, store, m, title) {
 
-        if (!auth.isAuthenticated) {
+        if (!auth.isAuthenticated()) {
             return;
         }
 

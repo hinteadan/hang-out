@@ -5,7 +5,8 @@
     .service('hangOutMailAuth', ['hangOutAuth', 'hangOutNotifier', function (auth, notify) {
         
         function generateAuthenticationLink(key) {
-            return 'http://h-hang-out.azurewebsites.net/#!/authenticate/' + key;
+            return 'http://localhost:9899/#!/authenticate/' + key;
+            //return 'http://h-hang-out.azurewebsites.net/#!/authenticate/' + key;
         }
 
         this.login = function (user) {

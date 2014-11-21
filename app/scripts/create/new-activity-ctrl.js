@@ -4,7 +4,7 @@
     angular.module('hang-out-create')
     .controller('hangOutNewActivityCtrl', ['$scope', '$location', '$timeout', 'hangOutAuth', 'dataStore', 'model', 'model-mapper', 'hangOutSuggester', 'title', function ($s, $l, $t, auth, store, m, map, suggest, title) {
 
-        if (!auth.isAuthenticated) {
+        if (!auth.isAuthenticated()) {
             return;
         }
 
