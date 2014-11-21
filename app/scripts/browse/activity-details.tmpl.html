@@ -22,7 +22,7 @@
             <div class="panel-body">
                 <ul class="list-unstyled list-inline">
                     <li>
-                        <img class="profile-image img-rounded" ng-src="{{activity.initiator.gravatarProfileImageUrl(40)}}" />
+                        <img class="profile-image img-rounded" ng-src="{{activity.initiator.avatar(40)}}" />
                         <span ng-show="activity.initiator.name">
                             {{activity.initiator.name}}
                             <small class="text-muted">[{{activity.initiator.email}}]</small>
@@ -36,7 +36,7 @@
                         </span>
                     </li>
                     <li ng-repeat="dude in activity.confirmedMembers track by dude.email">
-                        <img class="profile-image img-rounded" ng-src="{{dude.gravatarProfileImageUrl(40)}}" />
+                        <img class="profile-image img-rounded" ng-src="{{dude.avatar(40)}}" />
                         <span ng-show="dude.name">
                             {{dude.name}}
                             <small class="text-muted">[{{dude.email}}]</small>
@@ -59,7 +59,7 @@
             <div class="panel-body">
                 <ul class="list-unstyled list-inline">
                     <li ng-repeat="dude in activity.allParticipants() track by dude.email">
-                        <img class="profile-image img-rounded" ng-src="{{dude.gravatarProfileImageUrl(40)}}" />
+                        <img class="profile-image img-rounded" ng-src="{{dude.avatar(40)}}" />
                         <span ng-show="dude.name">
                             {{dude.name}}
                             <small class="text-muted">[{{dude.email}}]</small>
