@@ -6,6 +6,9 @@
 
         function authenticateUser() {
             $fb.api("/me").then(function (response) {
+                if (!response.email) {
+                    return;
+                }
                 var user = new m.Individual(
                         response.first_name + ' ' + response.last_name,
                         response.email,
