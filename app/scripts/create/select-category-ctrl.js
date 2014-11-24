@@ -2,13 +2,14 @@
     'use strict';
 
     angular.module('hang-out-create')
-    .controller('selectCategoryCtrl', ['$scope', '$location', 'hangOutAuth', 'hangOutSuggester', 'title', 'activityWizard', function ($s, $l, auth, suggest, title, wiz) {
+    .controller('selectCategoryCtrl', ['$scope', '$location', 'hangOutAuth', 'hangOutSuggester', 'title', 'activityWizard', 'footer', function ($s, $l, auth, suggest, title, wiz, footer) {
 
         if (!auth.isAuthenticated()) {
             return;
         }
 
         title.set('Select Category');
+        footer.template('scripts/create/footer-skip.tmpl.html');
 
         function cssUrl(url) {
             return 'url(\'' + url + '\')';
