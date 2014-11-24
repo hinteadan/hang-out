@@ -7,7 +7,7 @@
                 </legend>
             </fieldset>
             <div class="form-group">
-                <input type="email" class="form-control" ng-model="me.email" placeholder="Email address" />
+                <input type="email" class="form-control" ng-model="me.email" placeholder="Email address" typeahead="email for email in emails() | filter:$viewValue | limitTo:10" typeahead-focus-first="false" />
             </div>
             <div class="form-group">
                 <input type="text" class="form-control" ng-model="me.name" placeholder="Full name" />
