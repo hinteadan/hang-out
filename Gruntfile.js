@@ -108,7 +108,8 @@ module.exports = function (grunt) {
               '<%= yeoman.app %>/scripts/{,*/}*.js',
               '!<%= yeoman.app %>/scripts/quant.js',
               '!<%= yeoman.app %>/scripts/data/activities.js',
-              '!<%= yeoman.app %>/scripts/data/places.js'
+              '!<%= yeoman.app %>/scripts/data/places.js',
+              '!<%= yeoman.app %>/scripts/data/categories.js'
             ]
         },
 
