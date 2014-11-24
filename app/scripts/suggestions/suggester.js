@@ -1,7 +1,7 @@
 ﻿(function (angular, _) {
     'use strict';
 
-    function MatchResult(){
+    function MatchResult() {
         this.isMatch = false;
         this.weight = 0;
         this.or = function (otherMatch) {
@@ -61,6 +61,15 @@
             return result;
         }
 
+        function fetchActivitiesForCategory(category) {
+            return _allActivities
+                .filter(function (a) {
+                    return _.contains(a.categories, category);
+                })
+                .sortBy('title')
+                .value();
+        }
+
         function suggestPlacesFor(searchKey, activity) {
             var placesToSearch = !angular.isObject(activity) ? _allPlaces : _allPlaces.filter(function (p) {
                     return _.any(p.tags, function (pt) {
@@ -109,6 +118,7 @@
         }
 
         this.activities = suggestActivitesFor;
+        this.activitiesForCategory = fetchActivitiesForCategory;
         this.wallpapers = fetchWallpapersFromActivities;
         this.places = suggestPlacesFor;
         this.categories = fetchAllCategories;

@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('hang-out-create')
-    .controller('hangOutNewActivityCtrl', ['$scope', '$location', '$timeout', 'hangOutAuth', 'dataStore', 'model', 'model-mapper', 'hangOutSuggester', 'title', function ($s, $l, $t, auth, store, m, map, suggest, title) {
+    .controller('hangOutNewActivityCtrl', ['$scope', '$location', '$timeout', 'hangOutAuth', 'dataStore', 'model', 'model-mapper', 'hangOutSuggester', 'title', 'activityWizard', function ($s, $l, $t, auth, store, m, map, suggest, title, wiz) {
 
         if (!auth.isAuthenticated()) {
             return;
@@ -14,8 +14,19 @@
             return angular.isDate(value) ? value.getTime() : Number(value);
         }
 
+        function applySuggestedActivity(suggestion) {
+            if (!suggestion) {
+                return;
+            }
+            activity.title = suggestion.title;
+            activity.imageUrl = suggestion.imageUrl;
+            activity.logoUrl = suggestion.logoUrl;
+        }
+
         var me = auth.currentUser(),
             activity = new m.Activity(me);
+
+        applySuggestedActivity(wiz.activity());
 
         $s.suggestPlacesFor = suggest.places;
         $s.suggestActivitiesFor = suggest.activities;
@@ -31,9 +42,7 @@
         $s.suggestedActivity = null;
         $s.onActivitySelection = function ($item, $model, $label) {
             /*jshint unused:false*/
-            activity.title = $model.title;
-            activity.imageUrl = $model.imageUrl;
-            activity.logoUrl = $model.logoUrl;
+            applySuggestedActivity($model);
         };
         $s.isValid = function () {
             return activity.title && activity.startsOn && activity.place.name;

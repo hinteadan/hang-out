@@ -2,7 +2,7 @@
 
     <div class="row">
         <div class="col-xs-6" ng-repeat="category in categories">
-            <div class="panel panel-default clickable thumb" ng-style="{ 'background-image': cssUrl(category.logo) }">
+            <div class="panel panel-default clickable thumb" ng-click="select(category)" ng-style="{ 'background-image': cssUrl(category.logo) }">
                 <div class="panel-body thumb-medium">
                 </div>
                 <div class="panel-footer text-capitalize text-center">

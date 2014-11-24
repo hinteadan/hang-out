@@ -1,0 +1,19 @@
+﻿<div>
+    
+    <div class="list-group">
+        <a class="list-group-item clickable" ng-repeat="activity in activities" ng-click="select(activity)">
+            <h4 class="list-group-item-heading">
+                <span class="suggestion-item-thumb valign-middle" ng-show="activity.logoUrl" ng-style="{ 'background-image': cssUrl(activity.logoUrl) }"></span>
+                {{activity.title}}
+            </h4>
+            <p class="list-group-item-text" ng-show="activity.description">{{activity.description}}</p>
+        </a>
+    </div>
+
+    <div class="form-group">
+        <a href="#!/new" class="btn btn-lg btn-default btn-block">
+            ... or add a new one
+        </a>
+    </div>
+
+</div>

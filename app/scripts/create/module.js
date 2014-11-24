@@ -5,6 +5,7 @@
     .config(['$routeProvider', function ($route) {
         $route
             .when('/new/category', { templateUrl: 'scripts/create/select-category.tmpl.html', controller: 'selectCategoryCtrl' })
+            .when('/new/activity', { templateUrl: 'scripts/create/select-activity.tmpl.html', controller: 'selectActivityCtrl' })
             .when('/new', { templateUrl: 'scripts/create/new-activity.tmpl.html', controller: 'hangOutNewActivityCtrl' });
     }]);
 
