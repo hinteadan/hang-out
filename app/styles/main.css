@@ -75,19 +75,23 @@ blockquote.condensed {
     transition: all linear 6s;
 }
 
-img.profile-image-brand {
-    display: inline;
+.profile-image-brand {
+    display: inline-block;
     vertical-align: middle;
     width: 20px;
     height: 20px;
+    background-position: center center;
+    background-size: cover;
 }
 
-img.profile-image {
-    display: inline;
+.profile-image {
+    display: inline-block;
     vertical-align: middle;
     margin: 3px;
     width: 40px;
     height: 40px;
+    background-position: center center;
+    background-size: cover;
 }
 
 .thumb {
