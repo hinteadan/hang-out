@@ -22,7 +22,10 @@
     <wallpaper></wallpaper>
 
     <div class="navbar navbar-inverse clearfix" role="navigation" ng-controller="hangOutSession">
-        <div class="navbar-header">
+        <div class="navbar-header navbar-header-full">
+            <div class="navbar-secondhand-options" ng-show="isAuthenticated()" ng-cloak>
+                <span class="clickable" ng-click="logout()">Logout</span>
+            </div>
             <a class="navbar-brand" href="#!/">
                 <img class="profile-image-brand" ng-src="{{user.avatar(20)}}" ng-show="isAuthenticated()" ng-cloak />
                 Hang-Out
@@ -30,13 +33,6 @@
                 <small ng-hide="isAuthenticated()">Activity Portal</small>
                 <small ng-show="isAuthenticated()" ng-cloak><em>as</em>&nbsp;<strong title="{{user.email}}">{{user.name || user.email}}</strong></small>
             </a>
-        </div>
-        <div class="navbar-collapse" ng-show="isAuthenticated()" ng-cloak>
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a class="clickable" ng-click="logout()">Logout</a>
-                </li>
-            </ul>
         </div>
     </div>
 

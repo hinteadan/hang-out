@@ -97,3 +97,17 @@ img.profile-image {
 .navbar-brand small {
     font-size: 10px;
 }
+
+.navbar-header-full {
+    width: 100%;
+}
+
+.navbar-secondhand-options {
+    color: #ffffff;
+    float: right;
+    margin-bottom: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+    padding: 9px 10px;
+    position: relative;
+}

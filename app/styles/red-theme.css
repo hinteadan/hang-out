@@ -65,7 +65,8 @@
 }
 
 .red-theme .navbar-inverse .navbar-nav > li > a,
-.red-theme .navbar-inverse .navbar-brand {
+.red-theme .navbar-inverse .navbar-brand,
+.red-theme .navbar-secondhand-options {
     color: #ffeeef;
 }
 
