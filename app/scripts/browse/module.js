@@ -5,7 +5,8 @@
     .constant('disqusAppShortName', 'h-hang-out')
     .config(['$routeProvider', '$disqusProvider', 'disqusAppShortName', function ($route, $disqus, dsqAppName) {
         $route
-            .when('/browse', { templateUrl: 'scripts/browse/browse.tmpl.html', controller: 'hangOutBrowseCtrl' })
+            .when('/browse', { templateUrl: 'scripts/browse/browse-options.tmpl.html', controller: 'hangOutBrowseOptionsCtrl' })
+            //.when('/browse', { templateUrl: 'scripts/browse/browse.tmpl.html', controller: 'hangOutBrowseCtrl' })
             .when('/activity/:id', { templateUrl: 'scripts/browse/activity-details.tmpl.html', controller: 'hangOutActivityDetailsCtrl' });
         $disqus.setShortname(dsqAppName);
     }]);
