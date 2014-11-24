@@ -89,3 +89,11 @@ img.profile-image {
     width: 40px;
     height: 40px;
 }
+
+.navbar-brand {
+    padding-top: 7.5px;
+}
+
+.navbar-brand small {
+    font-size: 10px;
+}
