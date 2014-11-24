@@ -21,12 +21,11 @@
             activity.title = suggestion.title;
             activity.imageUrl = suggestion.imageUrl;
             activity.logoUrl = suggestion.logoUrl;
+            $s.suggestedActivity = suggestion;
         }
 
         var me = auth.currentUser(),
             activity = new m.Activity(me);
-
-        applySuggestedActivity(wiz.activity());
 
         $s.suggestPlacesFor = suggest.places;
         $s.suggestActivitiesFor = suggest.activities;
@@ -88,6 +87,7 @@
             });
         };
 
+        applySuggestedActivity(wiz.activity());
     }]);
 
 }).call(this, this.angular, this.alert);
