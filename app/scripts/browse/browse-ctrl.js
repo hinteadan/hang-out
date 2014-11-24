@@ -1,80 +1,62 @@
-﻿(function (angular, notify) {
+﻿(function (angular) {
     'use strict';
 
     angular.module('hang-out-browse')
-    .controller('hangOutBrowseCtrl', ['$scope', '$location', '$timeout', 'hangOutAuth', 'hangOutNotifier', 'dataStore', 'model', 'title', function ($s, $l, $t, auth, note, store, m, title) {
+    .controller('hangOutBrowseCtrl', ['$scope', '$location', '$routeParams', '$timeout', 'hangOutAuth', 'hangOutNotifier', 'dataStore', 'model', 'title', function ($s, $l, $p, $t, auth, note, store, m, title) {
 
         if (!auth.isAuthenticated()) {
             return;
         }
 
-        var me = auth.currentUser();
-
-        title.set('Browse Activities');
+        var type = {
+                mine: 'mine',
+                joined: 'joined',
+                open: 'open'
+            },
+            desiredType = !$p.type ? type.open : $p.type === type.mine ? type.mine : $p.type === type.joined ? type.joined : type.open,
+            me = auth.currentUser();
 
         //wall.setWallpapers(suggest.wallpapers());
 
+        function generateTitle() {
+            switch (desiredType) {
+                case type.mine: return 'My Activities';
+                case type.joined: return 'Joined Activities';
+                case type.open: return 'Activities to join';
+            }
+        }
+
+        title.set(generateTitle());
+
+        function fetchDesiredActivites() {
+            switch (desiredType) {
+                case type.mine: return store.activitiesFor(me);
+                case type.joined: return store.activitiesAppliedToFor(me);
+                case type.open: return store.activitiesToJoin(me);
+            }
+        }
+
         function refresh() {
-            $s.flag.isLoadingJoinableActivities = true;
-            $s.flag.isLoadingMyActivities = true;
-            $s.flag.isLoadingJoinedActivities = true;
+            $s.flag.isLoadingActivities = true;
 
-            store.activitiesToJoin(me.email).then(function (activities) {
-                $s.flag.isLoadingJoinableActivities = false;
+            fetchDesiredActivites().then(function (activities) {
+                $s.flag.isLoadingActivities = false;
                 $s.activities = activities;
-            });
-
-            store.activitiesFor(me).then(function (activities) {
-                $s.flag.isLoadingMyActivities = false;
-                $s.myActivities = activities;
-            });
-
-            store.activitiesAppliedToFor(me).then(function (activities) {
-                $s.flag.isLoadingJoinedActivities = false;
-                $s.joinedActivities = activities;
             });
         }
 
+        $s.title = generateTitle;
+        $s.type = desiredType;
         $s.flag = {
-            isLoadingJoinableActivities: false,
-            isLoadingMyActivities: false,
-            isLoadingJoinedActivities: false
+            isLoadingActivities: false,
         };
         $s.activities = [];
-        $s.myActivities = [];
-        $s.joinedActivities = [];
 
         $s.openActivity = function (id) {
             $l.path('/activity/' + id);
         };
 
-        $s.join = function (activityEntry) {
-
-            var p = null;
-
-            if (!activityEntry.joining) {
-                activityEntry.joining = true;
-                p = $t(function () {
-                    delete activityEntry.joining;
-                }, 4000);
-                return;
-            }
-
-            $t.cancel(p);
-            delete activityEntry.joining;
-
-            store
-                .joinActivity(activityEntry.id, activityEntry.token, activityEntry.activity, me)
-                .then(function () {
-                    activityEntry.joined = true;
-                    note.join(me, activityEntry.activity, activityEntry.id);
-                    refresh();
-                }, function (reason) {
-                    notify('Cannot join this activity because: ' + reason);
-                });
-        };
-
         $t(refresh);
     }]);
 
-}).call(this, this.angular, this.alert);
+}).call(this, this.angular);

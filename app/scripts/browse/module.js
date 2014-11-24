@@ -1,12 +1,13 @@
 ﻿(function (angular) {
     'use strict';
 
-    angular.module('hang-out-browse', ['ngDisqus', 'hang-out', 'hang-out-auth', 'hang-out-wallpaper', 'hang-out-suggestions', 'hang-out-notify'])
+    angular.module('hang-out-browse', ['ngDisqus', 'ngRoute', 'hang-out', 'hang-out-auth', 'hang-out-wallpaper', 'hang-out-suggestions', 'hang-out-notify'])
     .constant('disqusAppShortName', 'h-hang-out')
     .config(['$routeProvider', '$disqusProvider', 'disqusAppShortName', function ($route, $disqus, dsqAppName) {
         $route
             .when('/browse', { templateUrl: 'scripts/browse/browse-options.tmpl.html', controller: 'hangOutBrowseOptionsCtrl' })
-            //.when('/browse', { templateUrl: 'scripts/browse/browse.tmpl.html', controller: 'hangOutBrowseCtrl' })
+            .when('/activities', { templateUrl: 'scripts/browse/browse.tmpl.html', controller: 'hangOutBrowseCtrl' })
+            .when('/activities/:type', { templateUrl: 'scripts/browse/browse.tmpl.html', controller: 'hangOutBrowseCtrl' })
             .when('/activity/:id', { templateUrl: 'scripts/browse/activity-details.tmpl.html', controller: 'hangOutActivityDetailsCtrl' });
         $disqus.setShortname(dsqAppName);
     }]);

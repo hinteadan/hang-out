@@ -39,6 +39,9 @@
 .red-theme a.btn{
     color: #ffffff;
 }
+.red-theme a.btn-default{
+    color: #666666;
+}
 
 .red-theme select:focus, .red-theme select.form-control:focus {
     box-shadow: 0 -2px 0 #ff5f6b inset;
