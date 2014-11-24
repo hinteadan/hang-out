@@ -4,26 +4,29 @@
     angular.module('hang-out-auth-mail')
     .controller('hangOutMailLogin', ['$scope', '$location', 'hangOutMailAuth', 'model', function ($s, $l, auth, m) {
 
-        var storeKey = 'hang-out-user-emails',
-            userEmails = store[storeKey] ? JSON.parse(store[storeKey]) : [],
+        var storeKey = 'hang-out-user-suggestions',
+            userSuggestions = store[storeKey] ? JSON.parse(store[storeKey]) : [],
             me = {
                 email: null,
                 name: null
             };
 
-        function storeUserEmail() {
+        function storeUserSuggestion() {
             if (!me.email) {
                 return;
             }
-            userEmails.push(me.email);
-            userEmails = _.uniq(userEmails, function (email) { return email.toLowerCase(); });
-            store[storeKey] = JSON.stringify(userEmails);
+            userSuggestions.push(me);
+            userSuggestions = _.uniq(userSuggestions, function (dude) { return dude.email.toLowerCase(); });
+            store[storeKey] = JSON.stringify(userSuggestions);
         }
 
         $s.me = me;
-        $s.emails = function () { return userEmails; };
+        $s.suggestions = function () { return userSuggestions; };
+        $s.selectSuggestion = function ($item) {
+            $s.me = me = $item;
+        }
         $s.login = function () {
-            storeUserEmail();
+            storeUserSuggestion();
             auth
             .login(new m.Individual(me.name, me.email))
             .then(function (isSuccess) {

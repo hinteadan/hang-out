@@ -7,10 +7,16 @@
                 </legend>
             </fieldset>
             <div class="form-group">
-                <input type="email" class="form-control" ng-model="me.email" placeholder="Email address" typeahead="email for email in emails() | filter:$viewValue | limitTo:10" typeahead-focus-first="false" />
+                <input type="email" class="form-control" ng-model="me.email" placeholder="Email address"
+                       typeahead="email as s.email for s in suggestions() | filter:$viewValue"
+                       typeahead-focus-first="false"
+                       typeahead-on-select="selectSuggestion($item, $model, $label)" />
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" ng-model="me.name" placeholder="Full name" />
+                <input type="text" class="form-control" ng-model="me.name" placeholder="Full name"
+                       typeahead="name as s.name for s in suggestions() | filter:$viewValue"
+                       typeahead-focus-first="false"
+                       typeahead-on-select="selectSuggestion($item, $model, $label)" />
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-lg btn-primary btn-block" ng-disabled="!me.email || !me.name">
