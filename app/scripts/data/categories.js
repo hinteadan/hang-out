@@ -5,7 +5,7 @@
     .constant('hangOutActivityCategories', [
   {
       "category": "indoor",
-      "image": "https://tsnra.files.wordpress.com/2012/03/hiking-family.jpg",
+      "image": "http://thumbs.dreamstime.com/x/cartoon-house-mascot-24058163.jpg",
       "Other": null
   },
   {

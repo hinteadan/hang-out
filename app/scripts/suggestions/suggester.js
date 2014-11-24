@@ -100,8 +100,8 @@
                 .map(function (c) { return new model.Category(c.category, c.image) })
                 .unique(function (cat) {
                     return cat.name;
-                })
-                .sortBy('name');
+                });
+
                 categories = _categories.value();
             }
 
