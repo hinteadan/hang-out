@@ -37,7 +37,9 @@
         var allActivities = _.map(activitiesDto, model.Activity.new),
             _allActivities = _(allActivities),
             allPlaces = _.map(placesDto, model.Place.new),
-            _allPlaces = _(allPlaces);
+            _allPlaces = _(allPlaces),
+            _categories = null,
+            categories = null;
 
         function suggestActivitesFor(searchKey) {
             var keysToSearch = splitSearchKey(searchKey),
@@ -92,9 +94,25 @@
                 .value();
         }
 
+        function fetchAllCategories() {
+            if (!_categories) {
+                _categories = _allActivities
+                .map(function (a) { return a.toCategories(); })
+                .flatten(true)
+                .unique(function (cat) {
+                    return cat.name;
+                })
+                .sortBy('name');
+                categories = _categories.value();
+            }
+
+            return categories;
+        }
+
         this.activities = suggestActivitesFor;
         this.wallpapers = fetchWallpapersFromActivities;
         this.places = suggestPlacesFor;
+        this.categories = fetchAllCategories;
     }
 
     angular.module('hang-out-suggestions')

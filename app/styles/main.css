@@ -90,6 +90,17 @@ img.profile-image {
     height: 40px;
 }
 
+.thumb {
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.thumb-medium {
+    height: 100px;
+}
+
 .navbar-brand .subtitle {
     font-size: 10px;
     position: absolute;
