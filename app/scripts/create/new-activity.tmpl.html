@@ -29,6 +29,9 @@
                     <span ng-hide="activity.isMemberInstantlyConfirmed">You will manually confirm members</span>
                 </button>
             </div>
+            <div class="form-group" ng-show="activity.isMemberInstantlyConfirmed">
+                <input type="number" class="form-control" ng-model="activity.maxInstantConfirms" placeholder="Maximum number of participants to instantly accept" />
+            </div>
             <div class="form-group" ng-hide="isSimpleView">
                 <textarea type="text" class="form-control vertical-resize" ng-model="activity.description" placeholder="Description"></textarea>
             </div>
