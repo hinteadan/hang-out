@@ -29,9 +29,7 @@
             <a class="navbar-brand" href="#!/">
                 <img class="profile-image-brand" ng-src="{{user.avatar(20)}}" ng-show="isAuthenticated()" ng-cloak />
                 Hang-Out
-                <br />
-                <small ng-hide="isAuthenticated()">Activity Portal</small>
-                <small ng-show="isAuthenticated()" ng-cloak><em>as</em>&nbsp;<strong title="{{user.email}}">{{user.name || user.email}}</strong></small>
+                <small class="subtitle" ng-show="isAuthenticated()" ng-cloak><em>as</em>&nbsp;<strong title="{{user.email}}">{{user.name || user.email}}</strong></small>
             </a>
         </div>
     </div>

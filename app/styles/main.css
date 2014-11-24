@@ -90,12 +90,11 @@ img.profile-image {
     height: 40px;
 }
 
-.navbar-brand {
-    padding-top: 7.5px;
-}
-
-.navbar-brand small {
+.navbar-brand .subtitle {
     font-size: 10px;
+    position: absolute;
+    top:46px;
+    left: 15px;
 }
 
 .navbar-header-full {
