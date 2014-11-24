@@ -21,6 +21,11 @@
             activity = activityToStore;
         };
 
+        this.reset = function () {
+            category = null;
+            activity = null;
+        };
+
     }]);
 
 }).call(this, this.angular);

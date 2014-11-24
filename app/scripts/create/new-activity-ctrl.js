@@ -88,6 +88,7 @@
         };
 
         applySuggestedActivity(wiz.activity());
+        wiz.reset();
     }]);
 
 }).call(this, this.angular, this.alert);
