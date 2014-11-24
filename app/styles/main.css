@@ -1,5 +1,25 @@
-﻿[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+﻿html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 80px;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
     display: none !important;
+}
+
+.container-fluid{
+    margin-bottom: 80px;
+}
+
+.footer {
+    bottom: 0;
+    height: 60px;
+    position: absolute;
+    width: 100%;
 }
 
 .clickable {
