@@ -1,4 +1,4 @@
-﻿(function (angular, window) {
+﻿(function (angular) {
     'use strict';
 
     var template = null;
@@ -17,9 +17,9 @@
         };
     }])
     .run(['$rootScope', 'footer', function ($root, footer) {
-        $root.$on('$routeChangeStart', function (event, route) {
+        $root.$on('$routeChangeStart', function () {
             footer.reset();
         });
-    }]);;
+    }]);
 
-}).call(this, this.angular, this.window);
+}).call(this, this.angular);
