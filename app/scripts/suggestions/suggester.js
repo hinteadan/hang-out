@@ -97,7 +97,7 @@
         function fetchAllCategories() {
             if (!_categories) {
                 _categories = _(categoriesDto)
-                .map(function (c) { return new model.Category(c.category, c.image) })
+                .map(function (c) { return new model.Category(c.category, c.image); })
                 .unique(function (cat) {
                     return cat.name;
                 });
