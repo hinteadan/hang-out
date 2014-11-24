@@ -32,7 +32,7 @@
         return subject.toLowerCase().indexOf(key.toLowerCase()) >= 0;
     }
 
-    function Suggester(model, activitiesDto, placesDto) {
+    function Suggester(model, activitiesDto, placesDto, categoriesDto) {
 
         var allActivities = _.map(activitiesDto, model.Activity.new),
             _allActivities = _(allActivities),
@@ -96,9 +96,8 @@
 
         function fetchAllCategories() {
             if (!_categories) {
-                _categories = _allActivities
-                .map(function (a) { return a.toCategories(); })
-                .flatten(true)
+                _categories = _(categoriesDto)
+                .map(function (c) { return new model.Category(c.category, c.image) })
                 .unique(function (cat) {
                     return cat.name;
                 })
@@ -116,6 +115,6 @@
     }
 
     angular.module('hang-out-suggestions')
-    .service('hangOutSuggester', ['suggestionsModel', 'hangOutActivities', 'hangOutPlaces', Suggester]);
+    .service('hangOutSuggester', ['suggestionsModel', 'hangOutActivities', 'hangOutPlaces', 'hangOutActivityCategories', Suggester]);
 
 }).call(this, this.angular, this._);
