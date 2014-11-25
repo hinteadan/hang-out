@@ -86,7 +86,8 @@
             <address ng-show="activity.place.address">
                 {{activity.place.address}}
             </address>
-            <p ng-show="place.details">{{activity.place.details}}</p>
+            <p ng-show="activity.place.details">{{activity.place.details}}</p>
+            <a ng-show="activity.place.websiteUrl" target="_blank" ng-href="{{activity.place.websiteUrl}}">View website</a>
             <div ng-if="!activity.place.location.isUnknown() && canRenderMap">
                 <ui-gmap-google-map center='map.center' zoom='15' pan="false">
                     <ui-gmap-marker idkey='"placeLocation"' coords='map.marker.location' options="{ draggable: false }"></ui-gmap-marker>
