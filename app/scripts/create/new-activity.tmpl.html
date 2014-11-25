@@ -14,7 +14,7 @@
                            typeahead-template-url="scripts/create/activity-list-item.tmpl.html"
                            typeahead="a as a.title for a in suggestActivitiesFor($viewValue)"
                            typeahead-on-select="onActivitySelection($item, $model, $label)"
-                           placeholder="e.g.: Let's play some tennis"
+                           placeholder="ex: Let's play some tennis"
                            ng-model="suggestedActivity"
                            ng-change="activity.title = suggestedActivity"
                            aria-autocomplete="list"
@@ -84,37 +84,34 @@
             <div class="form-group" ng-hide="isSimpleView">
                 <label for="address" class="col-xs-2 control-label">Address</label>
                 <div class="col-xs-10">
-                    <textarea id="address" class="form-control vertical-resize" ng-model="activity.place.address" placeholder="e.g.: 12 Broadway Blvd, New York"></textarea>
+                    <textarea id="address" class="form-control vertical-resize" ng-model="activity.place.address" placeholder="Add an address"></textarea>
                 </div>
             </div>
             <div class="form-group" ng-hide="isSimpleView">
                 <label for="placeLat" class="col-xs-2 control-label">GPS</label>
                 <div class="col-xs-5">
-                    <input id="placeLat" type="number" class="form-control" ng-model="activity.place.location.lat" placeholder="e.g.: 46.764899" />
+                    <input id="placeLat" type="number" class="form-control" ng-model="activity.place.location.lat" placeholder="ex: 46.764899" />
                 </div>
                 <div class="col-xs-5">
-                    <input id="placeLng" type="number" class="form-control" ng-model="activity.place.location.lng" placeholder="e.g.: 23.553576" />
+                    <input id="placeLng" type="number" class="form-control" ng-model="activity.place.location.lng" placeholder="ex: 23.553576" />
                 </div>
             </div>
             <div class="form-group" ng-hide="isSimpleView">
                 <label for="placeDetails" class="col-xs-2 control-label">Contact</label>
                 <div class="col-xs-10">
-                    <textarea id="placeDetails" class="form-control vertical-resize" ng-model="activity.place.details" placeholder="e.g.: phone number, e-mail"></textarea>
+                    <textarea id="placeDetails" class="form-control vertical-resize" ng-model="activity.place.details" placeholder="ex: phone number, e-mail"></textarea>
                 </div>
             </div>
             <div class="form-group" ng-hide="isSimpleView">
                 <label for="inputDescription" class="col-xs-2 control-label">Details</label>
                 <div class="col-xs-10">
-                    <textarea id="inputDescription" type="text" class="form-control vertical-resize" ng-model="activity.description" placeholder="e.g.: Open hours, costs, level of difficulty, things you need, special demands"></textarea>
+                    <textarea id="inputDescription" type="text" class="form-control vertical-resize" ng-model="activity.description" placeholder="ex: Open hours, costs, level of difficulty, things you need, special demands"></textarea>
                 </div>
             </div>
-        </fieldset>
-
-        <fieldset>
             <div class="form-group" ng-hide="isSimpleView">
-                <label for="placeUrl" class="col-xs-2 control-label">Place website</label>
+                <label for="placeUrl" class="col-xs-2 control-label">URL</label>
                 <div class="col-xs-10">
-                    <input id="placeUrl" type="url" class="form-control" ng-model="activity.place.websiteUrl" placeholder="e.g.: http://winners-tennis.ro/" />
+                    <input id="placeUrl" type="url" class="form-control" ng-model="activity.place.websiteUrl" placeholder="ex: http://winners-tennis.ro/" />
                 </div>
             </div>
         </fieldset>
