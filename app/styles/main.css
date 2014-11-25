@@ -36,6 +36,11 @@ blockquote.condensed {
     padding: 0 15px 0 0;
 }
 
+.background-right {
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+
 .wallpaper-canvas {
     opacity: 0.2;
     position: fixed;
@@ -72,6 +77,7 @@ blockquote.condensed {
 
 .suggestion-item {
     padding: 3px 15px;
+    margin: 5px 0;
 }
 
     .suggestion-item:hover,

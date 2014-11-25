@@ -1,4 +1,4 @@
-﻿<div class="suggestion-item clickable">
+﻿<div class="suggestion-item clickable background-right" ng-style="{'background-image': 'url(https://maps.googleapis.com/maps/api/staticmap?center=' + match.model.location.lat + ',' + match.model.location.lng + '&zoom=14&size=200x200'}">
     <h5>
         <span class="suggestion-item-thumb valign-middle" ng-show="match.model.logoUrl" ng-style="{ 'background-image': 'url(' + match.model.logoUrl + ')' }"></span>
         {{match.model.name}}
