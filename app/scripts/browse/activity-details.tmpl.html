@@ -99,6 +99,12 @@
                 <button data-dismiss="alert" class="close" type="button">×</button>
                 <p>The initator wants to manually confirm each participant, so joining doesn't guarantee you a spot.</p>
             </div>
+
+            <div class="alert alert-dismissable alert-warning" ng-show="activity.isFull()">
+                <button data-dismiss="alert" class="close" type="button">×</button>
+                <p>This activity is <strong>full</strong>. Joining doesn't guarantee you a spot, it will put you in the pending queue.</p>
+            </div>
+
             <button class="btn btn-default btn-lg btn-block" ng-click="join()">
                 <span ng-hide="activityEntry.joining">I want to join this!</span>
                 <span ng-show="activityEntry.joining">Yup, I'm sure!</span>
