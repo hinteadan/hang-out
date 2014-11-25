@@ -11,7 +11,7 @@
     .controller('hangOutNewActivityFooterCtrl', ['$scope', function ($s) {
         $s.main = mainScope;
     }])
-    .controller('hangOutNewActivityCtrl', ['$scope', '$location', '$timeout', 'hangOutAuth', 'dataStore', 'model', 'model-mapper', 'hangOutSuggester', 'title', 'activityWizard', 'footer', function ($s, $l, $t, auth, store, m, map, suggest, title, wiz, footer) {
+    .controller('hangOutNewActivityCtrl', ['$scope', '$location', '$timeout', 'hangOutAuth', 'dataStore', 'model', 'model-mapper', 'hangOutSuggester', 'wallpaper', 'title', 'activityWizard', 'footer', function ($s, $l, $t, auth, store, m, map, suggest, wall, title, wiz, footer) {
 
         if (!auth.isAuthenticated()) {
             return;
@@ -29,7 +29,8 @@
                 return;
             }
             activity.title = suggestion.title;
-            activity.imageUrl = suggestion.imageUrl;
+            activity.imageUrls = suggestion.imageUrls || [];
+            wall.setWallpapers(activity.imageUrls);
             activity.logoUrl = suggestion.logoUrl;
             $s.suggestedActivity = suggestion;
         }

@@ -5,11 +5,11 @@
     .service('wallpaper', ['$rootScope', 'wallpaper-change-event', function ($root, changeEvent) {
 
         function setSingleWallpaperImage(imageUrl){
-            $root.$broadcast(changeEvent, [imageUrl]);
+            $root.$broadcast(changeEvent, [imageUrl, imageUrl]);
         }
 
         function setWallpaperImages(images) {
-            $root.$broadcast(changeEvent, images);
+            $root.$broadcast(changeEvent, images.length === 1 ? [images[0], images[0]] : images);
         }
 
         this.setWallpaper = setSingleWallpaperImage;
