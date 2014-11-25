@@ -22,7 +22,7 @@
             <div class="panel-body">
                 <ul class="list-unstyled list-inline">
                     <li>
-                        <img class="profile-image img-rounded" ng-src="{{activity.initiator.avatar(40)}}" />
+                        <div class="profile-image img-rounded" ng-style="{'background-image': 'url(' + activity.initiator.avatar(40) + ')'}"></div>
                         <span ng-show="activity.initiator.name">
                             {{activity.initiator.name}}
                             <small class="text-muted">[{{activity.initiator.email}}]</small>
