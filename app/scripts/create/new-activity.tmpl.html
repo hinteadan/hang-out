@@ -97,20 +97,20 @@
                 </div>
             </div>
             <div class="form-group" ng-hide="isSimpleView">
+                <label for="placeDetails" class="col-xs-2 control-label">Contact</label>
+                <div class="col-xs-10">
+                    <textarea id="placeDetails" class="form-control vertical-resize" ng-model="activity.place.details" placeholder="e.g.: phone number, e-mail"></textarea>
+                </div>
+            </div>
+            <div class="form-group" ng-hide="isSimpleView">
                 <label for="inputDescription" class="col-xs-2 control-label">Details</label>
                 <div class="col-xs-10">
-                    <textarea id="inputDescription" type="text" class="form-control vertical-resize" ng-model="activity.description" placeholder="e.g.: Level of difficulty, thing you need, special demands, costs, weather forecasts"></textarea>
+                    <textarea id="inputDescription" type="text" class="form-control vertical-resize" ng-model="activity.description" placeholder="e.g.: Open hours, costs, level of difficulty, things you need, special demands"></textarea>
                 </div>
             </div>
         </fieldset>
 
         <fieldset>
-            <div class="form-group" ng-hide="isSimpleView">
-                <label for="placeDetails" class="col-xs-2 control-label">Place details</label>
-                <div class="col-xs-10">
-                    <textarea id="placeDetails" class="form-control vertical-resize" ng-model="activity.place.details" placeholder="e.g.: Need special shoes, phone number, open hours"></textarea>
-                </div>
-            </div>
             <div class="form-group" ng-hide="isSimpleView">
                 <label for="placeUrl" class="col-xs-2 control-label">Place website</label>
                 <div class="col-xs-10">
