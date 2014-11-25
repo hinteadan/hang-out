@@ -35,12 +35,6 @@
                     <input id="inputMaxConfirmedMembers" type="number" class="form-control" ng-model="activity.maxInstantConfirms" placeholder="Maximum number of participants to instantly accept" />
                 </div>
             </div>
-            <div class="form-group" ng-hide="isSimpleView">
-                <label for="inputDescription" class="col-xs-2 control-label">Details</label>
-                <div class="col-xs-10">
-                    <textarea id="inputDescription" type="text" class="form-control vertical-resize" ng-model="activity.description" placeholder="e.g.: Level of difficulty, thing you needm special demands, costs, weather forecasts"></textarea>
-                </div>
-            </div>
             <div class="form-group">
                 <label class="col-xs-2 control-label">When</label>
                 <div class="col-xs-10">
@@ -58,7 +52,7 @@
                 </div>
             </div>
             <div class="form-group" ng-hide="isSimpleView">
-                <label class="col-xs-2 control-label">Ends on</label>
+                <label class="col-xs-2 control-label">Until</label>
                 <div class="col-xs-10">
                     <div class="dropdown">
                         <a class="dropdown-toggle" id="dropdownEndsOn" role="button" data-toggle="dropdown" data-target="#">
@@ -73,9 +67,6 @@
                     </div>
                 </div>
             </div>
-        </fieldset>
-
-        <fieldset>
             <div class="form-group suggestion-typeahead">
                 <label for="place" class="col-xs-2 control-label">Where</label>
                 <div class="col-xs-10">
@@ -97,6 +88,24 @@
                 </div>
             </div>
             <div class="form-group" ng-hide="isSimpleView">
+                <label for="placeLat" class="col-xs-2 control-label">GPS</label>
+                <div class="col-xs-5">
+                    <input id="placeLat" type="number" class="form-control" ng-model="activity.place.location.lat" placeholder="e.g.: 46.764899" />
+                </div>
+                <div class="col-xs-5">
+                    <input id="placeLng" type="number" class="form-control" ng-model="activity.place.location.lng" placeholder="e.g.: 23.553576" />
+                </div>
+            </div>
+            <div class="form-group" ng-hide="isSimpleView">
+                <label for="inputDescription" class="col-xs-2 control-label">Details</label>
+                <div class="col-xs-10">
+                    <textarea id="inputDescription" type="text" class="form-control vertical-resize" ng-model="activity.description" placeholder="e.g.: Level of difficulty, thing you need, special demands, costs, weather forecasts"></textarea>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <div class="form-group" ng-hide="isSimpleView">
                 <label for="placeDetails" class="col-xs-2 control-label">Place details</label>
                 <div class="col-xs-10">
                     <textarea id="placeDetails" class="form-control vertical-resize" ng-model="activity.place.details" placeholder="e.g.: Need special shoes, phone number, open hours"></textarea>
@@ -108,22 +117,10 @@
                     <input id="placeUrl" type="url" class="form-control" ng-model="activity.place.websiteUrl" placeholder="e.g.: http://winners-tennis.ro/" />
                 </div>
             </div>
-            <div class="form-group" ng-hide="isSimpleView">
-                <label for="placeLat" class="col-xs-2 control-label">Place Lat.</label>
-                <div class="col-xs-10">
-                    <input id="placeLat" type="number" class="form-control" ng-model="activity.place.location.lat" placeholder="e.g.: 46.764899" />
-                </div>
-            </div>
-            <div class="form-group" ng-hide="isSimpleView">
-                <label for="placeLng" class="col-xs-2 control-label">Place Lng.</label>
-                <div class="col-xs-10">
-                    <input id="placeLng" type="number" class="form-control" ng-model="activity.place.location.lng" placeholder="e.g.: 23.553576" />
-                </div>
-            </div>
         </fieldset>
 
         <span>
-            <a class="clickable" ng-click="isSimpleView = false" ng-show="isSimpleView">more ...</a>            
+            <a class="clickable" ng-click="isSimpleView = false" ng-show="isSimpleView">more ...</a>
         </span>
 
         <div class="form-group" ng-controller="hangOutNewActivityFooterCtrl">
