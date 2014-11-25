@@ -16,14 +16,14 @@
                 return;
             }
             userSuggestions.push(me);
-            userSuggestions = _.uniq(userSuggestions, function (dude) { return dude.email.toLowerCase(); });
+            userSuggestions = _.uniq(userSuggestions, false, function (dude) { return dude.email.toLowerCase(); });
             store[storeKey] = JSON.stringify(userSuggestions);
         }
 
         $s.me = me;
         $s.suggestions = function () { return userSuggestions; };
         $s.selectSuggestion = function ($item) {
-            $s.me = me = $item;
+            $s.me = me = { email: $item.email, name: $item.name };
         }
         $s.login = function () {
             storeUserSuggestion();
