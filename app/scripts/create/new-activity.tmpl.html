@@ -4,10 +4,6 @@
             <legend>
                 <h1>
                     Initiate Activity
-                    <span class="small">
-                        <a class="clickable" ng-click="isSimpleView = false" ng-show="isSimpleView">Advanced</a>
-                        <a class="clickable" ng-click="isSimpleView = true" ng-hide="isSimpleView">Simple</a>
-                    </span>
                 </h1>
             </legend>
 
@@ -125,6 +121,10 @@
                 </div>
             </div>
         </fieldset>
+
+        <span>
+            <a class="clickable" ng-click="isSimpleView = false" ng-show="isSimpleView">more ...</a>            
+        </span>
 
         <div class="form-group" ng-controller="hangOutNewActivityFooterCtrl">
             <div class="col-xs-12">

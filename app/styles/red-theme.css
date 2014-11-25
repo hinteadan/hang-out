@@ -1,6 +1,7 @@
 ﻿body.red-theme,
 .red-theme input {
     text-shadow: 0 0 5px rgba(255, 247, 247, 1);
+    color: #000000;
 }
 
 .red-theme .text-success, 
@@ -79,27 +80,27 @@
 }
 
 .form-control::-webkit-input-placeholder {
-   color: rgb(47, 32, 32);
+   color: rgb(133, 130, 130);
    opacity: 1;
 }
 
 .form-control:-moz-placeholder { /* Firefox 18- */
-   color: rgb(47, 32, 32);  
+   color: rgb(133, 130, 130); 
    opacity: 1;
 }
 
 .form-control:-moz-placeholder { /* Firefox 18- */
-   color: rgb(47, 32, 32);  
+   color: rgb(133, 130, 130); 
    opacity: 1;
 }
 
 .form-control::-moz-placeholder {  /* Firefox 19+ */
-   color: rgb(47, 32, 32);  
+   color: rgb(133, 130, 130); 
    opacity: 1;
 }
 
 .form-control:-ms-input-placeholder {  
-   color: rgb(47, 32, 32);  
+   color: rgb(133, 130, 130); 
    opacity: 1;
 }
 
