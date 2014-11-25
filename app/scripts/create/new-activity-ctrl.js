@@ -1,14 +1,24 @@
 ﻿(function (angular, notify) {
     'use strict';
 
+    var newActivityScope = null;
+
+    function mainScope() {
+        return newActivityScope;
+    }
+
     angular.module('hang-out-create')
-    .controller('hangOutNewActivityCtrl', ['$scope', '$location', '$timeout', 'hangOutAuth', 'dataStore', 'model', 'model-mapper', 'hangOutSuggester', 'title', 'activityWizard', function ($s, $l, $t, auth, store, m, map, suggest, title, wiz) {
+    .controller('hangOutNewActivityFooterCtrl', ['$scope', function ($s) {
+        $s.main = mainScope;
+    }])
+    .controller('hangOutNewActivityCtrl', ['$scope', '$location', '$timeout', 'hangOutAuth', 'dataStore', 'model', 'model-mapper', 'hangOutSuggester', 'title', 'activityWizard', 'footer', function ($s, $l, $t, auth, store, m, map, suggest, title, wiz, footer) {
 
         if (!auth.isAuthenticated()) {
             return;
         }
 
         title.set('Initiate Activity');
+        footer.template('publish-activity-footer');
 
         function stampTime(value) {
             return angular.isDate(value) ? value.getTime() : Number(value);
@@ -89,6 +99,7 @@
 
         applySuggestedActivity(wiz.activity());
         wiz.reset();
+        newActivityScope = $s;
     }]);
 
 }).call(this, this.angular, this.alert);

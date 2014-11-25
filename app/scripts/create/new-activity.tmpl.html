@@ -126,16 +126,28 @@
             </div>
         </fieldset>
 
-        <div class="form-group">
+        <div class="form-group" ng-controller="hangOutNewActivityFooterCtrl">
             <div class="col-xs-12">
-                <button type="submit" class="btn btn-lg btn-primary btn-block" ng-disabled="!isValid() || publish.ed || publish.onWire">
+                <button type="submit" class="btn btn-lg btn-primary btn-block" ng-disabled="!isValid() || publish.ed || publish.onWire" ng-hide="true">
                     <span ng-hide="publish.ing || publish.ed || publish.onWire">Looks good, publish it!</span>
                     <span ng-show="publish.ing &&  !publish.ed && !publish.onWire">Yup, I'm sure!</span>
                     <span ng-show="publish.onWire">Publishing...</span>
                     <span ng-show="publish.ed">Published!</span>
                 </button>
-
             </div>
         </div>
+
+        <script type="text/ng-template" id="publish-activity-footer">
+            <div class="form-group" ng-controller="hangOutNewActivityFooterCtrl">
+                <div class="col-xs-12">
+                    <button type="button" ng-click="main().publish()" class="btn btn-lg btn-primary btn-block" ng-disabled="!main().isValid() || main().publish.ed || main().publish.onWire">
+                        <span ng-hide="main().publish.ing || main().publish.ed || main().publish.onWire">Looks good, publish it!</span>
+                        <span ng-show="main().publish.ing &&  !main().publish.ed && !main().publish.onWire">Yup, I'm sure!</span>
+                        <span ng-show="main().publish.onWire">Publishing...</span>
+                        <span ng-show="main().publish.ed">Published!</span>
+                    </button>
+                </div>
+            </div>
+        </script>
     </form>
 </div>
