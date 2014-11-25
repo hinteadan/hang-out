@@ -21,8 +21,8 @@
         function generateTitle() {
             switch (desiredType) {
                 case type.mine: return 'My Activities';
-                case type.joined: return 'Joined Activities';
-                case type.open: return 'Activities to join';
+                case type.joined: return 'Joined events';
+                case type.open: return 'Events you may join';
             }
         }
 
