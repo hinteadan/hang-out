@@ -9,7 +9,7 @@
         }
 
         function setWallpaperImages(imageArray) {
-            var images = imageArray || defaultImages;
+            var images = imageArray && imageArray.length ? imageArray : defaultImages;
             $root.$broadcast(changeEvent, images.length === 1 ? [images[0], images[0]] : images);
         }
 

@@ -18,9 +18,7 @@
                 $s.flag.isLoadingActivity = false;
                 $s.activityEntry = activityEntry;
                 $s.activity = activityEntry.activity;
-                if (activityEntry.activity.imageUrl) {
-                    wall.setWallpaper(activityEntry.activity.imageUrl);
-                }
+                wall.setWallpapers(activityEntry.activity.imageUrls);
                 $s.map = {
                     center: {
                         latitude: $s.activity.place.location.lat,
