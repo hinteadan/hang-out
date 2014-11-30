@@ -131,6 +131,10 @@
                 });
         };
 
+        $s.changeDescription = function () {
+
+        };
+
         refresh();
     }]);
 

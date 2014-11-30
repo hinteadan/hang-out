@@ -13,7 +13,28 @@
             happening on <strong>{{activity.startsOnFormatted()}}</strong>
         </blockquote>
 
-        <p ng-show="activity.description">{{activity.description}}</p>
+        <div ng-show="activity.description" ng-init="newDescription = activity.description; isEditingDescription = false;">
+            <p>{{activity.description}}</p>
+            <a class="clickable" ng-show="activity.isInitiator(me) && !isEditingDescription" ng-click="isEditingDescription = true">Change</a>
+        </div>
+        <div ng-show="!activity.description && activity.isInitiator(me)">
+            <a class="clickable" ng-hide="isEditingDescription" ng-click="isEditingDescription = true">Add description</a>
+        </div>
+        <div ng-show="isEditingDescription">
+            <form role="form" ng-submit="changeDescription(newDescription); isEditingDescription = false;">
+                <div class="form-group">
+                    <textarea class="form-control vertical-resize" ng-model="newDescription" placeholder="New description"></textarea>
+                </div>
+                <div class="form-group clearfix">
+                    <button type="submit" class="btn btn-lg btn-default pull-right" ng-disabled="!newDescription">
+                        Ok, save it!
+                    </button>
+                    <button ng-click="isEditingDescription = false; newDescription = activity.description;" class="btn btn-lg btn-link pull-right" type="button">
+                        Oh, never mind
+                    </button>
+                </div>
+            </form>
+        </div>
 
         <div class="panel panel-primary">
             <div class="panel-heading">
