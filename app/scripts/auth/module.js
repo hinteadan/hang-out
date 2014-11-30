@@ -1,7 +1,7 @@
 ﻿(function (angular, localStore) {
     'use strict';
 
-    angular.module('hang-out-auth', ['ngRoute', 'hang-out', 'hang-out-auth-mail', 'hang-out-auth-facebook', 'hang-out-auth-google'])
+    angular.module('hang-out-auth', ['ngRoute', 'hang-out', 'hang-out-auth-mail', 'hang-out-auth-facebook', 'hang-out-auth-google', 'hang-out-analytics'])
     .constant('storeKeyForRedirect', 'redirectTo')
     .config(['$routeProvider', function ($route) {
         $route

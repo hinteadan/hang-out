@@ -1,6 +1,6 @@
 ﻿<div style="margin-top: 40px;">
     <div ng-controller="hangOutMailLogin">
-        <form role="form" ng-submit="login()" ng-hide="isLoginSuccessfull">
+        <form role="form" ng-submit="login() | trackEvent:'Authentication':'via Email':me.email" ng-hide="isLoginSuccessfull">
             <fieldset>
                 <legend>
                     <h1>About yourself</h1>

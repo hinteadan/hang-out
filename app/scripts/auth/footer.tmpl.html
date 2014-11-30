@@ -2,12 +2,12 @@
 
     <div class="btn-group btn-group-justified" role="group">
         <div class="btn-group" role="group" ng-controller="hangOutFacebookLogin">
-            <button type="button" class="btn btn-lg btn-default btn-block" ng-click="login()">
+            <button type="button" class="btn btn-lg btn-default btn-block" ng-click="login() | trackEvent:'Authentication':'via Facebook'">
                 Use Facebook
             </button>
         </div>
         <div class="btn-group" role="group" ng-controller="hangOutGoogleLogin">
-            <button type="button" class="btn btn-lg btn-default btn-block" ng-click="login()">
+            <button type="button" class="btn btn-lg btn-default btn-block" ng-click="login() | trackEvent:'Authentication':'via Google'">
                 Use Google
             </button>
         </div>
