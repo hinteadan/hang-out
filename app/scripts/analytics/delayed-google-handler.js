@@ -1,4 +1,4 @@
-﻿(function (angular, localStore) {
+﻿(function (angular) {
     'use strict';
 
     angular.module('hang-out-analytics')
@@ -9,11 +9,11 @@
             });
         };
 
-        this.trackEvent = function (category, action, opt_label, opt_value, opt_noninteraction) {
+        this.trackEvent = function (category, action, optLabel, optValue, optNoninteraction) {
             $t(function () {
-                ga.trackEvent(category, action, opt_label, opt_value, opt_noninteraction);
+                ga.trackEvent(category, action, optLabel, optValue, optNoninteraction);
             });
         };
     }]);
 
-}).call(this, this.angular, this.localStorage);
+}).call(this, this.angular);

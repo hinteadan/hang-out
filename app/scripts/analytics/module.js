@@ -1,4 +1,4 @@
-﻿(function (angular, localStore) {
+﻿(function (angular) {
     'use strict';
 
     angular.module('hang-out-analytics', ['angularytics'])
@@ -9,4 +9,4 @@
             Angularytics.init();
         }]);
 
-}).call(this, this.angular, this.localStorage);
+}).call(this, this.angular);
