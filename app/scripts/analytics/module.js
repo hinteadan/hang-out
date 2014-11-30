@@ -3,7 +3,7 @@
 
     angular.module('hang-out-analytics', ['angularytics'])
         .config(['AngularyticsProvider', function (AngularyticsProvider) {
-            AngularyticsProvider.setEventHandlers(['Console', 'GoogleUniversal']);
+            AngularyticsProvider.setEventHandlers(['DelayedGoogle']);
         }])
         .run(['Angularytics', function (Angularytics) {
             Angularytics.init();

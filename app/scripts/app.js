@@ -1,7 +1,7 @@
 ﻿(function (angular) {
     'use strict';
 
-    angular.module('hang-out-app', ['ngRoute', 'ui.bootstrap', 'hang-out-auth', 'hang-out-browse', 'hang-out-create', 'ui.bootstrap.datetimepicker', 'google-maps'.ns(), 'hang-out-wallpaper'])
+    angular.module('hang-out-app', ['ngRoute', 'ui.bootstrap', 'hang-out-auth', 'hang-out-browse', 'hang-out-create', 'ui.bootstrap.datetimepicker', 'google-maps'.ns(), 'hang-out-wallpaper', 'hang-out-analytics'])
     .constant('googleApiKey', 'AIzaSyBD5HhqV2k2DQQwqauyUAxt7xIJyn65JvU')
     .config(['$routeProvider', '$locationProvider', 'GoogleMapApiProvider'.ns(), 'googleApiKey', function ($route, $location, gmaps, googleApiKey) {
         $route.otherwise({ redirectTo: '/browse' });
