@@ -23,7 +23,11 @@
         }
 
         function toAllActivityStakeholders(activity) {
-            return _.map(activity.allParticipants(), toDude);
+            return _.map(_.union([activity.initiator], activity.confirmedMembers), toDude);
+        }
+
+        function toInitiatorAndDude(activity, dude) {
+            return _map([activity.initiator, dude], toDude);
         }
 
         function sendMemberNotificationMessage(to, member, action, activity, activityPermalink) {
@@ -159,16 +163,16 @@
         }
 
         this.join = function (member, activity, activityId) {
-            return sendMemberNotificationMessage(toAllActivityStakeholders(activity), displayNameForIndividual(member), 'joined', displayNameForActivity(activity), generatePermalinkForActivity(activityId));
+            return sendMemberNotificationMessage(toInitiatorAndDude(activity, member), displayNameForIndividual(member), 'joined', displayNameForActivity(activity), generatePermalinkForActivity(activityId));
         };
         this.bailOut = function (member, activity, activityId) {
-            return sendMemberNotificationMessage(toAllActivityStakeholders(activity), displayNameForIndividual(member), 'bailed out of', displayNameForActivity(activity), generatePermalinkForActivity(activityId));
+            return sendMemberNotificationMessage(toInitiatorAndDude(activity, member), displayNameForIndividual(member), 'bailed out of', displayNameForActivity(activity), generatePermalinkForActivity(activityId));
         };
         this.status = function (activity, oldStatus, activityId) {
             return sendActivityNotificationMessage(toAllActivityStakeholders(activity), displayNameForActivity(activity), 'status changed from ' + oldStatus + ' to ' + activity.friendlyStatus(), displayNameForActivity(activity), generatePermalinkForActivity(activityId));
         };
         this.confirmation = function (member, activity, activityId) {
-            return sendMemberNotificationMessage(toAllActivityStakeholders(activity), displayNameForIndividual(member), 'was confirmed for', displayNameForActivity(activity), generatePermalinkForActivity(activityId));
+            return sendMemberNotificationMessage(toDude(member), displayNameForIndividual(member), 'was confirmed for', displayNameForActivity(activity), generatePermalinkForActivity(activityId));
         };
         this.authentication = function (dude, authenticationUrl) {
             return sendAuthenticationMessage([toDude(dude)], authenticationUrl);

@@ -63,6 +63,9 @@
                 .joinActivity($s.activityEntry.id, $s.activityEntry.token, $s.activityEntry.activity, me)
                 .then(function () {
                     note.join(me, $s.activityEntry.activity, $s.activityEntry.id);
+                    if ($s.activityEntry.activity.isParticipantConfirmed(me)) {
+                        note.confirmation(me, $s.activityEntry.activity, $s.activityEntry.id);
+                    }
                     refresh();
                 }, function (reason) {
                     notify('Cannot join this activity because: ' + reason);
