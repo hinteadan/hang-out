@@ -6,13 +6,13 @@
         this.trackPageView = function (url) {
             $t(function () {
                 ga.trackPageView(url);
-            });
+            }, 800);
         };
 
         this.trackEvent = function (category, action, optLabel, optValue, optNoninteraction) {
             $t(function () {
                 ga.trackEvent(category, action, optLabel, optValue, optNoninteraction);
-            });
+            }, 800);
         };
     }]);
 
