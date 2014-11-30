@@ -11,7 +11,7 @@
     .controller('hangOutNewActivityFooterCtrl', ['$scope', function ($s) {
         $s.main = mainScope;
     }])
-    .controller('hangOutNewActivityCtrl', ['$scope', '$location', '$timeout', 'hangOutAuth', 'dataStore', 'model', 'model-mapper', 'hangOutSuggester', 'wallpaper', 'title', 'activityWizard', 'footer', function ($s, $l, $t, auth, store, m, map, suggest, wall, title, wiz, footer) {
+    .controller('hangOutNewActivityCtrl', ['$scope', '$location', '$timeout', 'hangOutAuth', 'dataStore', 'model', 'model-mapper', 'hangOutSuggester', 'wallpaper', 'title', 'activityWizard', 'footer', 'Angularytics', function ($s, $l, $t, auth, store, m, map, suggest, wall, title, wiz, footer, analytics) {
 
         if (!auth.isAuthenticated()) {
             return;
@@ -33,6 +33,7 @@
             wall.setWallpapers(activity.imageUrls);
             activity.logoUrl = suggestion.logoUrl;
             $s.suggestedActivity = suggestion;
+            analytics.trackEvent('Create Activity', 'Select Suggested Activity', suggestion.title);
         }
 
         var me = auth.currentUser(),
@@ -47,6 +48,7 @@
         $s.onPlaceSelection = function ($item, $model, $label) {
             /*jshint unused:false*/
             activity.place = map.place($model);
+            analytics.trackEvent('Create Activity', 'Select Suggested Place', activity.place.name);
         };
 
         $s.suggestedActivity = null;
@@ -90,6 +92,7 @@
 
             store.publishNewActivity(activity).then(function () {
                 $s.publish.ed = true;
+                analytics.trackEvent('Create Activity', 'Publish Activity', activity.title + ' by ' + activity.initiator.email);
                 $l.path('/');
             }, function (reason) {
                 notify('Cannot join this activity because: ' + reason);

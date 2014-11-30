@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('hang-out-create')
-    .controller('selectActivityCtrl', ['$scope', '$location', 'hangOutAuth', 'hangOutSuggester', 'title', 'activityWizard', 'footer', function ($s, $l, auth, suggest, title, wiz, footer) {
+    .controller('selectActivityCtrl', ['$scope', '$location', 'hangOutAuth', 'hangOutSuggester', 'title', 'activityWizard', 'footer', 'Angularytics', function ($s, $l, auth, suggest, title, wiz, footer, analytics) {
 
         if (!auth.isAuthenticated()) {
             return;
@@ -24,6 +24,7 @@
         $s.cssUrl = cssUrl;
         $s.select = function (activity) {
             wiz.activity(activity);
+            analytics.trackEvent('Create Activity', 'Select Activity', activity.title);
             $l.path('/new');
         };
 

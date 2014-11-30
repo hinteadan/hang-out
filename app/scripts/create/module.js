@@ -1,7 +1,7 @@
 ﻿(function (angular) {
     'use strict';
 
-    angular.module('hang-out-create', ['hang-out', 'hang-out-auth', 'hang-out-suggestions'])
+    angular.module('hang-out-create', ['hang-out', 'hang-out-auth', 'hang-out-suggestions', 'hang-out-analytics'])
     .config(['$routeProvider', function ($route) {
         $route
             .when('/new/category', { templateUrl: 'scripts/create/select-category.tmpl.html', controller: 'selectCategoryCtrl' })
