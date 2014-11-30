@@ -131,8 +131,12 @@
                 });
         };
 
-        $s.changeDescription = function () {
-
+        $s.changeDescription = function (newDescription) {
+            store.
+                changeDescription($s.activityEntry.id, $s.activityEntry.token, $s.activityEntry.activity, newDescription)
+                .then(refresh, function (reason) {
+                    notify('Cannot change description because: ' + reason);
+                });
         };
 
         refresh();

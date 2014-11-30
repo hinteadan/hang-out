@@ -14,8 +14,10 @@
         </blockquote>
 
         <div ng-show="activity.description" ng-init="newDescription = activity.description; isEditingDescription = false;">
-            <p>{{activity.description}}</p>
-            <a class="clickable" ng-show="activity.isInitiator(me) && !isEditingDescription" ng-click="isEditingDescription = true">Change</a>
+            <p>
+                <span ng-hide="isEditingDescription">{{activity.description}}</span>
+                <a class="clickable" ng-show="activity.isInitiator(me) && !isEditingDescription" ng-click="newDescription = activity.description; isEditingDescription = true;">Change</a>
+            </p>
         </div>
         <div ng-show="!activity.description && activity.isInitiator(me)">
             <a class="clickable" ng-hide="isEditingDescription" ng-click="isEditingDescription = true">Add description</a>
