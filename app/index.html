@@ -24,7 +24,7 @@
     <div class="navbar navbar-inverse clearfix" role="navigation" ng-controller="hangOutSession">
         <div class="navbar-header navbar-header-full">
             <div class="navbar-secondhand-options" ng-show="isAuthenticated()" ng-cloak>
-                <span class="clickable" ng-click="logout()">Logout</span>
+                <span class="clickable" ng-click="logout() | trackEvent:'Authentication':'Logout':user.email">Logout</span>
             </div>
             <a class="navbar-brand" href="#!/">
                 <div class="profile-image-brand img-rounded" ng-style="{'background-image': 'url(' + user.avatar(20) + ')'}" ng-show="isAuthenticated()" ng-cloak></div>
