@@ -172,7 +172,7 @@
             return sendActivityNotificationMessage(toAllActivityStakeholders(activity), displayNameForActivity(activity), 'status changed from ' + oldStatus + ' to ' + activity.friendlyStatus(), displayNameForActivity(activity), generatePermalinkForActivity(activityId));
         };
         this.confirmation = function (member, activity, activityId) {
-            return sendMemberNotificationMessage(toDude(member), displayNameForIndividual(member), 'was confirmed for', displayNameForActivity(activity), generatePermalinkForActivity(activityId));
+            return sendMemberNotificationMessage([toDude(member)], displayNameForIndividual(member), 'was confirmed for', displayNameForActivity(activity), generatePermalinkForActivity(activityId));
         };
         this.authentication = function (dude, authenticationUrl) {
             return sendAuthenticationMessage([toDude(dude)], authenticationUrl);
