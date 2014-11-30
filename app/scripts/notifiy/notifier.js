@@ -27,7 +27,7 @@
         }
 
         function toInitiatorAndDude(activity, dude) {
-            return _map([activity.initiator, dude], toDude);
+            return _.map([activity.initiator, dude], toDude);
         }
 
         function sendMemberNotificationMessage(to, member, action, activity, activityPermalink) {
