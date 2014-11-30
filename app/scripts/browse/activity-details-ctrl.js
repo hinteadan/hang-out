@@ -135,7 +135,7 @@
                 .confirmParticipant($s.activityEntry.id, $s.activityEntry.token, $s.activityEntry.activity, participant)
                 .then(function () {
                     note.confirmation(participant, $s.activityEntry.activity, $s.activityEntry.id);
-                    analytics.trackEvent('Activity Details', 'Member Confirmed', me.email + ' confirmed for ' + $s.activityEntry.id + ': ' + $s.activityEntry.activity.title);
+                    analytics.trackEvent('Activity Details', 'Member Confirmed', participant.email + ' confirmed for ' + $s.activityEntry.id + ': ' + $s.activityEntry.activity.title);
                     refresh();
                 }, function (reason) {
                     notify('Cannot confirm because: ' + reason);
