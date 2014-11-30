@@ -113,7 +113,7 @@
         </div>
 
         <div class="panel-group" ng-show="activity.hasParticipant(me) && !activity.isInitiator(me)" ng-init="isBailingOut = false; bailingOutBecause = null;">
-            <button class="btn btn-default btn-lg btn-block" ng-hide="isBailingOut" ng-click="isBailingOut = true">Bail out of this activity</button>
+            <button class="btn btn-default btn-lg btn-block" ng-hide="isBailingOut" ng-click="isBailingOut = true">Cancel my participation</button>
             <div class="well" ng-show="isBailingOut">
                 <form role="form" ng-submit="bailOut(bailingOutBecause); isBailingOut = false; bailingOutBecause = null;">
                     <div class="form-group">
@@ -121,7 +121,7 @@
                     </div>
                     <div class="form-group clearfix">
                         <button type="submit" class="btn btn-lg btn-default pull-right" ng-disabled="!bailingOutBecause">
-                            OK... bail out!
+                            OK... cancel it!
                         </button>
                         <button ng-click="isBailingOut = false" class="btn btn-lg btn-link pull-right" type="button">
                             Oh, never mind
@@ -133,7 +133,7 @@
 
         <div class="panel-group" ng-show="activity.isInitiator(me)" ng-init="isCancelling = false; cancellingBecause = null;">
             <button class="btn btn-default btn-lg btn-block panel-group" ng-click="wrapIt()" ng-hide="activity.isWrapped || activity.isCancelled">
-                <span ng-hide="activityEntry.wrapping">Wrap it up!</span>
+                <span ng-hide="activityEntry.wrapping">Confirm Activity</span>
                 <span ng-show="activityEntry.wrapping">Yup, I'm sure!</span>
             </button>
 
@@ -145,7 +145,7 @@
                     </div>
                     <div class="form-group clearfix">
                         <button type="submit" class="btn btn-lg btn-default pull-right" ng-disabled="!cancellingBecause">
-                            OK... cancel this activity!
+                            OK... cancel it!
                         </button>
                         <button ng-click="isCancelling = false" class="btn btn-lg btn-link pull-right" type="button">
                             Oh, never mind
