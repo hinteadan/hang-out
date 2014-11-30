@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('hang-out-browse')
-    .controller('hangOutActivityDetailsCtrl', ['$scope', '$routeParams', '$timeout', 'hangOutAuth', 'hangOutNotifier', 'model', 'dataStore', 'wallpaper', 'title', 'storeKeyForRedirect', function ($s, $p, $t, auth, note, m, store, wall, title, redirectStoreKey) {
+    .controller('hangOutActivityDetailsCtrl', ['$scope', '$routeParams', '$timeout', 'hangOutAuth', 'hangOutNotifier', 'model', 'dataStore', 'wallpaper', 'title', 'Angularytics', 'storeKeyForRedirect', function ($s, $p, $t, auth, note, m, store, wall, title, analytics, redirectStoreKey) {
 
         if (!auth.isAuthenticated() && $p.id) {
             localStore[redirectStoreKey] = $p.id;
@@ -68,8 +68,10 @@
                 .joinActivity($s.activityEntry.id, $s.activityEntry.token, $s.activityEntry.activity, me)
                 .then(function () {
                     note.join(me, $s.activityEntry.activity, $s.activityEntry.id);
+                    analytics.trackEvent('Activity Details', 'Member Joined', me.email + ' joined ' + $s.activityEntry.id + ': ' + $s.activityEntry.activity.title);
                     if ($s.activityEntry.activity.isParticipantConfirmed(me)) {
                         note.confirmation(me, $s.activityEntry.activity, $s.activityEntry.id);
+                        analytics.trackEvent('Activity Details', 'Member Confirmed', me.email + ' confirmed for ' + $s.activityEntry.id + ': ' + $s.activityEntry.activity.title);
                     }
                     refresh();
                 }, function (reason) {
@@ -95,6 +97,7 @@
                 .wrapActivity($s.activityEntry.id, $s.activityEntry.token, $s.activityEntry.activity)
                 .then(function () {
                     note.status($s.activityEntry.activity, oldStatus, $s.activityEntry.id);
+                    analytics.trackEvent('Activity Details', 'Activity Wrapped Up', $s.activityEntry.id + ': ' + $s.activityEntry.activity.title);
                     refresh();
                 }, function (reason) {
                     notify('Cannot wrap activity because: ' + reason);
@@ -108,6 +111,7 @@
                 .cancelActivity($s.activityEntry.id, $s.activityEntry.token, $s.activityEntry.activity, cancellationReason)
                 .then(function () {
                     note.status($s.activityEntry.activity, oldStatus, $s.activityEntry.id);
+                    analytics.trackEvent('Activity Details', 'Activity Cancelled', $s.activityEntry.id + ': ' + $s.activityEntry.activity.title);
                     refresh();
                 }, function (reason) {
                     notify('Cannot cancel activity because: ' + reason);
@@ -119,6 +123,7 @@
                 .bailOut($s.activityEntry.id, $s.activityEntry.token, $s.activityEntry.activity, me, bailOutReason)
                 .then(function () {
                     note.bailOut(me, $s.activityEntry.activity, $s.activityEntry.id);
+                    analytics.trackEvent('Activity Details', 'Member Bailed Out', me.email + ' out of ' + $s.activityEntry.id + ': ' + $s.activityEntry.activity.title);
                     refresh();
                 }, function (reason) {
                     notify('Cannot bail out of this activity because: ' + reason);
@@ -130,6 +135,7 @@
                 .confirmParticipant($s.activityEntry.id, $s.activityEntry.token, $s.activityEntry.activity, participant)
                 .then(function () {
                     note.confirmation(participant, $s.activityEntry.activity, $s.activityEntry.id);
+                    analytics.trackEvent('Activity Details', 'Member Confirmed', me.email + ' confirmed for ' + $s.activityEntry.id + ': ' + $s.activityEntry.activity.title);
                     refresh();
                 }, function (reason) {
                     notify('Cannot confirm because: ' + reason);
@@ -139,7 +145,10 @@
         $s.changeDescription = function (newDescription) {
             store.
                 changeDescription($s.activityEntry.id, $s.activityEntry.token, $s.activityEntry.activity, newDescription)
-                .then(refresh, function (reason) {
+                .then(function () {
+                    analytics.trackEvent('Activity Details', 'Description Changed', $s.activityEntry.id + ': ' + $s.activityEntry.activity.title);
+                    refresh();
+                }, function (reason) {
                     notify('Cannot change description because: ' + reason);
                 });
         };

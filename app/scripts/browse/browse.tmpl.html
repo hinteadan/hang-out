@@ -7,7 +7,7 @@
     <div ng-hide="flag.isLoadingActivities" class="row">
         <div class="col-xs-12 text-center" ng-hide="activities.length">Nothing to show here...</div>
         <div class="col-sm-4" ng-repeat="entry in activities | orderBy:'startsOn'">
-            <div class="panel panel-default clickable" ng-click="openActivity(entry.id)">
+            <div class="panel panel-default clickable" ng-click="openActivity(entry.id) | trackEvent:'Browse':'Open Activity Details':entry.id + ': ' + entry.activity.title">
                 <div class="panel-heading">
 
                     <div class="pull-right" ng-show="type == 'open'">
