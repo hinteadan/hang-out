@@ -10,6 +10,9 @@
         'http://vividlife.me/ultimate/wp-content/uploads/2013/11/happiness-wallpapers_34664_1920x1200.jpg'
     ])
     .value('wallpaper-change-interval', 1000 * 60 * 10)//10 minutes
+    .config(['$animateProvider', function ($animateProvider) {
+        $animateProvider.classNameFilter(/wallpaper/);
+    }])
     .run(['$rootScope', 'wallpaper', function ($root, wall) {
         $root.$on('$routeChangeStart', function () {
             wall.setDefault();
