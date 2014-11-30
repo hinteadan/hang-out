@@ -1,8 +1,13 @@
-﻿(function (angular, notify) {
+﻿(function (angular, notify, localStore) {
     'use strict';
 
     angular.module('hang-out-browse')
-    .controller('hangOutActivityDetailsCtrl', ['$scope', '$routeParams', '$timeout', 'hangOutAuth', 'hangOutNotifier', 'model', 'dataStore', 'wallpaper', 'title', function ($s, $p, $t, auth, note, m, store, wall, title) {
+    .controller('hangOutActivityDetailsCtrl', ['$scope', '$routeParams', '$timeout', 'hangOutAuth', 'hangOutNotifier', 'model', 'dataStore', 'wallpaper', 'title', 'storeKeyForRedirect', function ($s, $p, $t, auth, note, m, store, wall, title, redirectStoreKey) {
+
+        if (!auth.isAuthenticated() && $p.id) {
+            localStore[redirectStoreKey] = $p.id;
+            return;
+        }
 
         if (!auth.isAuthenticated() || !$p.id) {
             return;
@@ -142,4 +147,4 @@
         refresh();
     }]);
 
-}).call(this, this.angular, this.alert);
+}).call(this, this.angular, this.alert, this.localStorage);
