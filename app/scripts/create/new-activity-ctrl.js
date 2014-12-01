@@ -100,6 +100,39 @@
                 delete $s.publish.onWire;
             });
         };
+        $s.map = {
+            doRefresh: false,
+            refresh: function () {
+                $t(function () {
+                    $s.map.doRefresh = false;
+                });
+                $t(function () {
+                    $s.map.doRefresh = true;
+                });
+            },
+            center: {
+                latitude: 46.7720847576958,
+                longitude: 23.5958862304688
+            },
+            marker: {
+                location: {
+                    latitude: 46.7720847576958,
+                    longitude: 23.5958862304688
+                }
+            },
+            onMapClick: function (maps, eventName, event) {
+                $s.map.marker.location.latitude = event[0].latLng.k;
+                $s.map.marker.location.longitude = event[0].latLng.B;
+                $s.map.refresh();
+                activity.place.location.lat = $s.map.marker.location.latitude;
+                activity.place.location.lng = $s.map.marker.location.longitude;
+            },
+            onMarkerDrag: function (marker, eventName, model, event) {
+                activity.place.location.lat = event[0].latLng.k;
+                activity.place.location.lng = event[0].latLng.B;
+            }
+        };
+        $s.canRenderMap = false;
 
         applySuggestedActivity(wiz.activity());
         wiz.reset();

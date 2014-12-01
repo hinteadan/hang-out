@@ -1,7 +1,7 @@
 ﻿(function (angular) {
     'use strict';
 
-    angular.module('hang-out-browse', ['ngDisqus', 'ngRoute', 'hang-out', 'hang-out-auth', 'hang-out-wallpaper', 'hang-out-suggestions', 'hang-out-notify', 'hang-out-analytics'])
+    angular.module('hang-out-browse', ['ngDisqus', 'ngRoute', 'hang-out', 'hang-out-auth', 'hang-out-wallpaper', 'hang-out-suggestions', 'hang-out-notify', 'hang-out-analytics', 'google-maps'.ns()])
     .constant('disqusAppShortName', 'h-hang-out')
     .config(['$routeProvider', '$disqusProvider', 'disqusAppShortName', function ($route, $disqus, dsqAppName) {
         $route
