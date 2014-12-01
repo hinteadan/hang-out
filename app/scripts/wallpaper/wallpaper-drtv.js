@@ -1,4 +1,4 @@
-﻿(function (angular, _, Image) {
+﻿(function (angular, _, Image, undefined) {
     'use strict';
 
     angular.module('hang-out-wallpaper')
@@ -36,7 +36,7 @@
 
                 var wallpaperElement = element.children('.current-wallpaper'),
                     nextWallpaperElement = element.children('.next-wallpaper'),
-                    wallpapers = scope.images && scope.images.length ? scope.images : defaultImagesUrls,
+                    wallpapers = _.without(scope.images && scope.images.length ? scope.images : defaultImagesUrls, undefined, null),
                     shownWallpapers = [],
                     rotationPromise = null,
                     animationPromise = null;
@@ -52,7 +52,7 @@
 
                 function rotateWallpapers() {
                     if (!wallpapers.length) {
-                        wallpapers = shownWallpapers;
+                        wallpapers = _.without(shownWallpapers, undefined, null);
                         shownWallpapers = [];
                     }
 
@@ -71,16 +71,16 @@
                 }
 
                 function resetWallpapers(newWallpapers) {
-                    wallpapers = newWallpapers || (scope.images && scope.images.length ? scope.images : defaultImagesUrls);
+                    wallpapers = _.without(newWallpapers || (scope.images && scope.images.length && scope.images[0] ? scope.images : defaultImagesUrls), undefined, null);
                     shownWallpapers = [];
                 }
 
                 scope.$watch('images', resetWallpapers);
 
                 scope.$on(changeEvent, function (event, newWallpapers) {
-                    resetWallpapers(newWallpapers);
                     if (rotationPromise) { $t.cancel(rotationPromise); }
                     if (animationPromise) { $a.cancel(animationPromise); }
+                    resetWallpapers(newWallpapers);
                     $t(rotateWallpapers);
                 });
 

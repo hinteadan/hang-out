@@ -9,7 +9,7 @@
         'http://3.bp.blogspot.com/-NMkJyXrdi9c/UoRKUNalLiI/AAAAAAAAa8w/XR4RL1G_REE/s1600/finding-happiness.jpg',
         'http://vividlife.me/ultimate/wp-content/uploads/2013/11/happiness-wallpapers_34664_1920x1200.jpg'
     ])
-    .value('wallpaper-change-interval', 1000 * 60 * 10)//10 minutes
+    .value('wallpaper-change-interval', 1000 * 60 * 4)//4 minutes
     .config(['$animateProvider', function ($animateProvider) {
         $animateProvider.classNameFilter(/wallpaper/);
     }])
