@@ -56,6 +56,17 @@ blockquote.condensed {
     height: 100%;
 }
 
+.logo {
+    background-image: url('../images/Logo.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.logo-inline {
+    display: inline-block;
+    vertical-align: middle;
+}
+
 .navbar-collapse {
     border-top-width: 0;
 }

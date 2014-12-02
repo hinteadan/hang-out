@@ -27,8 +27,8 @@
                 <span class="clickable" ng-click="logout() | trackEvent:'Authentication':'Logout':user.email">Logout</span>
             </div>
             <a class="navbar-brand" href="#!/">
+                <div class="logo logo-inline" style="width: 50px; height: 28px;"></div>
                 <div class="profile-image-brand img-rounded" ng-style="{'background-image': 'url(' + user.avatar(20) + ')'}" ng-show="isAuthenticated()" ng-cloak></div>
-                Hang-Out
                 <small class="subtitle" ng-show="isAuthenticated()" ng-cloak><em>as</em>&nbsp;<strong title="{{user.email}}">{{user.name || user.email}}</strong></small>
             </a>
         </div>
