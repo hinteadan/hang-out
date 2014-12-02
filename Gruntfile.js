@@ -313,6 +313,20 @@ module.exports = function (grunt) {
                 files: [
                     { expand: true, flatten: true, src: ['<%= yeoman.dist %>\\*.css'], dest: '<%= yeoman.dist %>' }
                 ]
+            },
+            cssImagePath: {
+                options: {
+                    patterns: [
+                        {
+                            match: /url\(\.\.\/images\//gi,
+                            replacement: 'url(images/',
+                            expression: true
+                        }
+                    ]
+                },
+                files: [
+                    { expand: true, flatten: true, src: ['<%= yeoman.dist %>\\*.css'], dest: '<%= yeoman.dist %>' }
+                ]
             }
         },
 
@@ -409,7 +423,9 @@ module.exports = function (grunt) {
           'uglify',
           'rev',
           'usemin',
-          'htmlmin'
+          'htmlmin',
+          'replace:cssImagePath',
+          'replace:cssFontsPath'
         ]);
 
         if (target) {
