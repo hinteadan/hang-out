@@ -2,15 +2,25 @@
     'use strict';
 
     angular.module('hang-out-auth-mail')
-    .service('hangOutMailAuth', ['hangOutAuth', 'hangOutNotifier', function (auth, notify) {
+    .service('hangOutMailAuth', ['$location', 'hangOutAuth', 'hangOutNotifier', 'devAuthEmail', 'devAuthName', function ($l, auth, notify, devEmail, devName) {
         
         function generateAuthenticationLink(key) {
             //return 'http://localhost:9899/#!/authenticate/' + key;
             return 'http://h-hang-out.azurewebsites.net/#!/authenticate/' + key;
         }
 
+        function isDevAuth(user) {
+            return user.email === devEmail && user.name === devName;
+        }
+
         this.login = function (user) {
             return auth.login(user).then(function (publicKey) {
+                if (isDevAuth(user)) {
+                    return auth.authenticate(publicKey).then(function () {
+                        $l.path('/');
+                        return true;
+                    });
+                }
                 return notify.authentication(user, generateAuthenticationLink(publicKey))
             });
         };
