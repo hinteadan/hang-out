@@ -5,27 +5,27 @@
     .constant('hangOutActivityCategories', [
   {
       "category": "indoor",
-      "image": "http://us.cdn3.123rf.com/168nwm/deklofenak/deklofenak1205/deklofenak120500252/13709461-young-people-involved-in-sports.jpg",
+      "image": "http://www.hdwallpapers.in/walls/billiards-HD.jpg",
       "Other suggestions- cartoon type": "http://thumbs.dreamstime.com/x/cartoon-house-mascot-24058163.jpg"
   },
   {
       "category": "outdoor",
-      "image": "http://us.cdn4.123rf.com/168nwm/yuran-78/yuran-781301/yuran-78130100338/17414134-fun-couple-in-jump-on-the-outdoor-background.jpg",
+      "image": "http://i.huffpost.com/gen/1687340/thumbs/o-HAPPY-facebook.jpg",
       "Other suggestions- cartoon type": "https://tsnra.files.wordpress.com/2012/03/hiking-family.jpg"
   },
   {
       "category": "water",
-      "image": "http://www.coffscoast.com.au/sites/coffscoast.com.au/files/hero_shot_sup_for_print_0.jpg",
+      "image": "http://1hdwallpapers.com/wallpapers/ready_for_swimming.jpg",
       "Other suggestions- cartoon type": "http://thumbs.dreamstime.com/x/water-fun-3038931.jpg"
   },
   {
       "category": "mountain",
-      "image": "https://tsnra.files.wordpress.com/2012/03/hiking-family.jpg",
+      "image": "http://www.mountainhostel.com/images/hiking/nige061.jpg",
       "Other suggestions- cartoon type": "http://thumbs.dreamstime.com/x/mountain-bikers-mountain-vector-illustration-41044485.jpg"
   },
   {
       "category": "ballgames",
-      "image": "http://us.cdn1.123rf.com/168nwm/gekaskr/gekaskr1205/gekaskr120500064/13820239-soccer-ball-in-the-net-gate-on-the-football-field.jpg",
+      "image": "http://wasagasoccer.com/wp-content/uploads/2014/01/soccer-ball_00446055.jpg",
       "Other suggestions- cartoon type": "http://thumbs.dreamstime.com/x/ball-games-illustration-people-playing-various-sports-40495215.jpg"
   },
   {
