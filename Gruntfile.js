@@ -330,6 +330,19 @@ module.exports = function (grunt) {
             }
         },
 
+        'ftp-deploy': {
+            build: {
+                auth: {
+                    host: 'ftp.hang-out-with.me',
+                    port: 21,
+                    authKey: 'hangOutDomainComFtpAuth'
+                },
+                src: '<%= yeoman.dist %>',
+                dest: '/public_html',
+                exclusions: ['<%= yeoman.dist %>/.git*', '<%= yeoman.dist %>/**/Thumbs.db']
+            }
+        },
+
         // Run some tasks in parallel to speed up the build process
         concurrent: {
             server: [
