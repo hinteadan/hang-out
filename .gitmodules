@@ -1,0 +1,3 @@
+[submodule "app/scripts/hang-out-core"]
+	path = app/scripts/hang-out-core
+	url = https://github.com/hinteadan/hang-out-core.git
