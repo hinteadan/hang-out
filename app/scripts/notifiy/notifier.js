@@ -1,7 +1,7 @@
 ﻿(function (angular, _) {
     'use strict';
 
-    function MandrillEmailNotifier($http, apiKey) {
+    function MandrillEmailNotifier($http, $l, apiKey) {
 
         var baseUrl = 'https://mandrillapp.com/api/1.0/',
 			template = {
@@ -159,7 +159,7 @@
         }
 
         function generatePermalinkForActivity(activityId){
-            return 'http://h-hang-out.azurewebsites.net/#!/activity/' + activityId;
+            return 'http://' + $l.host() + ($l.port() !== 80 ? ':' + $l.port() : '') + '/#!/activity/' + activityId;
         }
 
         this.join = function (member, activity, activityId) {
@@ -181,6 +181,6 @@
 
     angular.module('hang-out-notify')
     .constant('mandrillApiKey', '-L0AqJmsBCMZo_oBbRc5lg')
-    .service('hangOutNotifier', ['$http', 'mandrillApiKey', MandrillEmailNotifier]);
+    .service('hangOutNotifier', ['$http', '$location', 'mandrillApiKey', MandrillEmailNotifier]);
 
 }).call(this, this.angular, this._);

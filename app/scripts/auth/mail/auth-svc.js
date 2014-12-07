@@ -3,10 +3,9 @@
 
     angular.module('hang-out-auth-mail')
     .service('hangOutMailAuth', ['$location', 'hangOutAuth', 'hangOutNotifier', 'devAuthEmail', 'devAuthName', function ($l, auth, notify, devEmail, devName) {
-        
+
         function generateAuthenticationLink(key) {
-            //return 'http://localhost:9899/#!/authenticate/' + key;
-            return 'http://h-hang-out.azurewebsites.net/#!/authenticate/' + key;
+            return 'http://' + $l.host() + ($l.port() !== 80 ? ':' + $l.port() : '') + '/#!/authenticate/' + key;
         }
 
         function isDevAuth(user) {
