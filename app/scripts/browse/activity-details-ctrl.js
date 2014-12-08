@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('hang-out-browse')
-    .controller('hangOutActivityDetailsCtrl', ['$scope', '$routeParams', '$timeout', 'hangOutAuth', 'hangOutNotifier', 'model', 'dataStore', 'wallpaper', 'title', 'Angularytics', 'storeKeyForRedirect', function ($s, $p, $t, auth, note, m, store, wall, title, analytics, redirectStoreKey) {
+    .controller('hangOutActivityDetailsCtrl', ['$scope', '$window', '$routeParams', '$timeout', 'hangOutAuth', 'hangOutNotifier', 'model', 'dataStore', 'wallpaper', 'title', 'Angularytics', 'storeKeyForRedirect', function ($s, $w, $p, $t, auth, note, m, store, wall, title, analytics, redirectStoreKey) {
 
         if (!auth.isAuthenticated() && $p.id) {
             localStore[redirectStoreKey] = $p.id;
@@ -151,6 +151,12 @@
                 }, function (reason) {
                     notify('Cannot change description because: ' + reason);
                 });
+        };
+        $s.profileFor = function (user) {
+            if(!user){
+                return;
+            }
+            $w.open(user.profile());
         };
 
         refresh();
