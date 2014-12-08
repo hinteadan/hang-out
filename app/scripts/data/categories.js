@@ -5,7 +5,7 @@
     .constant('hangOutActivityCategories', [
   {
       "category": "indoor",
-      "image": "http://www.hdwallpapers.in/walls/billiards-HD.jpg",
+      "image": "http://www.moonfighting.com/wp-content/uploads/2014/08/Barbell-fitness-class.jpg",
       "Other suggestions- cartoon type": "http://thumbs.dreamstime.com/x/cartoon-house-mascot-24058163.jpg"
   },
   {

@@ -209,7 +209,7 @@
         "http://www.sportissue.com/wp-content/uploads/2014/09/Messi-Soccer-player-lionel-messi-Lionel-messi-wallpaper-2014-.jpg",
         "http://renniecoaching.com/wp-content/uploads/2014/03/soccer.jpg"
       ],
-      "logoUrl": "http://www.gorgeouswall.com/wp-content/uploads/2014/02/football-logo-wallpaper-275x155.png"
+      "logoUrl": "http://2.bp.blogspot.com/-m4_kAlLug48/UZjdSi6ELhI/AAAAAAAAB0Y/SwO_OKPOXk8/s1600/soccer-logo-JISC.jpg"
   },
   {
       "title": "Football tennis",
