@@ -8,6 +8,7 @@
             .when('/browse', { templateUrl: 'scripts/browse/browse-options.tmpl.html', controller: 'hangOutBrowseOptionsCtrl' })
             .when('/activities', { templateUrl: 'scripts/browse/browse.tmpl.html', controller: 'hangOutBrowseCtrl' })
             .when('/activities/:type', { templateUrl: 'scripts/browse/browse.tmpl.html', controller: 'hangOutBrowseCtrl' })
+            .when('/activity/comments/:id', { templateUrl: 'scripts/browse/activity-comments.tmpl.html', controller: 'hangOutActivityCommentsCtrl', isPublic: true })
             .when('/activity/:id', { templateUrl: 'scripts/browse/activity-details.tmpl.html', controller: 'hangOutActivityDetailsCtrl' });
         $disqus.setShortname(dsqAppName);
     }]);

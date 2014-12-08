@@ -21,7 +21,7 @@
 
     <wallpaper></wallpaper>
 
-    <div class="navbar navbar-inverse clearfix" role="navigation" ng-controller="hangOutSession">
+    <div class="navbar navbar-inverse clearfix" role="navigation" ng-hide="isViewFullScreen" ng-controller="hangOutSession">
         <div class="navbar-header navbar-header-full">
             <div class="navbar-secondhand-options" ng-show="isAuthenticated()" ng-cloak>
                 <span class="clickable" ng-click="logout() | trackEvent:'Authentication':'Logout':user.email">Logout</span>
@@ -99,6 +99,7 @@
     <script src="scripts/browse/browse-options-ctrl.js"></script>
     <script src="scripts/browse/browse-ctrl.js"></script>
     <script src="scripts/browse/activity-details-ctrl.js"></script>
+    <script src="scripts/browse/activity-comments-ctrl.js"></script>
     <script src="scripts/create/module.js"></script>
     <script src="scripts/create/new-activity-wizard.js"></script>
     <script src="scripts/create/select-category-ctrl.js"></script>
