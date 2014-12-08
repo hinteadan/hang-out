@@ -1,11 +1,12 @@
-HANG-OUT Activity News
-======================
+HANG-OUT Activity members news
+==============================
 
-Hi there, 
-You have some updates on the following event:
+Hi, 
+there are some participant updates on the following event:
 
-*|activity|*
+*|member|*
 *|action|*
+*|activity|*
 
 View Activity by via this URL: *|activityPermalink|*
 
