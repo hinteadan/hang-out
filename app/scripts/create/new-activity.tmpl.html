@@ -93,6 +93,7 @@
                     <div class="row">
                         <div class="col-xs-12" ng-if="canRenderMap">
                             <ui-gmap-google-map center='map.center' zoom='12' pan="false" events="{click: map.onMapClick}" refresh="map.refreshMap">
+                                <ui-gmap-search-box template="'searchbox.tmpl.html'" events="{ 'places_changed': map.onSearchPlaces }"></ui-gmap-search-box>
                                 <ui-gmap-marker idkey='"placeLocation"' coords='map.marker.location' options="{ draggable: true }" events="{ dragend: map.onMarkerDrag }"></ui-gmap-marker>
                             </ui-gmap-google-map>
                         </div>
@@ -155,4 +156,8 @@
             </div>
         </script>
     </form>
+
+    <script type="text/ng-template" id="searchbox.tmpl.html">
+        <input type="text" class="form-control input-sm" placeholder="Search place" style="width: 200px;">
+    </script>
 </div>

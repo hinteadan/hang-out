@@ -10,7 +10,8 @@
         //https://angular-ui.github.io/angular-google-maps/#!/api
         gmaps.configure({
             key: googleApiKey,
-            v: '3.17'
+            v: '3.17',
+            libraries: 'places'
         });
     }]);
 

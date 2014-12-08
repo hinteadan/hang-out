@@ -130,6 +130,23 @@
             onMarkerDrag: function (marker, eventName, model, event) {
                 activity.place.location.lat = event[0].latLng.k;
                 activity.place.location.lng = event[0].latLng.B;
+            },
+            onSearchPlaces: function (rawPlaces) {
+                var selectedPlaceLocation = null;
+                try {
+                    /*jshint camelcase:false*/
+                    selectedPlaceLocation = rawPlaces.gm_accessors_.places.Jc.searchBoxPlaces[0].geometry.location;
+                } catch (err) { }
+                if (!selectedPlaceLocation) {
+                    return;
+                }
+                $s.map.marker.location.latitude = selectedPlaceLocation.k;
+                $s.map.marker.location.longitude = selectedPlaceLocation.B;
+                $s.map.center.latitude = selectedPlaceLocation.k;
+                $s.map.center.longitude = selectedPlaceLocation.B;
+                $s.map.refresh();
+                activity.place.location.lat = selectedPlaceLocation.k;
+                activity.place.location.lng = selectedPlaceLocation.B;
             }
         };
         $s.canRenderMap = false;
