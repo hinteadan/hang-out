@@ -44,7 +44,7 @@
             </div>
             <div class="panel-body">
                 <ul class="list-unstyled list-inline">
-                    <li class="clickable" ng-click="profileFor(activity.initiator)">
+                    <li class="clickable" ng-click="profileFor(activity.initiator) | trackEvent:'Browse':'Open User Profile':activity.initiator.email + ': ' + activity.initiator.profile()">
                         <div class="profile-image img-rounded" ng-style="{'background-image': 'url(' + activity.initiator.avatar(40) + ')'}"></div>
                         <span ng-show="activity.initiator.name">
                             {{activity.initiator.name}}
@@ -58,7 +58,7 @@
                             - <em><strong>me</strong></em>
                         </span>
                     </li>
-                    <li ng-repeat="dude in activity.confirmedMembers track by dude.email" class="clickable" ng-click="profileFor(dude)">
+                    <li ng-repeat="dude in activity.confirmedMembers track by dude.email" class="clickable" ng-click="profileFor(dude) | trackEvent:'Browse':'Open User Profile':dude.email + ': ' + dude.profile()">
                         <div class="profile-image img-rounded" ng-style="{'background-image': 'url(' + dude.avatar(40) + ')'}"></div>
                         <span ng-show="dude.name">
                             {{dude.name}}
@@ -81,7 +81,7 @@
             </div>
             <div class="panel-body">
                 <ul class="list-unstyled list-inline">
-                    <li ng-repeat="dude in activity.allParticipants() track by dude.email" class="clickable" ng-click="profileFor(dude)">
+                    <li ng-repeat="dude in activity.allParticipants() track by dude.email" class="clickable" ng-click="profileFor(dude) | trackEvent:'Browse':'Open User Profile':dude.email + ': ' + dude.profile()">
                         <div class="profile-image img-rounded" ng-style="{'background-image': 'url(' + dude.avatar(40) + ')'}"></div>
                         <span ng-show="dude.name">
                             {{dude.name}}
