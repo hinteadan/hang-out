@@ -81,16 +81,16 @@
             </div>
             <div class="panel-body">
                 <ul class="list-unstyled list-inline">
-                    <li ng-repeat="dude in activity.allParticipants() track by dude.email" class="clickable" ng-click="profileFor(dude) | trackEvent:'Browse':'Open User Profile':dude.email + ': ' + dude.profile()">
-                        <div class="profile-image img-rounded" ng-style="{'background-image': 'url(' + dude.avatar(40) + ')'}"></div>
-                        <span ng-show="dude.name">
+                    <li ng-repeat="dude in activity.allParticipants() track by dude.email" class="clickable">
+                        <div class="profile-image img-rounded" ng-style="{'background-image': 'url(' + dude.avatar(40) + ')'}" ng-click="profileFor(dude) | trackEvent:'Browse':'Open User Profile':dude.email + ': ' + dude.profile()"></div>
+                        <span ng-show="dude.name" ng-click="profileFor(dude) | trackEvent:'Browse':'Open User Profile':dude.email + ': ' + dude.profile()">
                             {{dude.name}}
                             <small class="text-muted">[{{dude.email}}]</small>
                         </span>
-                        <span ng-hide="dude.name">
+                        <span ng-hide="dude.name" ng-click="profileFor(dude) | trackEvent:'Browse':'Open User Profile':dude.email + ': ' + dude.profile()">
                             {{dude.email}}
                         </span>
-                        <span ng-show="dude.is(me)">
+                        <span ng-show="dude.is(me)" ng-click="profileFor(dude) | trackEvent:'Browse':'Open User Profile':dude.email + ': ' + dude.profile()">
                             - <em><strong>me</strong></em>
                         </span>
                         <span ng-show="!dude.is(me) && activity.isInitiator(me) && !activity.isParticipantConfirmed(dude)">
