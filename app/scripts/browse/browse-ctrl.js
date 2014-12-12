@@ -58,7 +58,7 @@
                             startsOn: activities[0].activity.startsOn,
                             label: dateLabel,
                             entries: activities
-                        }
+                        };
                     })
                     .value();
             });
