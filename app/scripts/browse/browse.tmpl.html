@@ -5,36 +5,45 @@
     <div class="text-center" ng-show="flag.isLoadingActivities">Loading activities, please wait...</div>
 
     <div ng-hide="flag.isLoadingActivities" class="row">
-        <div class="col-xs-12 text-center" ng-hide="activities.length">Nothing to show here...</div>
-        <div class="col-sm-4" ng-repeat="entry in activities | orderBy:'startsOn'">
-            <div class="panel panel-default clickable" ng-click="openActivity(entry.id) | trackEvent:'Browse':'Open Activity Details':entry.id + ': ' + entry.activity.title">
-                <div class="panel-heading">
+        <div class="col-xs-12 text-center" ng-hide="activitiesPerDay.length">Nothing to show here...</div>
 
-                    <div class="pull-right" ng-show="type == 'open'">
-                        <span class="label label-warning" ng-hide="entry.activity.isMemberInstantlyConfirmed" title="The initator wants to manually confirm each participant, so joining doesn't guarantee you a spot">Not Instant</span>
-                        <span class="label label-default" title="Nobody joined so far, there's just the initiator" ng-hide="entry.activity.pendingMembers.length">1</span>
-                        <span class="label label-info" ng-show="entry.activity.pendingMembers.length">
-                            {{entry.activity.allParticipants().length}}
-                        </span>
+        <div class="col-xs-12" ng-repeat="group in activitiesPerDay | orderBy:'startsOn'">
+
+            <blockquote>
+                <p>{{group.label}}</p>
+            </blockquote>
+
+            <div class="col-sm-4" ng-repeat="entry in group.entries | orderBy:'startsOn'">
+                <div class="panel panel-default clickable" ng-click="openActivity(entry.id) | trackEvent:'Browse':'Open Activity Details':entry.id + ': ' + entry.activity.title">
+                    <div class="panel-heading">
+
+                        <div class="pull-right" ng-show="type == 'open'">
+                            <span class="label label-warning" ng-hide="entry.activity.isMemberInstantlyConfirmed" title="The initator wants to manually confirm each participant, so joining doesn't guarantee you a spot">Not Instant</span>
+                            <span class="label label-default" title="Nobody joined so far, there's just the initiator" ng-hide="entry.activity.pendingMembers.length">1</span>
+                            <span class="label label-info" ng-show="entry.activity.pendingMembers.length">
+                                {{entry.activity.allParticipants().length}}
+                            </span>
+                        </div>
+
+                        <div class="pull-right" ng-show="type != 'open'">
+                            <span class="label label-default" title="Nobody joined so far, there's just you" ng-hide="entry.activity.pendingMembers.length">1</span>
+                            <span class="label label-info" ng-show="entry.activity.pendingMembers.length">
+                                {{entry.activity.allParticipants().length}}
+                            </span>
+                        </div>
+
+                        <h5>{{entry.activity.title}}</h5>
+
+                        <blockquote class="condensed blockquote-reverse" ng-show="type == 'open'">
+                            <small>with {{entry.activity.initiator.name || entry.activity.initiator.email}}</small>
+                        </blockquote>
                     </div>
-
-                    <div class="pull-right" ng-show="type != 'open'">
-                        <span class="label label-default" title="Nobody joined so far, there's just you" ng-hide="entry.activity.pendingMembers.length">1</span>
-                        <span class="label label-info" ng-show="entry.activity.pendingMembers.length">
-                            {{entry.activity.allParticipants().length}}
-                        </span>
+                    <div class="panel-body">
+                        <p class="text-right">happening on <strong>{{entry.activity.startsOnFormatted()}}</strong></p>
                     </div>
-
-                    <h5>{{entry.activity.title}}</h5>
-
-                    <blockquote class="condensed blockquote-reverse" ng-show="type == 'open'">
-                        <small>with {{entry.activity.initiator.name || entry.activity.initiator.email}}</small>
-                    </blockquote>
-                </div>
-                <div class="panel-body">
-                    <p class="text-right">happening on <strong>{{entry.activity.startsOnFormatted()}}</strong></p>
                 </div>
             </div>
+
         </div>
     </div>
 

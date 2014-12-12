@@ -1,5 +1,13 @@
-﻿(function (angular) {
+﻿(function (angular, _, moment) {
     'use strict';
+
+    function parseToMoment(input) {
+        var mDate = moment(input);
+        if (!mDate.isValid()) {
+            mDate = moment(input, moment.ISO_8601);
+        }
+        return mDate;
+    }
 
     angular.module('hang-out-browse')
     .controller('hangOutBrowseCtrl', ['$scope', '$location', '$routeParams', '$timeout', 'hangOutAuth', 'hangOutNotifier', 'dataStore', 'model', 'title', function ($s, $l, $p, $t, auth, note, store, m, title) {
@@ -9,10 +17,10 @@
         }
 
         var type = {
-                mine: 'mine',
-                joined: 'joined',
-                open: 'open'
-            },
+            mine: 'mine',
+            joined: 'joined',
+            open: 'open'
+        },
             desiredType = !$p.type ? type.open : $p.type === type.mine ? type.mine : $p.type === type.joined ? type.joined : type.open,
             me = auth.currentUser();
 
@@ -41,7 +49,18 @@
 
             fetchDesiredActivites().then(function (activities) {
                 $s.flag.isLoadingActivities = false;
-                $s.activities = activities;
+                $s.activitiesPerDay = _(activities)
+                    .groupBy(function (activityEntry) {
+                        return parseToMoment(activityEntry.activity.startsOn).format('ddd, MMM DD, YYYY');
+                    })
+                    .map(function (activities, dateLabel) {
+                        return {
+                            startsOn: activities[0].activity.startsOn,
+                            label: dateLabel,
+                            entries: activities
+                        }
+                    })
+                    .value();
             });
         }
 
@@ -50,7 +69,7 @@
         $s.flag = {
             isLoadingActivities: false,
         };
-        $s.activities = [];
+        $s.activitiesPerDay = {};
 
         $s.openActivity = function (id) {
             $l.path('/activity/' + id);
@@ -59,4 +78,4 @@
         $t(refresh);
     }]);
 
-}).call(this, this.angular);
+}).call(this, this.angular, this._, this.moment);
