@@ -1,6 +1,6 @@
 ﻿<div>
 
-    <div class="text-center" ng-show="flag.isLoadingActivity">Loading activitiy, please wait...</div>
+    <div class="text-center" ng-show="flag.isLoadingActivity">Loading activity, please wait...</div>
 
     <div ng-hide="flag.isLoadingActivity">
 
@@ -29,7 +29,7 @@
                 </div>
                 <div class="form-group clearfix">
                     <button type="submit" class="btn btn-lg btn-default pull-right" ng-disabled="!newDescription">
-                        Ok, save it!
+                        OK, save it!
                     </button>
                     <button ng-click="isEditingDescription = false; newDescription = activity.description;" class="btn btn-lg btn-link pull-right" type="button">
                         Oh, never mind
@@ -46,13 +46,7 @@
                 <ul class="list-unstyled list-inline">
                     <li class="clickable" ng-click="profileFor(activity.initiator) | trackEvent:'Browse':'Open User Profile':activity.initiator.email + ': ' + activity.initiator.profile()">
                         <div class="profile-image img-rounded" ng-style="{'background-image': 'url(' + activity.initiator.avatar(40) + ')'}"></div>
-                        <span ng-show="activity.initiator.name">
-                            {{activity.initiator.name}}
-                            <small class="text-muted">[{{activity.initiator.email}}]</small>
-                        </span>
-                        <span ng-hide="activity.initiator.name">
-                            {{activity.initiator.email}}
-                        </span>
+                        {{activity.initiator.name || activity.initiator.email}}
                         - <em>initiator</em>
                         <span ng-show="activity.initiator.is(me)">
                             - <em><strong>me</strong></em>
@@ -60,13 +54,7 @@
                     </li>
                     <li ng-repeat="dude in activity.confirmedMembers track by dude.email" class="clickable" ng-click="profileFor(dude) | trackEvent:'Browse':'Open User Profile':dude.email + ': ' + dude.profile()">
                         <div class="profile-image img-rounded" ng-style="{'background-image': 'url(' + dude.avatar(40) + ')'}"></div>
-                        <span ng-show="dude.name">
-                            {{dude.name}}
-                            <small class="text-muted">[{{dude.email}}]</small>
-                        </span>
-                        <span ng-hide="dude.name">
-                            {{dude.email}}
-                        </span>
+                        {{dude.name || dude.email}}
                         <span ng-show="dude.is(me)">
                             - <em><strong>me</strong></em>
                         </span>
@@ -83,12 +71,8 @@
                 <ul class="list-unstyled list-inline">
                     <li ng-repeat="dude in activity.allParticipants() track by dude.email" class="clickable">
                         <div class="profile-image img-rounded" ng-style="{'background-image': 'url(' + dude.avatar(40) + ')'}" ng-click="profileFor(dude) | trackEvent:'Browse':'Open User Profile':dude.email + ': ' + dude.profile()"></div>
-                        <span ng-show="dude.name" ng-click="profileFor(dude) | trackEvent:'Browse':'Open User Profile':dude.email + ': ' + dude.profile()">
-                            {{dude.name}}
-                            <small class="text-muted">[{{dude.email}}]</small>
-                        </span>
-                        <span ng-hide="dude.name" ng-click="profileFor(dude) | trackEvent:'Browse':'Open User Profile':dude.email + ': ' + dude.profile()">
-                            {{dude.email}}
+                        <span ng-click="profileFor(dude) | trackEvent:'Browse':'Open User Profile':dude.email + ': ' + dude.profile()">
+                            {{dude.name || dude.email}}
                         </span>
                         <span ng-show="dude.is(me)" ng-click="profileFor(dude) | trackEvent:'Browse':'Open User Profile':dude.email + ': ' + dude.profile()">
                             - <em><strong>me</strong></em>

@@ -151,7 +151,7 @@
         }
 
         function displayNameForIndividual(individual) {
-            return individual.name ? individual.name + '[' + individual.email + ']' : individual.email;
+            return individual.name ? individual.name : individual.email;
         }
 
         function displayNameForActivity(activity) {
