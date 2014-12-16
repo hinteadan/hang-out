@@ -2023,6 +2023,70 @@
         "vara"
       ],
       "logoUrl": "http://www.funparkcluj.ro/static/imgf/logo-funpark.png"
+  },
+  {
+      "Activities": "Movie",
+      "name": "Cinema City Cluj Iulius Mall",
+      "address": "Alex. Vaida Voievod Nr 53-55",
+      "details": "Tel: 0264/20.70.70",
+      "websiteUrl": "http://www.cinemacity.ro/Cluj",
+      "location": {
+          "lat": 46.771908,
+          "lng": 23.627359
+      },
+      "tags": [
+        "movie",
+        "film"
+      ],
+      "logoUrl": "http://www.cinema-city.pl/loga/cc_master_black.gif"
+  },
+  {
+      "Activities": null,
+      "name": "Cinema City Cluj Polus",
+      "address": "Avram Iancu 492-500, com. Floresti",
+      "details": "Tel: 0264/202.000",
+      "websiteUrl": "http://www.cinemacity.ro/Cluj_Polus",
+      "location": {
+          "lat": 46.748870,
+          "lng": 23.530425
+      },
+      "tags": [
+        "movie",
+        "film"
+      ],
+      "logoUrl": "http://www.cinema-city.pl/loga/cc_master_black.gif"
+  },
+  {
+      "Activities": null,
+      "name": "Cinema Florin Piersic",
+      "address": "Piata Mihai Viteazu nr. 11, Cluj-Napoca",
+      "details": "Tel: 0264 530 521, programul se poate vedea pe http://www.cinemagia.ro/program-cinema/cinema-florin-piersic-cluj/",
+      "websiteUrl": null,
+      "location": {
+          "lat": 46.774713,
+          "lng": 23.590201
+      },
+      "tags": [
+        "movie",
+        "film"
+      ],
+      "logoUrl": "http://facteurgeekadmin.files.wordpress.com/2012/11/cinc3a9ma-logo.jpg"
+  },
+  {
+      "Activities": null,
+      "name": "Cinema Victoria",
+      "address": "Bulevardul Eroilor 51, Cluj-Napoca",
+      "details": "Tel: 0264 450 143; pret bilet intreg 10 lei, pret cu reducere 5 lei",
+      "websiteUrl": "http://www.cinemavictoria.ro/",
+      "location": {
+          "lat": 46.770793,
+          "lng": 23.595746
+      },
+      "tags": [
+        "movie",
+        "film"
+      ],
+      "logoUrl": "http://facteurgeekadmin.files.wordpress.com/2012/11/cinc3a9ma-logo.jpg"
   }
     ]);
 

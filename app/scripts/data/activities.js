@@ -1035,6 +1035,26 @@
         "http://i.ytimg.com/vi/iD4qsWnjsNU/maxresdefault.jpg"
       ],
       "logoUrl": "http://www.logofromdreams.com/wp-content/uploads/tdomf/7211/adventure_vasvari.jpg"
+  },
+  {
+      "title": "Movie ",
+      "categories": [
+        "indoor"
+      ],
+      "keywords": [
+        "indoor"
+      ],
+      "description": null,
+      "tags": [
+        "movie",
+        "film"
+      ],
+      "imageUrls": [
+        "http://www.thebloggerscinemaclub.com//wp-content/uploads/2013/12/20131017_scala-salles-et-portraits-justine-giradi_001.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAuFu2M9OV_APtvEMkUx0yZUffvHmEgnMdCPmtbdH5hCA8dXrHhw",
+        "http://globalcityholdings.com/userfiles/image/bydgoszcz/cinema-city-27.jpg"
+      ],
+      "logoUrl": "http://facteurgeekadmin.files.wordpress.com/2012/11/cinc3a9ma-logo.jpg"
   }
     ]);
 
