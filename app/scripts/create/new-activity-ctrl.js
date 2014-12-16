@@ -48,6 +48,9 @@
         $s.onPlaceSelection = function ($item, $model, $label) {
             /*jshint unused:false*/
             activity.place = map.place($model);
+            $s.map.center.latitude = $s.map.marker.location.latitude = activity.place.location.lat;
+            $s.map.center.longitude = $s.map.marker.location.longitude = activity.place.location.lng;
+            $s.map.refresh();
             analytics.trackEvent('Create Activity', 'Select Suggested Place', activity.place.name);
         };
 
