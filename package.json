@@ -23,7 +23,7 @@
     "grunt-replace": "^0.8.0",
     "grunt-rev": "~0.1.0",
     "grunt-svgmin": "^2.0.0",
-    "grunt-usemin": "^2.6.2",
+    "grunt-usemin": "^3.0.0",
     "jshint-stylish": "~1.0.0",
     "karma": "^0.12.28",
     "karma-firefox-launcher": "^0.1.3",
