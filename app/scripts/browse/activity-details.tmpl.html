@@ -11,6 +11,9 @@
         <blockquote class="condensed blockquote-reverse">
             initiated by <strong>{{activity.initiator.name || activity.initiator.email}}</strong>,
             happening on <strong>{{activity.startsOnFormatted()}}</strong>
+            <span ng-show="activity.endsOn">
+                &nbsp;lasting&nbsp;<strong>{{activity.durationFormatted()}}</strong>
+            </span>
         </blockquote>
 
         <div ng-show="activity.description" ng-init="newDescription = activity.description; isEditingDescription = false;">
