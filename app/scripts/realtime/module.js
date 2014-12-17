@@ -48,9 +48,9 @@
         tryInitialize();
     }])
 
-    .controller('realTimeTestCtrl', ['$scope', 'hangOutRealtime', function ($s, realtime) {
+    .controller('realTimeTestCtrl', ['$scope', 'hangOutRealtime', function ($s) {
         $s.ping = function () {
-            realtime
+            
         };
     }]);
 
