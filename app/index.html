@@ -43,6 +43,10 @@
         </div>
     </div>
 
+    <div ng-controller="realTimeTestCtrl">
+        <button ng-click="ping()">Ping SignalR</button>
+    </div>
+
     <footer class="footer" ng-controller="footer" ng-include="template()"></footer>
 
     <!-- build:js lib.js -->
@@ -50,10 +54,12 @@
     <script src="bower_components/jsSHA/src/sha.js"></script>
     <script src="bower_components/json3/lib/json3.js"></script>
     <script src="bower_components/lodash/dist/lodash.js"></script>
+    <script src="bower_components/signalr/jquery.signalR.js"></script>
     <script src="bower_components/moment/moment.js"></script>
     <script src="bower_components/h.dataStore/h.dataStore.js"></script>
     <script src="bower_components/hCheckJs/check.js"></script>
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-signalr-hub/signalr-hub.js"></script>
     <script src="bower_components/angular-md5/angular-md5.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
@@ -78,6 +84,7 @@
     <script src="scripts/app.js"></script>
     <script src="scripts/title.js"></script>
     <script src="scripts/footer.js"></script>
+    <script src="scripts/realtime/module.js"></script>
     <script src="scripts/wallpaper/module.js"></script>
     <script src="scripts/wallpaper/wallpaper-drtv.js"></script>
     <script src="scripts/wallpaper/wallpaper-srvc.js"></script>
