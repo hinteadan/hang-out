@@ -1,6 +1,37 @@
 ﻿(function (angular, $) {
     'use strict';
 
+    function RealtimeApi(hubServer, onChange, onCreate, onDelete) {
+
+        this.onEntityChanged = function (entity) {
+            if (!angular.isFunction(onChange)) {
+                return;
+            }
+            onChange.call(null, entity);
+        };
+        this.onEntityCreated = function (entity) {
+            if (!angular.isFunction(onCreate)) {
+                return;
+            }
+            onCreate.call(null, entity);
+        };
+        this.onEntityRemoved = function (entity) {
+            if (!angular.isFunction(onDelete)) {
+                return;
+            }
+            onDelete.call(null, entity);
+        };
+
+        this.announceEntityChange = function (entity) {
+            hubServer.announceEntityChange(entity);
+        };
+
+        this.announceEntityCreated = function (entity) {
+            hubServer.announceEntityCreated(entity);
+        };
+
+    }
+
     angular.module('hang-out-real-time', ['hang-out'])
     .constant('realTimeRootPath', 'realtime')
     .run(['storeUrl', 'realTimeRootPath', function (storeUrl, rootPath) {
@@ -12,7 +43,8 @@
         var realtime = null,
             retryCount = 0,
             retryMax = 10,
-            retryIn = 500;
+            retryIn = 500,
+            realtimeApi = null;
 
 
         function areHubsLoaded() {
@@ -21,11 +53,6 @@
 
         function initialize() {
             realtime = $.connection.entityHub;
-
-            realtime.client.pong = function (timestamp) {
-                console.log('server pong');
-                console.log(timestamp);
-            };
 
             realtime.client.entityChanged = function (entity) {
                 console.log('entityChanged');
@@ -39,9 +66,10 @@
 
             $.connection.hub.url = storeUrl + rootPath;
             $.connection.hub.start().done(function () {
-                console.log('$.connection.hub.start().done');
-                realtime.server.ping();
+                console.info('Connected to Real-time hub');
             });
+
+            realtimeApi = new RealtimeApi(realtime.server, console.log, console.log, console.log);
         }
 
         function tryInitialize() {
@@ -56,11 +84,12 @@
             $t(tryInitialize, retryIn);
         }
         tryInitialize();
-    }])
 
-    .controller('realTimeTestCtrl', ['$scope', 'hangOutRealtime', function ($s) {
-        $s.ping = function () {
-            
+        this.isAvailable = function () {
+            return Boolean(realtimeApi);
+        };
+        this.api = function () {
+            return realtimeApi;
         };
     }]);
 
