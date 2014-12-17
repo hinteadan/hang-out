@@ -27,6 +27,16 @@
                 console.log(timestamp);
             };
 
+            realtime.client.entityChanged = function (entity) {
+                console.log('entityChanged');
+                console.log(entity);
+            };
+
+            realtime.client.entityCreated = function (entity) {
+                console.log('entityCreated');
+                console.log(entity);
+            };
+
             $.connection.hub.url = storeUrl + rootPath;
             $.connection.hub.start().done(function () {
                 console.log('$.connection.hub.start().done');
