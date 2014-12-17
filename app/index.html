@@ -21,6 +21,8 @@
 
     <wallpaper></wallpaper>
 
+    <div ng-controller="realTimeTestCtrl"></div>
+
     <div class="navbar navbar-inverse clearfix" role="navigation" ng-hide="isViewFullScreen" ng-controller="hangOutSession">
         <div class="navbar-header navbar-header-full">
             <div class="navbar-secondhand-options" ng-show="isAuthenticated()" ng-cloak>
@@ -31,9 +33,6 @@
                 <div class="profile-image-brand img-rounded" ng-style="{'background-image': 'url(' + user.avatar(20) + ')'}" ng-show="isAuthenticated()" ng-cloak></div>
                 <small class="subtitle" ng-show="isAuthenticated()" ng-cloak><em>as</em>&nbsp;<strong title="{{user.email}}">{{user.name || user.email}}</strong></small>
             </a>
-            <div ng-controller="realTimeTestCtrl">
-                <button ng-click="ping()">Ping SignalR</button>
-            </div>
         </div>
     </div>
 
@@ -41,7 +40,7 @@
         <div class="row">
             <div class="col-xs-12" ng-view></div>
         </div>
-    </div>    
+    </div>
 
     <footer class="footer" ng-controller="footer" ng-include="template()"></footer>
 
@@ -54,7 +53,7 @@
     <script src="bower_components/moment/moment.js"></script>
     <script src="bower_components/h.dataStore/h.dataStore.js"></script>
     <script src="bower_components/hCheckJs/check.js"></script>
-    <script src="bower_components/angular/angular.js"></script>    
+    <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-md5/angular-md5.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
@@ -90,7 +89,7 @@
     <script src="scripts/auth/module.js"></script>
     <script src="scripts/auth/login-ctrl.js"></script>
     <script src="scripts/auth/hasher.js"></script>
-    <script src="scripts/auth/auth-svc.js"></script>    
+    <script src="scripts/auth/auth-svc.js"></script>
     <script src="scripts/auth/session-ctrl.js"></script>
     <script src="scripts/auth/mail/module.js"></script>
     <script src="scripts/auth/mail/login-ctrl.js"></script>
