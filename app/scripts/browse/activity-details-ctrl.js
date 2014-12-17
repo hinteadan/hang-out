@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('hang-out-browse')
-    .controller('hangOutActivityDetailsCtrl', ['$scope', '$window', '$routeParams', '$timeout', 'hangOutAuth', 'hangOutNotifier', 'model', 'dataStore', 'wallpaper', 'title', 'Angularytics', 'storeKeyForRedirect', function ($s, $w, $p, $t, auth, note, m, store, wall, title, analytics, redirectStoreKey) {
+    .controller('hangOutActivityDetailsCtrl', ['$scope', '$window', '$routeParams', '$timeout', 'hangOutAuth', 'hangOutNotifier', 'model', 'dataStore', 'wallpaper', 'title', 'Angularytics', 'storeKeyForRedirect', 'hangOutRealtime', function ($s, $w, $p, $t, auth, note, m, store, wall, title, analytics, redirectStoreKey, realtime) {
 
         if (!auth.isAuthenticated() && $p.id) {
             localStore[redirectStoreKey] = $p.id;
@@ -14,6 +14,12 @@
         }
 
         var me = auth.currentUser();
+
+        realtime.bind().then(function (api) {
+            api.setOnChangeHandler(function (e) {
+                console.log(e);
+            });
+        });
 
         function refresh() {
             $s.flag.isLoadingActivity = true;
