@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('hang-out-browse')
-    .controller('hangOutActivityDetailsCtrl', ['$scope', '$window', '$routeParams', '$timeout', 'hangOutAuth', 'hangOutNotifier', 'model', 'dataStore', 'wallpaper', 'title', 'Angularytics', 'storeKeyForRedirect', 'hangOutRealtime', function ($s, $w, $p, $t, auth, note, m, store, wall, title, analytics, redirectStoreKey, realtime) {
+    .controller('hangOutActivityDetailsCtrl', ['$scope', '$window', '$routeParams', '$timeout', 'hangOutAuth', 'hangOutNotifier', 'model', 'model-mapper', 'dataStore', 'wallpaper', 'title', 'Angularytics', 'storeKeyForRedirect', 'hangOutRealtime', function ($s, $w, $p, $t, auth, note, m, map, store, wall, title, analytics, redirectStoreKey, realtime) {
 
         if (!auth.isAuthenticated() && $p.id) {
             localStore[redirectStoreKey] = $p.id;
@@ -17,34 +17,44 @@
 
         realtime.bind().then(function (api) {
             api.setOnChangeHandler(function (e) {
-                console.log(e);
+                refreshActivity(mapActivityEntry(e));
             });
         });
 
-        function refresh() {
-            $s.flag.isLoadingActivity = true;
-            store.activity($p.id).then(function (activityEntry) {
-                title.set(activityEntry.activity.friendlyTitle());
-                $s.disqusThreadId = activityEntry.id;
-                $s.flag.isLoadingActivity = false;
-                $s.activityEntry = activityEntry;
-                $s.activity = activityEntry.activity;
-                wall.setWallpapers(activityEntry.activity.imageUrls);
-                $s.map = {
-                    center: {
+        function mapActivityEntry(activityEntity) {
+            return {
+                id: activityEntity.Id,
+                token: activityEntity.CheckTag,
+                activity: map.activity(activityEntity.Data)
+            };
+        }
+
+        function refreshActivity(activityEntry) {
+            title.set(activityEntry.activity.friendlyTitle());
+            $s.disqusThreadId = activityEntry.id;
+            $s.flag.isLoadingActivity = false;
+            $s.activityEntry = activityEntry;
+            $s.activity = activityEntry.activity;
+            wall.setWallpapers(activityEntry.activity.imageUrls);
+            $s.map = {
+                center: {
+                    latitude: $s.activity.place.location.lat,
+                    longitude: $s.activity.place.location.lng
+                },
+                marker: {
+                    location: {
                         latitude: $s.activity.place.location.lat,
                         longitude: $s.activity.place.location.lng
-                    },
-                    marker: {
-                        location: {
-                            latitude: $s.activity.place.location.lat,
-                            longitude: $s.activity.place.location.lng
-                        }
                     }
-                };
-                $s.canRenderMap = false;
-                $t(function () { $s.canRenderMap = true; });
-            });
+                }
+            };
+            $s.canRenderMap = false;
+            $t(function () { $s.canRenderMap = true; });
+        }
+
+        function refresh() {
+            $s.flag.isLoadingActivity = true;
+            store.activity($p.id).then(refreshActivity);
         }
 
         $s.me = me;

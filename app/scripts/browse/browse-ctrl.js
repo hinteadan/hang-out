@@ -10,7 +10,7 @@
     }
 
     angular.module('hang-out-browse')
-    .controller('hangOutBrowseCtrl', ['$scope', '$location', '$routeParams', '$timeout', 'hangOutAuth', 'hangOutNotifier', 'dataStore', 'model', 'title', function ($s, $l, $p, $t, auth, note, store, m, title) {
+    .controller('hangOutBrowseCtrl', ['$scope', '$location', '$routeParams', '$timeout', 'hangOutAuth', 'hangOutNotifier', 'dataStore', 'model', 'title', 'hangOutRealtime', function ($s, $l, $p, $t, auth, note, store, m, title, realtime) {
 
         if (!auth.isAuthenticated()) {
             return;
@@ -24,7 +24,9 @@
             desiredType = !$p.type ? type.open : $p.type === type.mine ? type.mine : $p.type === type.joined ? type.joined : type.open,
             me = auth.currentUser();
 
-        //wall.setWallpapers(suggest.wallpapers());
+        realtime.bind().then(function (api) {
+            api.setOnCreateHandler(refresh);
+        });
 
         function generateTitle() {
             switch (desiredType) {
