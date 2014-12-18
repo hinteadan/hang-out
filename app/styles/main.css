@@ -1,6 +1,6 @@
 ﻿html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
@@ -11,7 +11,7 @@ body {
     display: none !important;
 }
 
-.container-fluid{
+.container-fluid {
     margin-bottom: 80px;
 }
 
@@ -62,12 +62,14 @@ blockquote.condensed {
     background-repeat: no-repeat;
     background-size: contain;
 }
+
 .navbar-brand .logo {
-    width: 66px; 
+    width: 66px;
     height: 60px;
     margin-left: -5px;
     margin-top: -19px;
 }
+
 .logo-inline {
     display: inline-block;
     vertical-align: middle;
@@ -152,7 +154,7 @@ blockquote.condensed {
 .navbar-brand .subtitle {
     font-size: 10px;
     position: absolute;
-    top:40px;
+    top: 40px;
     left: 80px;
 }
 
@@ -174,15 +176,39 @@ blockquote.condensed {
     font-size: 16px;
 }
 
-textarea, textarea.form-control, input.form-control, input[type="text"], input[type="password"], input[type="email"], input[type="number"], .form-control[type="text"], .form-control[type="password"], .form-control[type="email"], .form-control[type="tel"]
-{
+textarea, textarea.form-control, input.form-control, input[type="text"], input[type="password"], input[type="email"], input[type="number"], .form-control[type="text"], .form-control[type="password"], .form-control[type="email"], .form-control[type="tel"] {
     font-size: 14px;
 }
 
-textarea, textarea.form-control {
-    height: 60px;
-}
+    textarea, textarea.form-control {
+        height: 60px;
+    }
 
 label {
     font-weight: normal;
 }
+
+.status-indicator {
+    width: 5px;
+    height: 5px;    
+
+    -webkit-border-bottom-right-radius: 3px;
+    -moz-border-radius-bottomright: 3px;
+    border-bottom-right-radius: 3px;
+
+    -webkit-box-shadow: -1px -1px 2px 0px rgba(255,255,255,0.85);
+    -moz-box-shadow: -1px -1px 2px 0px rgba(255,255,255,0.85);
+    box-shadow: -1px -1px 2px 0px rgba(255,255,255,0.85);
+}
+
+    .status-indicator.disconnected {
+        background-color: #d74423;
+    }
+
+    .status-indicator.connecting {
+        background-color: #ff9800;
+    }
+
+    .status-indicator.connected {
+        background-color: #0bd416;
+    }

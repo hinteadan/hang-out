@@ -31,7 +31,13 @@
             </div>
             <a class="navbar-brand" href="#!/">
                 <div class="logo logo-inline"></div>
-                <div class="profile-image-brand img-rounded" ng-style="{'background-image': 'url(' + user.avatar(20) + ')'}" ng-show="isAuthenticated()" ng-cloak></div>
+                <div class="profile-image-brand img-rounded" ng-style="{'background-image': 'url(' + user.avatar(20) + ')'}" ng-show="isAuthenticated()" ng-cloak>
+                    <div ng-controller="hangOutRealtimeStatus"
+                         class="status-indicator"
+                         ng-class="literalState()"
+                         title="Realtime Notifications - {{literalState()}}"
+                         style="position: relative; left: 15px; top: 15px;"></div>
+                </div>
                 <small class="subtitle" ng-show="isAuthenticated()" ng-cloak><em>as</em>&nbsp;<strong title="{{user.email}}">{{user.name || user.email}}</strong></small>
             </a>
         </div>
