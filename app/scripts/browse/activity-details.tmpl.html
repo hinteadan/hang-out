@@ -7,6 +7,7 @@
         <h1 class="page-header">
             {{activity.title}}
         </h1>
+
         <h4 ng-hide="activity.isPending()" ng-class="{ 'text-danger': activity.isCancelled, 'text-success': activity.isWrapped }">{{activity.friendlyStatus()}}</h4>
         <blockquote class="condensed blockquote-reverse">
             initiated by <strong>{{activity.initiator.name || activity.initiator.email}}</strong>,
@@ -103,6 +104,24 @@
                     <ui-gmap-marker idkey='"placeLocation"' coords='map.marker.location' options="{ draggable: false }"></ui-gmap-marker>
                 </ui-gmap-google-map>
             </div>
+        </div>
+
+        <button ng-init="isAddToCalendarVisible = false" class="btn btn-block btn-default" ng-click="isAddToCalendarVisible = !isAddToCalendarVisible">Add to Calendar</button>
+        <div ng-show="isAddToCalendarVisible">
+            <a ng-href="http://hang-out-with.us/#!/activity/{{activityEntry.id}}" title="Add to Calendar" class="addthisevent" ng-click="isAddToCalendarVisible = false">
+                Add to Calendar
+                <span class="_start" style="display: none;">10-05-2014 11:38:46</span>
+                <span class="_end" style="display: none;">11-05-2014 11:38:46</span>
+                <span class="_zonecode" style="display: none;">45</span>
+                <span class="_summary" style="display: none;">Summary of the event</span>
+                <span class="_description" style="display: none;">Description of the event</span>
+                <span class="_location" style="display: none;">Location of the event</span>
+                <span class="_organizer" style="display: none;">Organizer</span>
+                <span class="_organizer_email" style="display: none;">Organizer e-mail</span>
+                <span class="_facebook_event" style="display: none;">http://www.facebook.com/events/160427380695693</span>
+                <span class="_all_day_event" style="display: none;">true</span>
+                <span class="_date_format" style="display: none;">DD/MM/YYYY</span>
+            </a>
         </div>
 
         <div class="panel-group" ng-hide="activity.hasParticipant(me)">
