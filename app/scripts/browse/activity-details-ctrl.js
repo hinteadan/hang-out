@@ -1,5 +1,13 @@
-﻿(function (angular, notify, localStore) {
+﻿(function (angular, notify, localStore, moment) {
     'use strict';
+
+    function parseToMoment(input) {
+        var mDate = moment(input);
+        if (!mDate.isValid()) {
+            mDate = moment(input, moment.ISO_8601);
+        }
+        return mDate;
+    }
 
     angular.module('hang-out-browse')
     .controller('hangOutActivityDetailsCtrl', ['$scope', '$window', '$routeParams', '$timeout', 'hangOutAuth', 'hangOutNotifier', 'model', 'model-mapper', 'dataStore', 'wallpaper', 'title', 'Angularytics', 'storeKeyForRedirect', 'hangOutRealtime', function ($s, $w, $p, $t, auth, note, m, map, store, wall, title, analytics, redirectStoreKey, realtime) {
@@ -64,6 +72,9 @@
 
         $s.activityEntry = null;
         $s.activity = null;
+        $s.asCalendarDate = function (timestamp) {
+            return parseToMoment(timestamp).format('DD/MM/YYYY HH:mm:ss');
+        };
 
         $s.join = function () {
 
@@ -178,4 +189,4 @@
         refresh();
     }]);
 
-}).call(this, this.angular, this.alert, this.localStorage);
+}).call(this, this.angular, this.alert, this.localStorage, this.moment);
