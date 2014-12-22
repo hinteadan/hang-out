@@ -63,7 +63,7 @@
             return activity.title && activity.startsOn && activity.place.name;
         };
         $s.activityDate = {
-            from: null,
+            from: new Date(),
             setFrom: function () {
                 $t(function () {
                     activity.startsOn = $s.activityDate.from ? stampTime($s.activityDate.from) : null;
