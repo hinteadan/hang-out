@@ -2,7 +2,12 @@
 
     <h1 class="text-center">{{title()}}</h1>
 
-    <div class="text-center" ng-show="flag.isLoadingActivities">Loading activities, please wait...</div>
+    <div class="text-center" ng-show="flag.isLoadingActivities">
+        <div>
+            <img src="images/grid.svg" />
+        </div>
+        Loading activities, please wait...
+    </div>
 
     <div ng-hide="flag.isLoadingActivities" class="row">
         <div class="col-xs-12 text-center" ng-hide="activitiesPerDay.length">Nothing to show here...</div>
