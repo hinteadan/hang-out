@@ -106,21 +106,23 @@
             </div>
         </div>
 
-        <button ng-init="isAddToCalendarVisible = false" class="btn btn-block btn-default" ng-click="isAddToCalendarVisible = !isAddToCalendarVisible">Add to Calendar</button>
-        <div ng-show="isAddToCalendarVisible">
-            <a ng-href="http://hang-out-with.us/#!/activity/{{activityEntry.id}}" title="Add to Calendar" class="addthisevent" ng-click="isAddToCalendarVisible = false">
-                Add to Calendar
-                <span class="_start" style="display: none;">{{asCalendarDate(activity.startsOn)}}</span>
-                <span class="_end" style="display: none;">{{asCalendarDate(activity.endsOn || activity.startsOn)}}</span>
-                <span class="_zonecode" style="display: none;">45</span>
-                <span class="_summary" style="display: none;">{{activity.friendlyTitle()}}</span>
-                <span class="_description" style="display: none;">{{activity.description}}</span>
-                <span class="_location" style="display: none;">{{activity.place.name + '\r\n' + activity.place.address + '\r\n' + activity.place.details}}</span>
-                <span class="_organizer" style="display: none;">{{activity.initiator.name}}</span>
-                <span class="_organizer_email" style="display: none;">{{activity.initiator.email}}</span>
-                <span class="_all_day_event" style="display: none;">false</span>
-                <span class="_date_format" style="display: none;">DD/MM/YYYY</span>
-            </a>
+        <div class="panel-group">
+            <button ng-init="isAddToCalendarVisible = false" class="btn btn-block btn-default" ng-click="isAddToCalendarVisible = !isAddToCalendarVisible">Add to Calendar</button>
+            <div ng-show="isAddToCalendarVisible">
+                <a ng-href="http://hang-out-with.us/#!/activity/{{activityEntry.id}}" title="Add to Calendar" class="addthisevent" ng-click="isAddToCalendarVisible = false | trackEvent:'Browse':'Add to Calendar'">
+                    Add to Calendar
+                    <span class="_start" style="display: none;">{{asCalendarDate(activity.startsOn)}}</span>
+                    <span class="_end" style="display: none;">{{asCalendarDate(activity.endsOn || activity.startsOn)}}</span>
+                    <span class="_zonecode" style="display: none;">45</span>
+                    <span class="_summary" style="display: none;">{{activity.friendlyTitle()}}</span>
+                    <span class="_description" style="display: none;">{{activity.description}}</span>
+                    <span class="_location" style="display: none;">{{activity.place.name + '\r\n' + activity.place.address + '\r\n' + activity.place.details}}</span>
+                    <span class="_organizer" style="display: none;">{{activity.initiator.name}}</span>
+                    <span class="_organizer_email" style="display: none;">{{activity.initiator.email}}</span>
+                    <span class="_all_day_event" style="display: none;">false</span>
+                    <span class="_date_format" style="display: none;">DD/MM/YYYY</span>
+                </a>
+            </div>
         </div>
 
         <div class="panel-group" ng-hide="activity.hasParticipant(me)">
