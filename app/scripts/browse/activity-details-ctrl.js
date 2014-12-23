@@ -1,4 +1,4 @@
-﻿(function (angular, notify, localStore, moment) {
+﻿(function (angular, notify, localStore, moment, addthisevent) {
     'use strict';
 
     function parseToMoment(input) {
@@ -57,7 +57,10 @@
                 }
             };
             $s.canRenderMap = false;
-            $t(function () { $s.canRenderMap = true; });
+            $t(function () {
+                $s.canRenderMap = true;
+                addthisevent.refresh();
+            });
         }
 
         function refresh() {
@@ -189,4 +192,4 @@
         refresh();
     }]);
 
-}).call(this, this.angular, this.alert, this.localStorage, this.moment);
+}).call(this, this.angular, this.alert, this.localStorage, this.moment, this.addthisevent);
