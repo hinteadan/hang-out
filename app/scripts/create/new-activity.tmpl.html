@@ -145,7 +145,7 @@
 
         <script type="text/ng-template" id="publish-activity-footer">
             <div class="form-group" ng-controller="hangOutNewActivityFooterCtrl">
-                <div class="col-xs-12">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-xs-12">
                     <button type="button" ng-click="main().publish()" class="btn btn-lg btn-primary btn-block" ng-disabled="!main().isValid() || main().publish.ed || main().publish.onWire">
                         <span ng-hide="main().publish.ing || main().publish.ed || main().publish.onWire">Looks good, publish it!</span>
                         <span ng-show="main().publish.ing &&  !main().publish.ed && !main().publish.onWire">Yup, I'm sure!</span>
