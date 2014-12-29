@@ -19,9 +19,14 @@
         var type = {
             mine: 'mine',
             joined: 'joined',
-            open: 'open'
+            open: 'open',
+            past: 'past'
         },
-            desiredType = !$p.type ? type.open : $p.type === type.mine ? type.mine : $p.type === type.joined ? type.joined : type.open,
+            desiredType = !$p.type ? type.open :
+                $p.type === type.mine ? type.mine :
+                $p.type === type.joined ? type.joined :
+                $p.type === type.past ? type.past :
+                type.open,
             me = auth.currentUser();
 
         realtime.bind().then(function (api) {
@@ -33,6 +38,7 @@
                 case type.mine: return 'My Activities';
                 case type.joined: return 'Joined events';
                 case type.open: return 'Events you may join';
+                case type.past: return 'Past Activities';
             }
         }
 
@@ -43,6 +49,7 @@
                 case type.mine: return store.activitiesFor(me);
                 case type.joined: return store.activitiesAppliedToFor(me);
                 case type.open: return store.activitiesToJoin(me);
+                case type.past: return store.pastActivities();
             }
         }
 
@@ -68,6 +75,7 @@
 
         $s.title = generateTitle;
         $s.type = desiredType;
+
         $s.flag = {
             isLoadingActivities: false,
         };
