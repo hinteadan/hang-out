@@ -210,3 +210,9 @@ label {
     .status-indicator.connected {
         background-color: #0bd416;
     }
+
+.btn-lger {
+
+    line-height: 2.5;
+
+}
