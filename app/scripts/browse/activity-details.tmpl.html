@@ -25,10 +25,10 @@
         <div ng-show="activity.description" ng-init="newDescription = activity.description; isEditingDescription = false;">
             <p>
                 <span ng-hide="isEditingDescription">{{activity.description}}</span>
-                <a class="clickable" ng-show="activity.isInitiator(me) && !isEditingDescription" ng-click="newDescription = activity.description; isEditingDescription = true;">Change</a>
+                <a class="clickable" ng-show="!activity.isPast() && activity.isInitiator(me) && !isEditingDescription" ng-click="newDescription = activity.description; isEditingDescription = true;">Change</a>
             </p>
         </div>
-        <div ng-show="!activity.description && activity.isInitiator(me)">
+        <div ng-show="!activity.isPast() && !activity.description && activity.isInitiator(me)">
             <a class="clickable" ng-hide="isEditingDescription" ng-click="isEditingDescription = true">Add description</a>
         </div>
         <div ng-show="isEditingDescription">
@@ -86,7 +86,7 @@
                         <span ng-show="dude.is(me)" ng-click="profileFor(dude) | trackEvent:'Browse':'Open User Profile':dude.email + ': ' + dude.profile()">
                             - <em><strong>me</strong></em>
                         </span>
-                        <span ng-show="!dude.is(me) && activity.isInitiator(me) && !activity.isParticipantConfirmed(dude)">
+                        <span ng-show="!activity.isPast() && !dude.is(me) && activity.isInitiator(me) && !activity.isParticipantConfirmed(dude)">
                             | <a class="clickable" ng-click="confirmParticipant(dude)">Confirm</a>
                         </span>
                     </li>
@@ -111,83 +111,87 @@
             </div>
         </div>
 
-        <div class="panel-group">
-            <button ng-init="isAddToCalendarVisible = false" class="btn btn-block btn-default" ng-click="isAddToCalendarVisible = !isAddToCalendarVisible">Add to Calendar</button>
-            <div ng-show="isAddToCalendarVisible">
-                <a ng-href="http://hang-out-with.us/#!/activity/{{activityEntry.id}}" title="Add to Calendar" class="addthisevent" ng-click="isAddToCalendarVisible = false | trackEvent:'Browse':'Add to Calendar'">
-                    Add to Calendar
-                    <span class="_start" style="display: none;">{{asCalendarDate(activity.startsOn)}}</span>
-                    <span class="_end" style="display: none;">{{asCalendarDate(activity.endsOn || activity.startsOn)}}</span>
-                    <span class="_zonecode" style="display: none;">45</span>
-                    <span class="_summary" style="display: none;">{{activity.friendlyTitle()}}</span>
-                    <span class="_description" style="display: none;">{{activity.description}}</span>
-                    <span class="_location" style="display: none;">{{activity.place.name + '\r\n' + activity.place.address + '\r\n' + activity.place.details}}</span>
-                    <span class="_organizer" style="display: none;">{{activity.initiator.name}}</span>
-                    <span class="_organizer_email" style="display: none;">{{activity.initiator.email}}</span>
-                    <span class="_all_day_event" style="display: none;">false</span>
-                    <span class="_date_format" style="display: none;">DD/MM/YYYY</span>
-                </a>
-            </div>
-        </div>
+        <div ng-if="!activity.isPast()">
 
-        <div class="panel-group" ng-hide="activity.hasParticipant(me)">
-            <div class="alert alert-dismissable alert-warning" ng-hide="activity.isMemberInstantlyConfirmed">
-                <button data-dismiss="alert" class="close" type="button">×</button>
-                <p>The initator wants to manually confirm each participant, so joining doesn't guarantee you a spot.</p>
+            <div class="panel-group">
+                <button ng-init="isAddToCalendarVisible = false" class="btn btn-block btn-default" ng-click="isAddToCalendarVisible = !isAddToCalendarVisible">Add to Calendar</button>
+                <div ng-show="isAddToCalendarVisible">
+                    <a ng-href="http://hang-out-with.us/#!/activity/{{activityEntry.id}}" title="Add to Calendar" class="addthisevent" ng-click="isAddToCalendarVisible = false | trackEvent:'Browse':'Add to Calendar'">
+                        Add to Calendar
+                        <span class="_start" style="display: none;">{{asCalendarDate(activity.startsOn)}}</span>
+                        <span class="_end" style="display: none;">{{asCalendarDate(activity.endsOn || activity.startsOn)}}</span>
+                        <span class="_zonecode" style="display: none;">45</span>
+                        <span class="_summary" style="display: none;">{{activity.friendlyTitle()}}</span>
+                        <span class="_description" style="display: none;">{{activity.description}}</span>
+                        <span class="_location" style="display: none;">{{activity.place.name + '\r\n' + activity.place.address + '\r\n' + activity.place.details}}</span>
+                        <span class="_organizer" style="display: none;">{{activity.initiator.name}}</span>
+                        <span class="_organizer_email" style="display: none;">{{activity.initiator.email}}</span>
+                        <span class="_all_day_event" style="display: none;">false</span>
+                        <span class="_date_format" style="display: none;">DD/MM/YYYY</span>
+                    </a>
+                </div>
             </div>
 
-            <div class="alert alert-dismissable alert-warning" ng-show="activity.isFull()">
-                <button data-dismiss="alert" class="close" type="button">×</button>
-                <p>This activity is <strong>full</strong>. Joining doesn't guarantee you a spot, it will put you in the pending queue.</p>
+            <div class="panel-group" ng-hide="activity.hasParticipant(me)">
+                <div class="alert alert-dismissable alert-warning" ng-hide="activity.isMemberInstantlyConfirmed">
+                    <button data-dismiss="alert" class="close" type="button">×</button>
+                    <p>The initator wants to manually confirm each participant, so joining doesn't guarantee you a spot.</p>
+                </div>
+
+                <div class="alert alert-dismissable alert-warning" ng-show="activity.isFull()">
+                    <button data-dismiss="alert" class="close" type="button">×</button>
+                    <p>This activity is <strong>full</strong>. Joining doesn't guarantee you a spot, it will put you in the pending queue.</p>
+                </div>
+
+                <button class="btn btn-default btn-lg btn-block" ng-click="join()">
+                    <span ng-hide="activityEntry.joining">I want to join this!</span>
+                    <span ng-show="activityEntry.joining">Yup, I'm sure!</span>
+                </button>
             </div>
 
-            <button class="btn btn-default btn-lg btn-block" ng-click="join()">
-                <span ng-hide="activityEntry.joining">I want to join this!</span>
-                <span ng-show="activityEntry.joining">Yup, I'm sure!</span>
-            </button>
-        </div>
-
-        <div class="panel-group" ng-show="activity.hasParticipant(me) && !activity.isInitiator(me)" ng-init="isBailingOut = false; bailingOutBecause = null;">
-            <button class="btn btn-default btn-lg btn-block" ng-hide="isBailingOut" ng-click="isBailingOut = true">Cancel my participation</button>
-            <div class="well" ng-show="isBailingOut">
-                <form role="form" ng-submit="bailOut(bailingOutBecause); isBailingOut = false; bailingOutBecause = null;">
-                    <div class="form-group">
-                        <input type="text" class="form-control" ng-model="bailingOutBecause" placeholder="You're bailing out of this because?" />
-                    </div>
-                    <div class="form-group clearfix">
-                        <button type="submit" class="btn btn-lg btn-default pull-right" ng-disabled="!bailingOutBecause">
-                            OK... cancel it!
-                        </button>
-                        <button ng-click="isBailingOut = false" class="btn btn-lg btn-link pull-right" type="button">
-                            Oh, never mind
-                        </button>
-                    </div>
-                </form>
+            <div class="panel-group" ng-show="activity.hasParticipant(me) && !activity.isInitiator(me)" ng-init="isBailingOut = false; bailingOutBecause = null;">
+                <button class="btn btn-default btn-lg btn-block" ng-hide="isBailingOut" ng-click="isBailingOut = true">Cancel my participation</button>
+                <div class="well" ng-show="isBailingOut">
+                    <form role="form" ng-submit="bailOut(bailingOutBecause); isBailingOut = false; bailingOutBecause = null;">
+                        <div class="form-group">
+                            <input type="text" class="form-control" ng-model="bailingOutBecause" placeholder="You're bailing out of this because?" />
+                        </div>
+                        <div class="form-group clearfix">
+                            <button type="submit" class="btn btn-lg btn-default pull-right" ng-disabled="!bailingOutBecause">
+                                OK... cancel it!
+                            </button>
+                            <button ng-click="isBailingOut = false" class="btn btn-lg btn-link pull-right" type="button">
+                                Oh, never mind
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
 
-        <div class="panel-group" ng-show="activity.isInitiator(me)" ng-init="isCancelling = false; cancellingBecause = null;">
-            <button class="btn btn-default btn-lg btn-block panel-group" ng-click="wrapIt()" ng-hide="activity.isWrapped || activity.isCancelled">
-                <span ng-hide="activityEntry.wrapping">Confirm Activity</span>
-                <span ng-show="activityEntry.wrapping">Yup, I'm sure!</span>
-            </button>
+            <div class="panel-group" ng-show="activity.isInitiator(me)" ng-init="isCancelling = false; cancellingBecause = null;">
+                <button class="btn btn-default btn-lg btn-block panel-group" ng-click="wrapIt()" ng-hide="activity.isWrapped || activity.isCancelled">
+                    <span ng-hide="activityEntry.wrapping">Confirm Activity</span>
+                    <span ng-show="activityEntry.wrapping">Yup, I'm sure!</span>
+                </button>
 
-            <button class="btn btn-default btn-lg btn-block" ng-hide="activity.isCancelled || isCancelling" ng-click="isCancelling = true">Cancel it</button>
-            <div class="well" ng-show="isCancelling">
-                <form role="form" ng-submit="cancel(cancellingBecause); isCancelling = false; cancellingBecause = null;">
-                    <div class="form-group">
-                        <input type="text" class="form-control" ng-model="cancellingBecause" placeholder="You're cancelling this because?" />
-                    </div>
-                    <div class="form-group clearfix">
-                        <button type="submit" class="btn btn-lg btn-default pull-right" ng-disabled="!cancellingBecause">
-                            OK... cancel it!
-                        </button>
-                        <button ng-click="isCancelling = false" class="btn btn-lg btn-link pull-right" type="button">
-                            Oh, never mind
-                        </button>
-                    </div>
-                </form>
+                <button class="btn btn-default btn-lg btn-block" ng-hide="activity.isCancelled || isCancelling" ng-click="isCancelling = true">Cancel it</button>
+                <div class="well" ng-show="isCancelling">
+                    <form role="form" ng-submit="cancel(cancellingBecause); isCancelling = false; cancellingBecause = null;">
+                        <div class="form-group">
+                            <input type="text" class="form-control" ng-model="cancellingBecause" placeholder="You're cancelling this because?" />
+                        </div>
+                        <div class="form-group clearfix">
+                            <button type="submit" class="btn btn-lg btn-default pull-right" ng-disabled="!cancellingBecause">
+                                OK... cancel it!
+                            </button>
+                            <button ng-click="isCancelling = false" class="btn btn-lg btn-link pull-right" type="button">
+                                Oh, never mind
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
+
         </div>
 
     </div>
