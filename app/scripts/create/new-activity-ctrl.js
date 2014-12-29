@@ -153,6 +153,9 @@
             }
         };
         $s.canRenderMap = false;
+        $s.renderMap = function () {
+            $s.canRenderMap = true;
+        };
 
         applySuggestedActivity(wiz.activity());
         wiz.reset();
