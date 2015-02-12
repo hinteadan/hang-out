@@ -1,5 +1,5 @@
 <div>
-    <form role="form" ng-submit="">
+    <form role="form" ng-submit="applyRegistration()">
         <fieldset>
             <h1>
                 Tell us about yourself...
@@ -28,6 +28,27 @@
             <button type="submit" class="btn btn-lg btn-primary btn-block" ng-disabled="!registration.isFilledOk()">
                 Looks good, register!
             </button>
+        </div>
+
+        <div class="alert alert-dismissable alert-warning text-center" ng-show="flag.isEmailTaken">
+            <strong>Email taken!</strong>
+            <p>
+                The provided email address is already in use.
+            </p>
+        </div>
+
+        <div class="alert alert-dismissable alert-warning text-center" ng-show="flag.registrationError">
+            <strong>Error registering user!</strong>
+            <p>
+                {{flag.registrationError}}
+            </p>
+        </div>
+
+        <div class="alert alert-dismissable alert-success text-center" ng-show="flag.registrationSuccess">
+            <strong>You've registered!</strong>
+            <p>
+                {{flag.registrationSuccess}}
+            </p>
         </div>
     </form>
 </div>
