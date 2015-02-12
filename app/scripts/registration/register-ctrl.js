@@ -1,4 +1,4 @@
-(function (angular, hds) {
+(function (angular) {
     'use strict';
 
     function RegistrationForm() {
@@ -27,11 +27,6 @@
 
     angular.module('hang-out-registration')
       .controller('hangOutRegisterCtrl', ['$scope', '$q', '$location', 'dataStore', 'model', 'hasher', 'hangOutNotifier', function ($s, $q, $l, provide, m, hasher, notify) {
-
-          //        var validator = new hds.Validation();
-          //        validator.QueueForValidation(new hds.Entity({ id: 'test-test-testicles' }), 'validatorTest', '123qweqwe').then(function(result){
-          //           validator.Validate(result.data, '123qweqwe').then(function(){});
-          //        });
 
           function createIndividiual() {
               return new m.Individual(
@@ -94,4 +89,4 @@
 
       }]);
 
-}).call(this, this.angular, this.H.DataStore);
+}).call(this, this.angular);
