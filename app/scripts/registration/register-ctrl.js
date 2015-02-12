@@ -33,7 +33,8 @@
                   $s.registration.name,
                   $s.registration.email,
                   $s.registration.website
-                  );
+                  )
+                  .setPasswordHash(hasher.hash($s.registration.password));
           }
 
           function generateValidationLink(clientId, validationToken) {
