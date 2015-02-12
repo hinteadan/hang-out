@@ -26,7 +26,7 @@
     }
 
     angular.module('hang-out-registration')
-      .controller('hangOutRegisterCtrl', ['$scope', '$q', 'dataStore', 'model', 'hasher', function ($s, $q, provide, m, hasher) {
+      .controller('hangOutRegisterCtrl', ['$scope', '$q', '$location', 'dataStore', 'model', 'hasher', 'hangOutNotifier', function ($s, $q, $l, provide, m, hasher, notify) {
 
           //        var validator = new hds.Validation();
           //        validator.QueueForValidation(new hds.Entity({ id: 'test-test-testicles' }), 'validatorTest', '123qweqwe').then(function(result){
@@ -39,6 +39,10 @@
                   $s.registration.email,
                   $s.registration.website
                   );
+          }
+
+          function generateValidationLink(clientId, validationToken) {
+              return 'http://' + $l.host() + ($l.port() !== 80 ? ':' + $l.port() : '') + '/#!/validate-user/' + clientId + '/' + validationToken;
           }
 
           $s.registration = new RegistrationForm();
@@ -67,9 +71,10 @@
               $s.flag.registrationSuccess = null;
               $s.isEmailAvailable().then(
                   function () {
-                      var clientId = hasher.hash($s.registration.email);
-                      provide.queueRegistration(createIndividiual(), clientId).then(function (registrationToken) {
-                          //Send reg. email
+                      var clientId = hasher.hash($s.registration.email),
+                          dude = createIndividiual();
+                      provide.queueRegistration(dude, clientId).then(function (registrationToken) {
+                          notify.registration(dude, generateValidationLink(clientId, registrationToken));
                           $s.flag.registrationSuccess = 'You have successfully registered. Please check your Inbox or Spam folder to finalize the process.';
                       },
                       function (reason) {

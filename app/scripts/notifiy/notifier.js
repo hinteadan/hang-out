@@ -177,6 +177,9 @@
         this.authentication = function (dude, authenticationUrl) {
             return sendAuthenticationMessage([toDude(dude)], authenticationUrl);
         };
+        this.registration = function (dude, validationUrl) {
+            return sendAuthenticationMessage([toDude(dude)], validationUrl);
+        };
     }
 
     angular.module('hang-out-notify')
