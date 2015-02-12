@@ -1,4 +1,4 @@
-(function (angular, localStore) {
+(function (angular) {
     'use strict';
 
     angular.module('hang-out-registration', ['ngRoute', 'hang-out', 'hang-out-auth', 'hang-out-notify', 'hang-out-analytics'])
@@ -8,4 +8,4 @@
             .when('/validate-user/:clientId/:token', { templateUrl: 'scripts/registration/validate.tmpl.html', controller: 'hangOutValidateUserCtrl', isPublic: true });
     }]);
 
-}).call(this, this.angular, this.localStorage);
+}).call(this, this.angular);
