@@ -10,6 +10,7 @@
         this.emailConfirm = null;
         this.password = null;
         this.passwordConfirm = null;
+        this.website = null;
 
         function isMinimallyFilled() {
             return self.name && self.email && self.emailConfirm && self.password && self.passwordConfirm;
@@ -17,7 +18,6 @@
 
         function isConfirmed() {
             return self.email === self.emailConfirm && self.password === self.passwordConfirm;
-
         }
 
         this.isFilledOk = function () {
