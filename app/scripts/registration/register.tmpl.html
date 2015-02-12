@@ -1,3 +1,30 @@
 <div>
-    Register user
+    <form role="form" ng-submit="">
+        <fieldset>
+            <h1>
+                Tell us about yourself...
+            </h1>
+        </fieldset>
+        <div class="form-group">
+            <input type="text" class="form-control" ng-model="registration.name" placeholder="Your name" />
+        </div>
+        <div class="form-group">
+            <input type="email" class="form-control" ng-model="registration.email" placeholder="Your e-mail..." />
+        </div>
+        <div class="form-group">
+            <input type="email" class="form-control" ng-model="registration.emailConfirm" placeholder="...and please confirm it" />
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" ng-model="registration.password" placeholder="A password for your account..." />
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" ng-model="registration.passwordConfirm" placeholder="...and please confirm it" />
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-lg btn-primary btn-block" ng-disabled="!registration.isFilledOk()">
+                Looks good, register!
+            </button>
+        </div>
+    </form>
 </div>
