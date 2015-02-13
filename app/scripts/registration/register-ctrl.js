@@ -26,7 +26,9 @@
     }
 
     angular.module('hang-out-registration')
-      .controller('hangOutRegisterCtrl', ['$scope', '$q', '$location', 'dataStore', 'model', 'hasher', 'hangOutNotifier', function ($s, $q, $l, provide, m, hasher, notify) {
+      .controller('hangOutRegisterCtrl', ['$scope', '$q', '$location', 'dataStore', 'model', 'hasher', 'hangOutNotifier', 'title', function ($s, $q, $l, provide, m, hasher, notify, title) {
+
+          title.set('Register a new account');
 
           function createIndividiual() {
               return new m.Individual(
