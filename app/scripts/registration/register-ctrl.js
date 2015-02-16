@@ -3,13 +3,19 @@
 
     function RegistrationForm() {
 
-        var self = this;
+        var self = this,
+            errors = [];
 
         this.name = null;
         this.email = null;
         this.password = null;
         this.passwordConfirm = null;
         this.website = null;
+
+        this.birthday = null;
+        this.country = null;
+        this.city = null;
+        this.gender = null;
 
         function isMinimallyFilled() {
             return self.name && self.email && self.password && self.passwordConfirm;
@@ -36,6 +42,14 @@
                   $s.registration.website
                   )
                   .setPasswordHash(hasher.hash($s.registration.password));
+          }
+
+          function createUserProfile() {
+              return new m.IndividualProfile($s.registration.email)
+              .set('birthday', $s.registration.birthday)
+              .set('country', $s.registration.country)
+              .set('city', $s.registration.city)
+              .set('gender', $s.registration.gender);
           }
 
           function generateValidationLink(clientId, validationToken) {
@@ -70,13 +84,18 @@
                   function () {
                       var clientId = hasher.hash($s.registration.email),
                           dude = createIndividiual();
+
                       provide.queueRegistration(dude, clientId).then(function (registrationToken) {
-                          notify.registration(dude, generateValidationLink(clientId, registrationToken));
-                          $s.flag.registrationSuccess = 'You have successfully registered. Please check your Inbox or Spam folder to finalize the process.';
+                          provide.saveUserProfile(createUserProfile()).then(function () {
+                              notify.registration(dude, generateValidationLink(clientId, registrationToken));
+                              $s.flag.registrationSuccess = 'You have successfully registered. Please check your Inbox or Spam folder to finalize the process.';
+                          }, function (reason) {
+                              $s.flag.registrationError = reason;
+                          });
                       },
-                      function (reason) {
-                          $s.flag.registrationError = reason;
-                      });
+                    function (reason) {
+                        $s.flag.registrationError = reason;
+                    });
                   },
                   function () {
                       $s.flag.isEmailTaken = true;
