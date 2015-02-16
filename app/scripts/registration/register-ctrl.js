@@ -1,4 +1,4 @@
-(function (angular) {
+(function (angular, _) {
     'use strict';
 
     function RegistrationForm() {
@@ -33,6 +33,14 @@
     angular.module('hang-out-registration')
       .controller('hangOutRegisterCtrl', ['$scope', '$q', '$location', 'dataStore', 'model', 'hasher', 'hangOutNotifier', 'title', function ($s, $q, $l, provide, m, hasher, notify, title) {
 
+          var label = {
+              gender: {
+                  female: 'Female',
+                  male: 'Male',
+                  other: 'Other'
+              }
+          };
+
           title.set('Register a new account');
 
           function createIndividiual() {
@@ -59,6 +67,9 @@
           $s.registration = new RegistrationForm();
           $s.$watch('registration.email', function () {
               $s.flag.isEmailTaken = false;
+          });
+          $s.genders = _.map(m.IndividualProfile.gender, function (gender, key) {
+              return { value: gender, label: label.gender[key] || gender };
           });
 
           $s.isEmailAvailable = function () {
@@ -110,4 +121,4 @@
 
       }]);
 
-}).call(this, this.angular);
+}).call(this, this.angular, this._);

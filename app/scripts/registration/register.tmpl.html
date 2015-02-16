@@ -6,10 +6,10 @@
             </h1>
         </fieldset>
         <div class="form-group">
-            <input type="text" class="form-control" ng-model="registration.name" placeholder="* Your name" autocomplete="off" />
+            <input type="text" class="form-control" ng-model="registration.name" placeholder="* Full name" autocomplete="off" />
         </div>
         <div class="form-group">
-            <input type="email" class="form-control" ng-model="registration.email" placeholder="* Your e-mail..." autocomplete="off" />
+            <input type="email" class="form-control" ng-model="registration.email" placeholder="* E-mail..." autocomplete="off" />
         </div>
         <div class="form-group">
             <input type="password" class="form-control" ng-model="registration.password" placeholder="* A password for your account..." autocomplete="off" />
@@ -19,6 +19,12 @@
         </div>
         <div class="form-group">
             <input type="url" class="form-control" ng-model="registration.website" placeholder="Your public profile URL (Facebook, Google, Twitter, etc.)" autocomplete="off" />
+        </div>
+
+        <div class="form-group">
+            <select class="form-control" ng-options="item.value as item.label for item in genders" ng-model="registration.gender">
+                <option value="">Please select gender...</option>
+            </select>
         </div>
 
         <blockquote class="small pull-right">
