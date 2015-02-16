@@ -6,22 +6,19 @@
             </h1>
         </fieldset>
         <div class="form-group">
-            <input type="text" class="form-control" ng-model="registration.name" placeholder="Your name" />
+            <input type="text" class="form-control" ng-model="registration.name" placeholder="Your name" autocomplete="off" />
         </div>
         <div class="form-group">
-            <input type="email" class="form-control" ng-model="registration.email" placeholder="Your e-mail..." />
+            <input type="email" class="form-control" ng-model="registration.email" placeholder="Your e-mail..." autocomplete="off" />
         </div>
         <div class="form-group">
-            <input type="email" class="form-control" ng-model="registration.emailConfirm" placeholder="...and please confirm it" />
+            <input type="password" class="form-control" ng-model="registration.password" placeholder="A password for your account..." autocomplete="off" />
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" ng-model="registration.password" placeholder="A password for your account..." />
+            <input type="password" class="form-control" ng-model="registration.passwordConfirm" placeholder="...and please confirm it" autocomplete="off" />
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" ng-model="registration.passwordConfirm" placeholder="...and please confirm it" />
-        </div>
-        <div class="form-group">
-            <input type="url" class="form-control" ng-model="registration.website" placeholder="Your public profile URL (Facebook, Google, Twitter, etc.)" />
+            <input type="url" class="form-control" ng-model="registration.website" placeholder="Your public profile URL (Facebook, Google, Twitter, etc.)" autocomplete="off" />
         </div>
 
         <div class="form-group">
